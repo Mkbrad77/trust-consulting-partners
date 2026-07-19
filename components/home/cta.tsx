@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/layout/container";
@@ -37,18 +37,6 @@ export function Cta() {
           >
             <Mail className="mr-2 h-4 w-4" />
             Nous écrire
-          </a>
-          
-          {/* Rétablissement de la balise ouvrante <a> pour le téléphone */}
-          <a
-            href={siteConfig.contact.phones[0].href}
-            className={cn(
-              buttonVariants({ size: "lg", variant: "outline" }),
-              "border-white/30 text-white hover:bg-white/10"
-            )}
-          >
-            <Phone className="mr-2 h-4 w-4" />
-            {siteConfig.contact.phones[0].number}
           </a>
         </div>
       </Container>

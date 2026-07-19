@@ -58,11 +58,21 @@ export function Footer() {
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
               <span>{siteConfig.offices[0].label} — {siteConfig.offices[0].city}, {siteConfig.offices[0].address}</span>
             </li>
+            <li className="flex items-start gap-2 text-sm text-white/60">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+              <span>{siteConfig.offices[2].city} — {siteConfig.offices[2].address}</span>
+            </li>
             <li className="flex items-center gap-2 text-sm text-white/60">
               <Phone className="h-4 w-4 shrink-0 text-accent" />
-              <a href={siteConfig.contact.phones[0].href} className="hover:text-accent">
-                {siteConfig.contact.phones[0].number}
-              </a>
+              <span>
+                <a href={siteConfig.contact.phones[0].href} className="hover:text-accent">
+                  {siteConfig.contact.phones[0].number}
+                </a>
+                {" / "}
+                <a href={siteConfig.contact.phones[1].href} className="hover:text-accent">
+                  {siteConfig.contact.phones[1].number}
+                </a>
+              </span>
             </li>
             <li className="flex items-center gap-2 text-sm text-white/60">
               <Mail className="h-4 w-4 shrink-0 text-accent" />

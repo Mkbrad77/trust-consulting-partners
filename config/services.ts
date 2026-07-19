@@ -115,6 +115,20 @@ export const services: ServiceData[] = [
     ],
     fee: "Sur devis, selon le périmètre de la mission",
   },
+  {
+    slug: "conception-suivi-business-plans",
+    title: "Accompagnement dans la Conception et le Suivi de l'Implémentation des Business Plans",
+    navLabel: "Business Plans",
+    summary:
+      "Nous accompagnons les porteurs de projets dans la conception de business plans solides et bancables, ainsi que dans le suivi rigoureux de leur mise en œuvre opérationnelle jusqu'à l'atteinte des objectifs fixés.",
+    offerings: [
+      "Conception et structuration du business plan (hypothèses, prévisionnel financier, plan de financement)",
+      "Accompagnement dans la présentation du projet aux partenaires financiers",
+      "Suivi périodique de l'implémentation et des indicateurs de performance",
+      "Ajustements et recommandations en cours d'exécution du projet",
+    ],
+    fee: "Sur devis, selon le périmètre de la mission",
+  },
 ];
 
 export function getServiceBySlug(slug: string) {

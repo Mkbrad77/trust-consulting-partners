@@ -15,7 +15,7 @@ export const siteConfig = {
     whatsappHref: "https://wa.me/237677592582",
   },
   offices: [
-  { city: "Yaoundé", label: "Siège social", address: "Esos, à côté de l'Hôtel La Grâce" },
+  { city: "Yaoundé", label: "Siège social", address: "Essos, à côté de l'immeuble de la Délégation Départementale du Travail et de la Sécurité Sociale du Centre" },
   { city: "Douala", label: "Siège N°2", address: "Bépanda, face CAMTEL" },
   { city: "Abidjan", label: "Siège N°3", address: "Angré, face restaurant La Shish" },
   ],
@@ -49,6 +49,11 @@ export const siteConfig = {
           label: "Restructuration & Redressement",
           href: "/services/restructuration-financiere",
           description: "Diagnostic de liquidité, restructuration de dette",
+        },
+        {
+          label: "Accompagnement Business Plans",
+          href: "/services/conception-suivi-business-plans",
+          description: "Conception et suivi de l'implémentation de vos business plans",
         },
       ],
     },

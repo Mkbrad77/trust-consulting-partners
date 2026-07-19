@@ -1,10 +1,12 @@
 import Link from "next/link";
+
 import {
   Wallet,
   ShieldCheck,
   Landmark,
   Banknote,
   RefreshCcw,
+  ClipboardList,
   ArrowRight,
 } from "lucide-react";
 import { Section } from "@/components/ui/section";
@@ -12,7 +14,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Container } from "@/components/layout/container";
 import { siteConfig } from "@/config/site";
 
-const icons = [Wallet, ShieldCheck, Landmark, Banknote, RefreshCcw];
+const icons = [Wallet, ShieldCheck, Landmark, Banknote, RefreshCcw, ClipboardList];
 
 export function ServicesPreview() {
   const services =

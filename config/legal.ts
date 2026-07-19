@@ -1,7 +1,7 @@
 export const legalInfo = {
   companyName: "TRUST CONSULTING PARTNERS SARL",
   legalForm: "SARL au capital de 1 000 000 FCFA",
-  headOffice: "Yaoundé, Cameroun — Esos, à côté de l'Hôtel La Grâce",
+  headOffice: "Yaoundé, Cameroun - Essos, à côté de l'immeuble de la Délégation Départementale du Travail et de la Sécurité Sociale du Centre",
   rc: "CM-NSI-02-2026-B12-00647",
   taxpayerNumber: "M072618839739P",
   publicationDirector: "Léopold Moyo Kamdem",

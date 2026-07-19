@@ -1,6 +1,6 @@
 export function ContactMap() {
   const query = encodeURIComponent(
-    "Esos, à côté de l'Hôtel La Grâce, Yaoundé, Cameroun"
+  "Essos, Délégation Départementale du Travail et de la Sécurité Sociale du Centre, Yaoundé, Cameroun"
   );
 
   return (

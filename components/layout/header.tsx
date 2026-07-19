@@ -96,13 +96,16 @@ export function Header() {
 
         <div className="hidden items-center gap-4 lg:flex">
           {/* ✅ Correction ici : Ajout de la balise ouvrante <a> */}
-          <a
-            href={siteConfig.contact.phones[0].href}
-            className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary"
-          >
-            <Phone className="h-4 w-4" />
-            <span>{siteConfig.contact.phones[0].number}</span>
-          </a>
+
+          <div className="flex flex-col items-start gap-0.5 text-sm font-medium text-foreground">
+            <a href={siteConfig.contact.phones[0].href} className="flex items-center gap-2 hover:text-primary">
+              <Phone className="h-4 w-4" />
+              <span>{siteConfig.contact.phones[0].number}</span>
+            </a>
+            <a href={siteConfig.contact.phones[1].href} className="flex items-center gap-2 pl-6 hover:text-primary">
+              <span>{siteConfig.contact.phones[1].number}</span>
+            </a>
+          </div>
           
           <Link
             href="/contact"

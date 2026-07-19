@@ -7,7 +7,7 @@ const identity = [
   { label: "Siège social", value: "Yaoundé, Cameroun" },
   {
     label: "Zone d'intervention",
-    value: "Cameroun, Gabon, Congo-Brazzaville, Côte d'Ivoire — zone CEMAC / UEMOA",
+    value: "Cameroun, Gabon, Congo-Brazzaville, Côte d'Ivoire, avec une présence grandissante à travers l'Afrique",
   },
   {
     label: "Secteurs couverts",
