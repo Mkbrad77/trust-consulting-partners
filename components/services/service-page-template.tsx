@@ -2,7 +2,8 @@ import Link from "next/link";
 import { Check, ArrowRight } from "lucide-react";
 import { Section } from "@/components/ui/section";
 import { Container } from "@/components/layout/container";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { FadeIn } from "@/components/motion/fade-in";
 import type { ServiceData } from "@/config/services";
 import { services } from "@/config/services";
@@ -24,9 +25,12 @@ export function ServicePageTemplate({ service }: { service: ServiceData }) {
             {service.summary}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Button asChild size="lg" className="bg-primary hover:bg-primary-dark">
-              <Link href="/contact">Demander un diagnostic gratuit</Link>
-            </Button>
+            <Link
+              href="/contact"
+              className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary-dark")}
+            >
+              Demander un diagnostic gratuit
+            </Link>
             <span className="text-sm font-medium text-muted">
               Honoraires : {service.fee}
             </span>

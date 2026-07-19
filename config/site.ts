@@ -15,12 +15,12 @@ export const siteConfig = {
     whatsappHref: "https://wa.me/237677592582",
   },
   offices: [
-    { city: "Yaoundé", label: "Siège social", address: "Esos, à côté de l'Hôtel La Grâce" },
-    { city: "Douala", address: "Bépanda, face CAMTEL" },
-    { city: "Abidjan", address: "Angré, face restaurant La Shish" },
+  { city: "Yaoundé", label: "Siège social", address: "Esos, à côté de l'Hôtel La Grâce" },
+  { city: "Douala", label: "Siège N°2", address: "Bépanda, face CAMTEL" },
+  { city: "Abidjan", label: "Siège N°3", address: "Angré, face restaurant La Shish" },
   ],
   mainNav: [
-    { label: "Notre Cabinet", href: "/notre-cabinet" },
+    { label: "Notre Cabinet", href: "/notre-cabinet", children: undefined },
     {
       label: "Nos Services",
       href: "/services",
@@ -60,7 +60,7 @@ export const siteConfig = {
         { label: "FAQ", href: "/faq", description: "Questions fréquentes" },
       ],
     },
-    { label: "Contact", href: "/contact" },
+    { label: "Contact", href: "/contact", children: undefined },
   ],
   // À compléter dès que tu me donnes les liens réels (LinkedIn en priorité pour un cabinet B2B)
   socials: [] as { label: string; href: string }[],
