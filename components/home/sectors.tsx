@@ -4,7 +4,6 @@ import { Container } from "@/components/layout/container";
 
 const sectors = [
   "Industrie",
-  "Commerce",
   "Commerce général & la grande distribution",
   "BTP",
   "Logistique",
