@@ -5,12 +5,13 @@ import { Container } from "@/components/layout/container";
 const sectors = [
   "Industrie",
   "Commerce",
+  "Commerce général & la grande distribution",
   "BTP",
   "Logistique",
   "Assurance",
-  "Services",
+  "Prestations de services",
   "Agro-industrie",
-  "Immobilier",
+  "Gestion du patrimoine et transactions immobilières",
 ];
 
 export function Sectors() {
@@ -18,8 +19,8 @@ export function Sectors() {
     <Section className="bg-background">
       <Container className="text-center">
         <SectionHeading
-          eyebrow="Nos secteurs"
-          title="Des missions menées dans des secteurs variés"
+          eyebrow="Secteurs"
+          title="Différents secteurs d'activités de nos clients"
         />
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           {sectors.map((sector) => (
