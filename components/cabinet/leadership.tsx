@@ -1,10 +1,13 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Container } from "@/components/layout/container";
 
 const founders = [
-  { name: "TAKOU Maurice Rodrigue", role: "Co-fondateur" },
-  { name: "MOYO KAMDEM Léopold", role: "Co-fondateur" },
+  { name: "TAKOU Maurice Rodrigue" },
+  { name: "MOYO KAMDEM Léopold" },
 ];
 
 function initials(name: string) {
@@ -17,13 +20,15 @@ function initials(name: string) {
 }
 
 export function Leadership() {
+  const t = useTranslations("cabinet.leadership");
+
   return (
     <Section className="bg-background">
       <Container>
         <SectionHeading
-          eyebrow="Notre équipe dirigeante"
-          title="Deux co-fondateurs, une même exigence"
-          description="Des professionnels justifiant de plus de 18 ans d'expérience en finance d'entreprise en Afrique centrale et occidentale."
+          eyebrow={t("eyebrow")}
+          title={t("title")}
+          description={t("description")}
         />
         <div className="mt-14 grid gap-8 sm:grid-cols-2 sm:max-w-xl sm:mx-auto">
           {founders.map((founder) => (
@@ -37,7 +42,7 @@ export function Leadership() {
               <h3 className="mt-4 text-base font-semibold text-foreground">
                 {founder.name}
               </h3>
-              <p className="mt-1 text-sm text-muted">{founder.role}</p>
+              <p className="mt-1 text-sm text-muted">{t("role")}</p>
             </div>
           ))}
         </div>

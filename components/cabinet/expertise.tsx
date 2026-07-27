@@ -1,23 +1,19 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Container } from "@/components/layout/container";
 import { Check } from "lucide-react";
 
-const points = [
-  "Plus de 18 ans d'expérience en finance de groupe, consolidation multi-entités et reporting",
-  "Maîtrise des normes SYSCOHADA révisées, OHADA, COBAC, CIMA et BCEAO",
-  "Expérience opérationnelle dans des groupes CEMAC & UEMOA",
-  "Réseaux établis auprès des banques, administrations fiscales et partenaires financiers",
-];
-
 export function Expertise() {
+  const t = useTranslations("cabinet.expertise");
+  const points = t.raw("points") as string[];
+
   return (
     <Section className="bg-[#F7F9FC]">
       <Container className="max-w-3xl">
-        <SectionHeading
-          eyebrow="Une équipe de profil senior"
-          title="Une expertise éprouvée sur le terrain"
-        />
+        <SectionHeading eyebrow={t("eyebrow")} title={t("title")} />
         <ul className="mt-10 space-y-5">
           {points.map((point) => (
             <li key={point} className="flex items-start gap-3">

@@ -1,0 +1,374 @@
+{
+  "nav": {
+    "notreCabinet": "About Us",
+    "nosServices": "Our Services",
+    "ressources": "Resources",
+    "contact": "Contact",
+    "prendreRdv": "Book an Appointment",
+    "actualites": "Insights",
+    "actualitesDesc": "Our publications and analyses",
+    "faq": "FAQ",
+    "faqDesc": "Frequently asked questions"
+  },
+  "header": {
+    "ouvrirMenu": "Open menu"
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "nosPoles": "Our Practice Areas",
+    "contact": "Contact",
+    "mentionsLegales": "Legal Notice",
+    "politiqueConfidentialite": "Privacy Policy",
+    "tousDroits": "All rights reserved.",
+    "tagline": "Financial, tax and strategic advisory firm serving companies across the CEMAC/WAEMU region."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Financial Advisory Firm — CEMAC / WAEMU Region",
+      "slogan": "Your financial performance, our commitment.",
+      "description": "Outsourced financial management, audit, tax advisory and bank financing: we support companies and groups across Cameroon, Gabon, Congo-Brazzaville and Côte d'Ivoire with the rigor of an international firm and a deep command of the SYSCOHADA, OHADA, COBAC and CIMA frameworks.",
+      "ctaPrimary": "Book a Free Assessment",
+      "ctaSecondary": "Discover Our Services"
+    },
+    "stats": [
+      { "value": "18+", "label": "years of experience in corporate finance" },
+      { "value": "4", "label": "countries served across the CEMAC / WAEMU region" },
+      { "value": "6", "label": "areas of expertise dedicated to your performance" },
+      { "value": "24h", "label": "business-day response time, emergency mobilization available" }
+    ],
+    "servicesPreview": {
+      "eyebrow": "Our Areas of Expertise",
+      "title": "Six practice areas dedicated to your financial performance",
+      "description": "Every engagement begins with a free flash assessment and is formalized through an engagement letter specifying scope, deliverables and fees.",
+      "cta": "Learn more"
+    },
+    "whyUs": {
+      "eyebrow": "Why Choose Us",
+      "title": "Support designed for demanding executives",
+      "reasons": [
+        { "title": "Local & International Expertise", "description": "18+ years of experience in Cameroon, Gabon and Côte d'Ivoire, with deep command of SYSCOHADA, OHADA, COBAC and CIMA standards." },
+        { "title": "A Dedicated Senior Contact", "description": "A single, stable point of contact supports you throughout the engagement." },
+        { "title": "Absolute Confidentiality", "description": "Signed confidentiality agreement and complete discretion over all information shared." },
+        { "title": "Responsiveness & Availability", "description": "Response within 24 business hours, with emergency mobilization when the situation requires it." },
+        { "title": "Optimized Cost vs. Hiring", "description": "Save up to 70% compared to hiring a full-time senior professional." }
+      ]
+    },
+    "sectors": {
+      "eyebrow": "Sectors",
+      "title": "A wide range of client industries",
+      "list": [
+        "Industry",
+        "General Trade & Large-Scale Retail",
+        "Construction",
+        "Logistics",
+        "Insurance",
+        "Professional Services",
+        "Agribusiness",
+        "Wealth Management & Real Estate Transactions"
+      ]
+    },
+    "methodology": {
+      "eyebrow": "Our Methodology",
+      "title": "A 5-step engagement process",
+      "steps": [
+        { "number": "01", "title": "Free Flash Assessment", "description": "Meeting with the executive (2h), financial, tax and organizational evaluation." },
+        { "number": "02", "title": "Engagement Letter", "description": "Scope, deliverables, timeline and fees defined in writing and signed by both parties." },
+        { "number": "03", "title": "Onboarding", "description": "Data access, current-state review, kickoff meeting, setup of reporting tools." },
+        { "number": "04", "title": "Execution & Steering", "description": "Delivery of outputs, regular check-ins, proactive alerts, continuous adjustments." },
+        { "number": "05", "title": "Review & Recommendations", "description": "Annual review, summary report, engagement renewal or evolution." }
+      ]
+    },
+    "cta": {
+      "title": "Ready to secure and grow your financial performance?",
+      "description": "All our engagements begin with a free flash assessment, with no obligation.",
+      "ctaPrimary": "Book an Appointment",
+      "ctaEmail": "Email Us"
+    }
+  },
+  "servicesPage": {
+    "metaTitle": "Our Services | Trust Consulting Partners",
+    "metaDescription": "Six areas of expertise: outsourced financial management, audit and internal control, tax advisory, bank financing, financial restructuring, business plans.",
+    "eyebrow": "Our services",
+    "title": "Six practice areas dedicated to your financial performance",
+    "description": "All our engagements begin with a free flash assessment (2h) and are formalized through an engagement letter specifying scope, deliverables and fees."
+  },
+  "servicePage": {
+    "eyebrow": "Our services",
+    "ctaDiagnostic": "Request a Free Assessment",
+    "honorairesLabel": "Fees:",
+    "cibleLabel": "Target:",
+    "offeringsTitle": "What this engagement covers",
+    "tiersTitle": "Three engagement formats",
+    "discoverOthers": "Explore our other practice areas"
+  },
+  "services": {
+    "daf-externalisee": {
+      "navLabel": "Outsourced CFO (DAF-X™)",
+      "navDescription": "Financial management, reporting, treasury",
+      "title": "Outsourced Administrative and Financial Management (DAF-X™)",
+      "summary": "When leadership spends a growing share of its time on finance — treasury, reporting, budgets, tax controls — at the expense of core business, or when visibility over cash flow, margins and runway becomes insufficient, bringing in an outsourced CFO changes everything: it clarifies, structures, forecasts and secures.",
+      "offerings": [
+        "Cash flow and margin management",
+        "Monthly financial reporting and dashboards",
+        "Budget structuring and forecasting",
+        "Securing banking and tax relationships"
+      ],
+      "fee": "From 500,000 FCFA (excl. tax)/month",
+      "target": "SMEs with 300M to 5Bn FCFA in revenue, subsidiaries, growing groups",
+      "tiers": [
+        { "name": "Part-Time CFO", "detail": "2 to 4 days/month, ongoing oversight", "price": "From 500,000 FCFA/month" },
+        { "name": "Project-Based CFO", "detail": "Targeted engagement, precise deliverable", "price": "From 1,500,000 FCFA" },
+        { "name": "Interim CFO", "detail": "Full interim role, 1 to 12 months", "price": "From 1,200,000 FCFA/month" }
+      ]
+    },
+    "audit-controle-interne": {
+      "navLabel": "Audit & Internal Control",
+      "navDescription": "Accounting audit, due diligence, compliance",
+      "title": "Audit & Internal Control",
+      "summary": "Risk assessment, process improvement, regulatory compliance and independent assurance over the reliability of your internal processes.",
+      "offerings": [
+        "Accounting & financial audit: regularity, fair presentation, SYSCOHADA compliance",
+        "Internal audit & control: risk mapping, prioritized action plan",
+        "Financial due diligence: mergers & acquisitions, investment, financing",
+        "Treasury and regulatory compliance audit (COBAC, CIMA, DGI, CNPS, OHADA)"
+      ],
+      "fee": "Quoted individually, based on engagement scope",
+      "highlight": {
+        "title": "Focus: bank overcharge audit and recovery",
+        "description": "Credit institutions apply complex calculation mechanisms for overdraft interest, commissions and various fees. Value-date errors, double billing, non-contractual fees: these anomalies typically represent between 0.5% and 3% of annual banking flow volumes.",
+        "note": "Success fee: 10% (excl. tax) on amounts actually recovered. No upfront fixed fee, no fee at all if no reimbursement is obtained."
+      }
+    },
+    "conseil-fiscal": {
+      "navLabel": "Tax Advisory",
+      "navDescription": "Filings, tax audits, transfer pricing",
+      "title": "Tax Advisory & Optimization",
+      "summary": "Comprehensive tax support, from day-to-day compliance to structural group-level optimization.",
+      "offerings": [
+        "Day-to-day taxation: corporate tax, VAT, dividend withholding, service withholding, business license, registration duties",
+        "Tax optimization and group tax restructuring",
+        "Tax disputes: support during tax authority audits, defense briefs",
+        "Transfer pricing and international taxation"
+      ],
+      "fee": "Quoted individually, based on engagement scope"
+    },
+    "financement-bancaire": {
+      "navLabel": "Bank Financing",
+      "navDescription": "Business plan, credit file, negotiation",
+      "title": "Bank Financing",
+      "summary": "From assessing your borrowing capacity through to negotiation, we secure access to your financing.",
+      "offerings": [
+        "Assessment of borrowing capacity and bankability",
+        "Business plan development, credit file structuring, selection of partner banks",
+        "Alternative financing: private equity, IFC, AFD, BDEAC, FMO"
+      ],
+      "fee": "Percentage of financing obtained"
+    },
+    "restructuration-financiere": {
+      "navLabel": "Restructuring",
+      "navDescription": "Liquidity diagnosis, debt restructuring",
+      "title": "Financial Restructuring & Turnaround",
+      "summary": "In the face of financial distress, we act quickly to stabilize, restructure and turn the business around.",
+      "offerings": [
+        "Liquidity diagnosis and emergency cash flow plan",
+        "Debt restructuring and group reorganization",
+        "OHADA preventive insolvency procedures"
+      ],
+      "fee": "Quoted individually, based on engagement scope"
+    },
+    "conception-suivi-business-plans": {
+      "navLabel": "Business Plans",
+      "navDescription": "Design and implementation follow-up of your business plans",
+      "title": "Business Plan Design and Implementation Support",
+      "summary": "We support project owners in designing solid, bankable business plans, as well as in the rigorous follow-up of their operational implementation through to the achievement of set objectives.",
+      "offerings": [
+        "Business plan design and structuring (assumptions, financial projections, financing plan)",
+        "Support in presenting the project to financial partners",
+        "Periodic monitoring of implementation and performance indicators",
+        "Adjustments and recommendations during project execution"
+      ],
+      "fee": "Quoted individually, based on engagement scope"
+    }
+  },
+  "offices": {
+    "headOffice": "Head Office",
+    "office2": "Office 2",
+    "office3": "Office 3",
+    "list": [
+      { "label": "Head Office", "address": "Essos, next to the building of the Departmental Labor and Social Security Delegation of the Centre" },
+      { "label": "Office 2", "address": "Bépanda, opposite CAMTEL" },
+      { "label": "Office 3", "address": "Angré, opposite La Shish restaurant" }
+    ]
+  },
+  "cabinet": {
+    "meta": {
+      "title": "About Us | Trust Consulting Partners",
+      "description": "Discover Trust Consulting Partners: identity, vision, values and leadership team of a financial advisory firm serving the CEMAC/WAEMU region."
+    },
+    "offices": {
+    "headOffice": "Head Office",
+    "office2": "Office 2",
+    "office3": "Office 3",
+    "list": [
+      { "label": "Head Office", "address": "Essos, next to the building of the Departmental Labor and Social Security Delegation of the Centre" },
+      { "label": "Office 2", "address": "Bépanda, opposite CAMTEL" },
+      { "label": "Office 3", "address": "Angré, opposite La Shish restaurant" }
+    ]
+    },
+    "intro": {
+      "eyebrow": "About Us",
+      "title": "A financial advisory firm serving companies across the CEMAC / WAEMU region",
+      "description": "Trust Consulting Partners supports Cameroonian SMEs and groups with tailored solutions, adapted to local realities: revised SYSCOHADA standards, OHADA law, COBAC, CIMA and BCEAO regulations. Founded by professionals with over 18 years of experience in corporate finance across Central and West Africa, our firm puts its expertise at the service of our clients' performance and financial security."
+    },
+    "identity": {
+      "title": "Firm Identity",
+      "rows": [
+        { "label": "Company Name", "value": "TRUST CONSULTING PARTNERS SARL" },
+        { "label": "Legal Form / Capital", "value": "SARL with capital of 1,000,000 FCFA" },
+        { "label": "Head Office", "value": "Yaoundé, Cameroon" },
+        { "label": "Areas of Operation", "value": "Cameroon, Gabon, Congo-Brazzaville, Côte d'Ivoire, with a growing presence across Africa" },
+        { "label": "Sectors Covered", "value": "Industry, Trade, Construction, Logistics, Insurance, Services, Agribusiness, Real Estate" }
+      ]
+    },
+    "visionValues": {
+      "visionEyebrow": "Our Vision",
+      "visionTitle": "Creating bold solutions, together",
+      "visionText": "Acting with transparency and honesty to create bold solutions, placing the client at the center of our decisions and building success together.",
+      "valuesEyebrow": "Our Values",
+      "valuesTitle": "What guides every one of our engagements",
+      "values": ["Integrity", "Innovation", "Excellence", "Team Spirit", "Social Responsibility", "Client Focus", "Confidentiality", "Commitment"]
+    },
+    "expertise": {
+      "eyebrow": "A Senior-Level Team",
+      "title": "Proven expertise on the ground",
+      "points": [
+        "18+ years of experience in group finance, multi-entity consolidation and reporting",
+        "Deep command of revised SYSCOHADA, OHADA, COBAC, CIMA and BCEAO standards",
+        "Hands-on operational experience within CEMAC & WAEMU groups",
+        "Established networks with banks, tax authorities and financial partners"
+      ]
+    },
+    "leadership": {
+      "eyebrow": "Our Leadership Team",
+      "title": "Two co-founders, one shared standard",
+      "description": "Professionals with over 18 years of experience in corporate finance across Central and West Africa.",
+      "role": "Co-founder"
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact | Trust Consulting Partners",
+      "description": "Contact Trust Consulting Partners for a free flash assessment: phone, email, WhatsApp or online form."
+    },
+    "offices": {
+    "headOffice": "Head Office",
+    "office2": "Office 2",
+    "office3": "Office 3",
+    "list": [
+      { "label": "Head Office", "address": "Essos, next to the building of the Departmental Labor and Social Security Delegation of the Centre" },
+      { "label": "Office 2", "address": "Bépanda, opposite CAMTEL" },
+      { "label": "Office 3", "address": "Angré, opposite La Shish restaurant" }
+    ]
+    },
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Let's talk about your financial performance",
+      "description": "All our engagements begin with a free flash assessment, with no obligation. Write to us or contact us directly."
+    },
+    "form": {
+      "name": "Full Name",
+      "email": "Business Email",
+      "phone": "Phone",
+      "company": "Company",
+      "optional": "optional",
+      "service": "Area of Interest",
+      "servicePlaceholder": "Select an area",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Your message has been sent successfully. We will reply within 24 business hours.",
+      "error": "An error occurred. Please try again or contact us directly by phone.",
+      "errors": {
+        "name": "Please enter your full name.",
+        "email": "Please enter a valid email address.",
+        "message": "Your message must contain at least 10 characters."
+      }
+    },
+    "info": {
+      "title": "Our Contact Details",
+      "hours": "Monday – Friday | 8:00 AM – 6:00 PM | Response within 24 business hours",
+      "whatsapp": "Chat on WhatsApp",
+      "responseTime": "Response within 24 business hours, emergency mobilization available"
+    },
+    "map": {
+      "title": "Head office location — Yaoundé"
+    }
+  },
+  "faqPage": {
+    "meta": {
+      "title": "FAQ | Trust Consulting Partners",
+      "description": "Answers to frequently asked questions about our engagements, fees and methodology."
+    },
+    "eyebrow": "FAQ",
+    "title": "Frequently Asked Questions",
+    "items": [
+      { "question": "Is the flash assessment really free?", "answer": "Yes. All our engagements begin with a free flash assessment lasting about 2 hours: a meeting with the executive followed by a financial, tax and organizational evaluation, with a recommendation note provided. No commitment is required at this stage." },
+      { "question": "In which countries do you operate?", "answer": "We operate in Cameroon (headquartered in Yaoundé), Gabon, Congo-Brazzaville and Côte d'Ivoire — the entire CEMAC/WAEMU region." },
+      { "question": "How are your fees determined?", "answer": "It depends on the nature of the engagement: monthly subscription engagements are billed as a flat fee payable at the start of the month, one-off engagements follow a two-stage payment (40% upon signing the engagement letter, 60% upon delivery), and financing engagements combine a monthly retainer with a success fee on the amount obtained." },
+      { "question": "What happens if no bank overcharge is identified during an audit?", "answer": "No fee is charged if there is no result. Our compensation model for this engagement is entirely aligned with results obtained: 10% (excl. tax) on amounts actually recovered, with no upfront fixed fee." },
+      { "question": "How long does a bank audit engagement take?", "answer": "The audit and diagnostic phase usually takes 3 to 6 weeks. The claims and recovery phase can take 2 to 6 months depending on banks' response times. The final recommendations phase takes 2 to 3 weeks." },
+      { "question": "How does contract termination work?", "answer": "Monthly subscription engagements may be terminated with one month's notice. Fixed-term engagements cannot be terminated unilaterally, except in the case of serious misconduct." },
+      { "question": "Is my financial information kept confidential?", "answer": "Yes. We are contractually committed to maintaining strict confidentiality of the information shared, with a signed confidentiality agreement for each engagement." },
+      { "question": "How do I book an appointment with you?", "answer": "The easiest way is to use our contact form, call us directly, or write to us by email or WhatsApp. We respond within 24 business hours." }
+    ]
+  },
+  "actualitesPage": {
+    "meta": {
+      "title": "Insights | Trust Consulting Partners",
+      "description": "Our publications and analyses on corporate finance across the CEMAC/WAEMU region."
+    },
+    "eyebrow": "Resources",
+    "title": "Insights",
+    "description": "Our analyses and publications on corporate finance across the CEMAC/WAEMU region.",
+    "emptyTitle": "No articles published yet.",
+    "emptyDescription": "Check back soon to discover our first analyses."
+  },
+  "legal": {
+    "mentions": {
+      "meta": { "title": "Legal Notice | Trust Consulting Partners" },
+      "title": "Legal Notice",
+      "editorTitle": "Website Publisher",
+      "editorIntro": "{company}, {legalForm}.",
+      "headOfficeLabel": "Head Office:",
+      "headOfficeValue": "Yaoundé, Cameroon — Essos, next to the building of the Departmental Labor and Social Security Delegation of the Centre",
+      "rcLabel": "Trade Register (RC):",
+      "taxpayerLabel": "Taxpayer Number:",
+      "phoneLabel": "Phone:",
+      "emailLabel": "Email:",
+      "publicationDirectorTitle": "Publication Director",
+      "hostingTitle": "Hosting",
+      "domainTitle": "Domain Name",
+      "domainText": "The domain name {domain} is registered with {registrar} ({registrarUrl}).",
+      "ipTitle": "Intellectual Property",
+      "ipText": "All content on this site (text, logo, visual identity, structure) is the property of {company}, unless otherwise stated. Any reproduction, representation or distribution, in whole or in part, without prior written authorization, is prohibited.",
+      "liabilityTitle": "Limitation of Liability",
+      "liabilityText": "{company} strives to ensure the accuracy and timeliness of the information published on this site, without guaranteeing completeness. The information presented is for informational purposes only and shall not engage the firm's contractual liability outside of a signed engagement letter."
+    },
+    "privacy": {
+      "meta": { "title": "Privacy Policy | Trust Consulting Partners" },
+      "title": "Privacy Policy",
+      "lastUpdated": "Last updated: {date}",
+      "dataTitle": "Data Collected",
+      "dataText": "When you use this site's contact form, we collect the information you voluntarily provide: name, email address, phone number (optional), company (optional), area of interest and the content of your message.",
+      "purposeTitle": "Purpose of Processing",
+      "purposeText": "This data is used exclusively to respond to your contact request or request for a free flash assessment. It is never sold, transferred or leased to third parties.",
+      "retentionTitle": "Data Retention",
+      "retentionText": "Data submitted via the contact form is retained for as long as necessary to process your request, then archived or deleted in accordance with our professional confidentiality obligations.",
+      "rightsTitle": "Your Rights",
+      "rightsTextBefore": "You may at any time request access to, correction of, or deletion of your personal data by contacting us at",
+      "cookiesTitle": "Cookies",
+      "cookiesText": "This site does not use advertising tracking cookies. Technical cookies strictly necessary for the site's operation may be used by our host ({host}).",
+      "contactTitle": "Contact",
+      "contactText": "For any question regarding this privacy policy, contact {company} at {email}."
+    }
+  }
+}

@@ -1,11 +1,25 @@
-import Link from "next/link";
+"use client";
+
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Container } from "./container";
 import { siteConfig } from "@/config/site";
+import { serviceSlugs } from "@/config/services";
 
 export function Footer() {
+  const t = useTranslations();
+  const officesList = t.raw("offices.list") as { label: string; address: string }[];
+  const tf = useTranslations("footer");
   const year = new Date().getFullYear();
+
+  const navLabels: Record<string, string> = {
+    "Notre Cabinet": t("nav.notreCabinet"),
+    "Nos Services": t("nav.nosServices"),
+    "Ressources": t("nav.ressources"),
+    "Contact": t("nav.contact"),
+  };
 
   return (
     <footer className="bg-[#0F1B33] text-white">
@@ -19,17 +33,17 @@ export function Footer() {
             className="h-8 w-auto"
           />
           <p className="mt-4 text-sm leading-relaxed text-white/60">
-            {siteConfig.description}
+            {tf("tagline")}
           </p>
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold text-white">Navigation</h3>
+          <h3 className="text-sm font-semibold text-white">{tf("navigation")}</h3>
           <ul className="mt-4 space-y-2">
             {siteConfig.mainNav.map((item) => (
               <li key={item.label}>
                 <Link href={item.href} className="text-sm text-white/60 hover:text-accent">
-                  {item.label}
+                  {navLabels[item.label] ?? item.label}
                 </Link>
               </li>
             ))}
@@ -37,30 +51,28 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold text-white">Nos pôles</h3>
+          <h3 className="text-sm font-semibold text-white">{tf("nosPoles")}</h3>
           <ul className="mt-4 space-y-2">
-            {siteConfig.mainNav
-              .find((item) => item.label === "Nos Services")
-              ?.children?.map((child) => (
-                <li key={child.href}>
-                  <Link href={child.href} className="text-sm text-white/60 hover:text-accent">
-                    {child.label}
-                  </Link>
-                </li>
-              ))}
+            {serviceSlugs.map((slug) => (
+              <li key={slug}>
+                <Link href={`/services/${slug}`} className="text-sm text-white/60 hover:text-accent">
+                  {t(`services.${slug}.navLabel`)}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold text-white">Contact</h3>
+          <h3 className="text-sm font-semibold text-white">{tf("contact")}</h3>
           <ul className="mt-4 space-y-3">
             <li className="flex items-start gap-2 text-sm text-white/60">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-              <span>{siteConfig.offices[0].label} — {siteConfig.offices[0].city}, {siteConfig.offices[0].address}</span>
+              <span>{officesList[0].label} — {siteConfig.offices[0].city}, {officesList[0].address}</span>
             </li>
             <li className="flex items-start gap-2 text-sm text-white/60">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-              <span>{siteConfig.offices[2].city} — {siteConfig.offices[2].address}</span>
+              <span>{siteConfig.offices[2].city} — {officesList[2].address}</span>
             </li>
             <li className="flex items-center gap-2 text-sm text-white/60">
               <Phone className="h-4 w-4 shrink-0 text-accent" />
@@ -87,14 +99,14 @@ export function Footer() {
       <div className="border-t border-white/10">
         <Container className="flex flex-col items-center justify-between gap-4 py-6 md:flex-row">
           <p className="text-xs text-white/40">
-            © {year} {siteConfig.legalName}. Tous droits réservés.
+            © {year} {siteConfig.legalName}. {tf("tousDroits")}
           </p>
           <div className="flex gap-6">
             <Link href="/mentions-legales" className="text-xs text-white/40 hover:text-accent">
-              Mentions légales
+              {tf("mentionsLegales")}
             </Link>
             <Link href="/politique-confidentialite" className="text-xs text-white/40 hover:text-accent">
-              Politique de confidentialité
+              {tf("politiqueConfidentialite")}
             </Link>
           </div>
         </Container>

@@ -1,0 +1,374 @@
+{
+  "nav": {
+    "notreCabinet": "Notre Cabinet",
+    "nosServices": "Nos Services",
+    "ressources": "Ressources",
+    "contact": "Contact",
+    "prendreRdv": "Prendre rendez-vous",
+    "actualites": "Actualités",
+    "actualitesDesc": "Nos publications et analyses",
+    "faq": "FAQ",
+    "faqDesc": "Questions fréquentes"
+  },
+  "header": {
+    "ouvrirMenu": "Ouvrir le menu"
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "nosPoles": "Nos pôles",
+    "contact": "Contact",
+    "mentionsLegales": "Mentions légales",
+    "politiqueConfidentialite": "Politique de confidentialité",
+    "tousDroits": "Tous droits réservés.",
+    "tagline": "Cabinet de conseil financier, fiscal et stratégique au service des entreprises de la zone CEMAC/UEMOA."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Cabinet de conseil financier — Zone CEMAC / UEMOA",
+      "slogan": "Votre performance financière, notre engagement.",
+      "description": "Direction financière externalisée, audit, conseil fiscal et financement bancaire : nous accompagnons les entreprises et groupes du Cameroun, du Gabon, du Congo-Brazzaville et de Côte d'Ivoire avec l'exigence d'un cabinet international et la maîtrise fine du cadre SYSCOHADA, OHADA, COBAC et CIMA.",
+      "ctaPrimary": "Réserver un diagnostic gratuit",
+      "ctaSecondary": "Découvrir nos services"
+    },
+    "stats": [
+      { "value": "18+", "label": "ans d'expérience en finance de groupe" },
+      { "value": "4", "label": "pays d'intervention en zone CEMAC / UEMOA" },
+      { "value": "6", "label": "pôles d'expertise dédiés à votre performance" },
+      { "value": "24h", "label": "délai de réponse ouvré, mobilisation en urgence" }
+    ],
+    "servicesPreview": {
+      "eyebrow": "Nos pôles d'expertise",
+      "title": "Six pôles au service de votre performance financière",
+      "description": "Chaque mission débute par un diagnostic flash gratuit et se formalise par une lettre de mission précisant le périmètre, les livrables et les honoraires.",
+      "cta": "En savoir plus"
+    },
+    "whyUs": {
+      "eyebrow": "Pourquoi nous choisir",
+      "title": "Un accompagnement pensé pour les dirigeants exigeants",
+      "reasons": [
+        { "title": "Expertise locale & internationale", "description": "18+ ans d'expérience au Cameroun, au Gabon et en Côte d'Ivoire, avec une maîtrise fine des normes SYSCOHADA, OHADA, COBAC et CIMA." },
+        { "title": "Interlocuteur senior dédié", "description": "Un référent unique et stable vous accompagne pour toute la durée du mandat." },
+        { "title": "Confidentialité absolue", "description": "Charte signée et discrétion totale sur l'ensemble des informations transmises." },
+        { "title": "Réactivité & disponibilité", "description": "Réponse sous 24h ouvrées, avec mobilisation en urgence si la situation l'exige." },
+        { "title": "Coût optimisé vs recrutement", "description": "Jusqu'à 70 % d'économie par rapport au recrutement d'un profil senior à temps plein." }
+      ]
+    },
+    "sectors": {
+      "eyebrow": "Secteurs",
+      "title": "Différents secteurs d'activités de nos clients",
+      "list": [
+        "Industrie",
+        "Commerce général & la grande distribution",
+        "BTP",
+        "Logistique",
+        "Assurance",
+        "Prestations de services",
+        "Agro-industrie",
+        "Gestion du patrimoine et transactions immobilières"
+      ]
+    },
+    "methodology": {
+      "eyebrow": "Notre méthodologie",
+      "title": "Une démarche d'intervention en 5 étapes",
+      "steps": [
+        { "number": "01", "title": "Diagnostic flash gratuit", "description": "Entretien avec le dirigeant (2h), évaluation financière, fiscale et organisationnelle." },
+        { "number": "02", "title": "Lettre de mission", "description": "Périmètre, livrables, calendrier et honoraires définis par écrit, signés par les deux parties." },
+        { "number": "03", "title": "Mise en place", "description": "Accès aux données, état des lieux, réunion de cadrage, mise en place des outils de reporting." },
+        { "number": "04", "title": "Exécution & pilotage", "description": "Production des livrables, points réguliers, alertes proactives, ajustements continus." },
+        { "number": "05", "title": "Bilan & recommandations", "description": "Revue annuelle, rapport de synthèse, renouvellement ou évolution du mandat." }
+      ]
+    },
+    "cta": {
+      "title": "Prêt à sécuriser et développer votre performance financière ?",
+      "description": "Toutes nos missions débutent par un diagnostic flash gratuit, sans engagement.",
+      "ctaPrimary": "Prendre rendez-vous",
+      "ctaEmail": "Nous écrire"
+    }
+  },
+  "servicesPage": {
+    "metaTitle": "Nos Services | Trust Consulting Partners",
+    "metaDescription": "Six pôles d'expertise : DAF externalisée, audit et contrôle interne, conseil fiscal, financement bancaire, restructuration financière, business plans.",
+    "eyebrow": "Nos services",
+    "title": "Six pôles au service de votre performance financière",
+    "description": "Toutes nos missions débutent par un diagnostic flash gratuit (2h) et se formalisent par une lettre de mission précisant le périmètre, les livrables et les honoraires."
+  },
+  "servicePage": {
+    "eyebrow": "Nos services",
+    "ctaDiagnostic": "Demander un diagnostic gratuit",
+    "honorairesLabel": "Honoraires :",
+    "cibleLabel": "Cible :",
+    "offeringsTitle": "Ce que couvre cette mission",
+    "tiersTitle": "Trois formats d'intervention",
+    "discoverOthers": "Découvrir nos autres pôles"
+  },
+  "services": {
+    "daf-externalisee": {
+      "navLabel": "DAF-X™",
+      "navDescription": "Pilotage financier, reporting, trésorerie",
+      "title": "Direction Administrative et Financière Externalisée (DAF-X™)",
+      "summary": "Lorsque la direction consacre un temps croissant à la finance — trésorerie, reporting, budgets, contrôles fiscaux — au détriment du cœur de métier, ou que la visibilité sur la trésorerie, les marges et le runway devient insuffisante, l'intervention d'un DAF externalisé change la donne : il clarifie, structure, projette et sécurise.",
+      "offerings": [
+        "Pilotage de la trésorerie et des marges",
+        "Reporting financier mensuel et tableaux de bord",
+        "Structuration des budgets et prévisions",
+        "Sécurisation des relations bancaires et fiscales"
+      ],
+      "fee": "Dès 500 000 FCFA HT/mois",
+      "target": "PME réalisant 300M à 5Mds FCFA de chiffre d'affaires, filiales, groupes en croissance",
+      "tiers": [
+        { "name": "DAF Temps Partagé", "detail": "2 à 4 jours/mois, pilotage continu", "price": "Dès 500 000 FCFA/mois" },
+        { "name": "DAF de Mission", "detail": "Intervention ciblée, livrable précis", "price": "Dès 1 500 000 FCFA" },
+        { "name": "DAF de Transition", "detail": "Intérim DAF complet, 1 à 12 mois", "price": "Dès 1 200 000 FCFA/mois" }
+      ]
+    },
+    "audit-controle-interne": {
+      "navLabel": "Audit & Contrôle Interne",
+      "navDescription": "Audit comptable, due diligence, conformité",
+      "title": "Audit & Contrôle Interne",
+      "summary": "Évaluation des risques, amélioration des processus, conformité réglementaire et assurance indépendante sur la fiabilité de vos processus internes.",
+      "offerings": [
+        "Audit comptable & financier : régularité, sincérité des comptes, conformité SYSCOHADA",
+        "Audit interne & contrôle interne : cartographie des risques, plan d'action priorisé",
+        "Due diligence financière : fusions-acquisitions, investissement, financement",
+        "Audit de trésorerie & de conformité réglementaire (COBAC, CIMA, DGI, CNPS, OHADA)"
+      ],
+      "fee": "Sur devis, selon le périmètre de la mission",
+      "highlight": {
+        "title": "Focus : audit et recouvrement des trop-perçus bancaires",
+        "description": "Les établissements de crédit appliquent des mécanismes de calcul complexes pour les intérêts débiteurs, commissions et frais divers. Erreurs de jours de valeur, double facturation, frais non contractuels : ces anomalies représentent généralement entre 0,5 % et 3 % du volume des flux bancaires annuels.",
+        "note": "Honoraires de succès : 10 % HT sur les montants effectivement recouvrés. Aucun frais fixe initial, aucun honoraire si aucune extourne n'est obtenue."
+      }
+    },
+    "conseil-fiscal": {
+      "navLabel": "Conseil Fiscal",
+      "navDescription": "Déclarations, contentieux DGI, prix de transfert",
+      "title": "Conseil Fiscal & Optimisation",
+      "summary": "Un accompagnement fiscal complet, de la conformité courante à l'optimisation structurelle de groupe.",
+      "offerings": [
+        "Fiscalité courante : déclarations IS, TVA, IRCM, TSR, patente, droits d'enregistrement",
+        "Optimisation fiscale et restructuration fiscale de groupe",
+        "Contentieux fiscal : assistance lors des contrôles DGI, mémoires en défense",
+        "Prix de transfert et fiscalité internationale"
+      ],
+      "fee": "Sur devis, selon le périmètre de la mission"
+    },
+    "financement-bancaire": {
+      "navLabel": "Financement Bancaire",
+      "navDescription": "Business plan, dossier de crédit, négociation",
+      "title": "Financement Bancaire",
+      "summary": "De l'évaluation de votre capacité d'endettement jusqu'à la négociation, nous sécurisons l'accès à vos financements.",
+      "offerings": [
+        "Diagnostic de la capacité d'endettement et de la bancabilité",
+        "Business plan, montage du dossier de crédit, sélection des banques partenaires",
+        "Financements alternatifs : capital-investissement, SFI, AFD, BDEAC, FMO"
+      ],
+      "fee": "Pourcentage du financement obtenu"
+    },
+    "restructuration-financiere": {
+      "navLabel": "Restructuration",
+      "navDescription": "Diagnostic de liquidité, restructuration de dette",
+      "title": "Restructuration Financière & Redressement",
+      "summary": "Face à une situation de tension financière, nous intervenons rapidement pour stabiliser, restructurer et redresser.",
+      "offerings": [
+        "Diagnostic de liquidité et plan de trésorerie d'urgence",
+        "Restructuration de la dette et réorganisation de groupe",
+        "Procédures OHADA de prévention des difficultés"
+      ],
+      "fee": "Sur devis, selon le périmètre de la mission"
+    },
+    "conception-suivi-business-plans": {
+      "navLabel": "Business Plans",
+      "navDescription": "Conception et suivi de l'implémentation de vos business plans",
+      "title": "Accompagnement dans la Conception et le Suivi de l'Implémentation des Business Plans",
+      "summary": "Nous accompagnons les porteurs de projets dans la conception de business plans solides et bancables, ainsi que dans le suivi rigoureux de leur mise en œuvre opérationnelle jusqu'à l'atteinte des objectifs fixés.",
+      "offerings": [
+        "Conception et structuration du business plan (hypothèses, prévisionnel financier, plan de financement)",
+        "Accompagnement dans la présentation du projet aux partenaires financiers",
+        "Suivi périodique de l'implémentation et des indicateurs de performance",
+        "Ajustements et recommandations en cours d'exécution du projet"
+      ],
+      "fee": "Sur devis, selon le périmètre de la mission"
+    }
+  },
+  "offices": {
+    "headOffice": "Siège social",
+    "office2": "Siège N°2",
+    "office3": "Siège N°3",
+    "list": [
+      { "label": "Siège social", "address": "Essos, à côté de l'immeuble de la Délégation Départementale du Travail et de la Sécurité Sociale du Centre" },
+      { "label": "Siège N°2", "address": "Bépanda, face CAMTEL" },
+      { "label": "Siège N°3", "address": "Angré, face restaurant La Shish" }
+    ]
+  },
+  "cabinet": {
+    "meta": {
+      "title": "Notre Cabinet | Trust Consulting Partners",
+      "description": "Découvrez Trust Consulting Partners : identité, vision, valeurs et équipe dirigeante d'un cabinet de conseil financier au service de la zone CEMAC/UEMOA."
+    },
+    "offices": {
+    "headOffice": "Siège social",
+    "office2": "Siège N°2",
+    "office3": "Siège N°3",
+    "list": [
+      { "label": "Siège social", "address": "Essos, à côté de l'immeuble de la Délégation Départementale du Travail et de la Sécurité Sociale du Centre" },
+      { "label": "Siège N°2", "address": "Bépanda, face CAMTEL" },
+      { "label": "Siège N°3", "address": "Angré, face restaurant La Shish" }
+    ]
+    },
+    "intro": {
+      "eyebrow": "Notre cabinet",
+      "title": "Un cabinet de conseil financier au service des entreprises de la zone CEMAC / UEMOA",
+      "description": "Trust Consulting Partners accompagne les PME et groupes camerounais avec des solutions sur mesure, adaptées aux réalités du contexte local : normes SYSCOHADA révisées, droit OHADA, réglementation COBAC, CIMA et BCEAO. Fondé par des professionnels justifiant de plus de 18 ans d'expérience en finance d'entreprise en Afrique centrale et occidentale, notre cabinet met son expertise au service de la performance et de la sécurisation financière de ses clients."
+    },
+    "identity": {
+      "title": "Identité du cabinet",
+      "rows": [
+        { "label": "Raison sociale", "value": "TRUST CONSULTING PARTNERS SARL" },
+        { "label": "Forme juridique / Capital", "value": "SARL au capital de 1 000 000 FCFA" },
+        { "label": "Siège social", "value": "Yaoundé, Cameroun" },
+        { "label": "Zone d'intervention", "value": "Cameroun, Gabon, Congo-Brazzaville, Côte d'Ivoire, avec une présence grandissante à travers l'Afrique" },
+        { "label": "Secteurs couverts", "value": "Industrie, Commerce, BTP, Logistique, Assurance, Services, Agro-industrie, Immobilier" }
+      ]
+    },
+    "visionValues": {
+      "visionEyebrow": "Notre vision",
+      "visionTitle": "Créer des solutions audacieuses, ensemble",
+      "visionText": "Agir avec transparence et honnêteté pour créer des solutions audacieuses, en plaçant le client au centre de nos décisions et en construisant la réussite ensemble.",
+      "valuesEyebrow": "Nos valeurs",
+      "valuesTitle": "Ce qui guide chacune de nos missions",
+      "values": ["Intégrité", "Innovation", "Excellence", "Esprit d'équipe", "Responsabilité sociale", "Orientation client", "Confidentialité", "Engagement"]
+    },
+    "expertise": {
+      "eyebrow": "Une équipe de profil senior",
+      "title": "Une expertise éprouvée sur le terrain",
+      "points": [
+        "Plus de 18 ans d'expérience en finance de groupe, consolidation multi-entités et reporting",
+        "Maîtrise des normes SYSCOHADA révisées, OHADA, COBAC, CIMA et BCEAO",
+        "Expérience opérationnelle dans des groupes CEMAC & UEMOA",
+        "Réseaux établis auprès des banques, administrations fiscales et partenaires financiers"
+      ]
+    },
+    "leadership": {
+      "eyebrow": "Notre équipe dirigeante",
+      "title": "Deux co-fondateurs, une même exigence",
+      "description": "Des professionnels justifiant de plus de 18 ans d'expérience en finance d'entreprise en Afrique centrale et occidentale.",
+      "role": "Co-fondateur"
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact | Trust Consulting Partners",
+      "description": "Contactez Trust Consulting Partners pour un diagnostic flash gratuit : téléphone, email, WhatsApp ou formulaire en ligne."
+    },
+    "offices": {
+    "headOffice": "Siège social",
+    "office2": "Siège N°2",
+    "office3": "Siège N°3",
+    "list": [
+      { "label": "Siège social", "address": "Essos, à côté de l'immeuble de la Délégation Départementale du Travail et de la Sécurité Sociale du Centre" },
+      { "label": "Siège N°2", "address": "Bépanda, face CAMTEL" },
+      { "label": "Siège N°3", "address": "Angré, face restaurant La Shish" }
+    ]
+    },
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Parlons de votre performance financière",
+      "description": "Toutes nos missions débutent par un diagnostic flash gratuit, sans engagement. Écrivez-nous ou contactez-nous directement."
+    },
+    "form": {
+      "name": "Nom complet",
+      "email": "Email professionnel",
+      "phone": "Téléphone",
+      "company": "Entreprise",
+      "optional": "optionnel",
+      "service": "Pôle concerné",
+      "servicePlaceholder": "Sélectionner un pôle",
+      "message": "Message",
+      "submit": "Envoyer le message",
+      "success": "Votre message a bien été envoyé. Nous vous répondrons sous 24h ouvrées.",
+      "error": "Une erreur est survenue. Merci de réessayer ou de nous contacter directement par téléphone.",
+      "errors": {
+        "name": "Merci d'indiquer votre nom complet.",
+        "email": "Merci d'indiquer une adresse email valide.",
+        "message": "Votre message doit contenir au moins 10 caractères."
+      }
+    },
+    "info": {
+      "title": "Nos coordonnées",
+      "hours": "Lundi – Vendredi | 8h00 – 18h00 | Réponse sous 24h ouvrées",
+      "whatsapp": "Discuter sur WhatsApp",
+      "responseTime": "Réponse sous 24h ouvrées, mobilisation en urgence si nécessaire"
+    },
+    "map": {
+      "title": "Localisation du siège social — Yaoundé"
+    }
+  },
+  "faqPage": {
+    "meta": {
+      "title": "FAQ | Trust Consulting Partners",
+      "description": "Réponses aux questions fréquentes sur nos missions, nos honoraires et notre méthodologie d'intervention."
+    },
+    "eyebrow": "FAQ",
+    "title": "Questions fréquentes",
+    "items": [
+      { "question": "Le diagnostic flash est-il vraiment gratuit ?", "answer": "Oui. Toutes nos missions débutent par un diagnostic flash gratuit d'environ 2 heures : un entretien avec le dirigeant suivi d'une évaluation financière, fiscale et organisationnelle, avec remise d'une note de recommandation. Aucun engagement n'est requis à cette étape." },
+      { "question": "Dans quels pays intervenez-vous ?", "answer": "Nous intervenons au Cameroun (siège à Yaoundé), au Gabon, au Congo-Brazzaville et en Côte d'Ivoire, soit l'ensemble de la zone CEMAC/UEMOA." },
+      { "question": "Comment sont fixés vos honoraires ?", "answer": "Selon la nature de la mission : les missions en abonnement mensuel sont facturées en forfait payable en début de mois, les missions ponctuelles suivent un règlement en deux temps (40 % à la signature de la lettre de mission, 60 % à la remise du livrable), et les missions de financement combinent un retainer mensuel et une commission de succès sur le montant obtenu." },
+      { "question": "Que se passe-t-il si aucun trop-perçu bancaire n'est identifié lors d'un audit ?", "answer": "Aucun honoraire n'est facturé en l'absence de résultat. Notre modèle de rémunération sur cette mission est entièrement aligné sur les résultats obtenus : 10 % HT sur les montants effectivement recouvrés, sans frais fixe initial." },
+      { "question": "Combien de temps dure une mission d'audit bancaire ?", "answer": "La phase d'audit et de diagnostic dure généralement 3 à 6 semaines. La phase de réclamations et de recouvrement peut prendre de 2 à 6 mois selon les délais de réponse des banques. La phase de recommandations finales dure 2 à 3 semaines." },
+      { "question": "Comment se déroule la résiliation d'un contrat ?", "answer": "Les missions en abonnement mensuel peuvent être résiliées avec un préavis d'un mois. Les missions à durée déterminée ne sont pas résiliables unilatéralement, sauf faute grave." },
+      { "question": "Mes informations financières sont-elles confidentielles ?", "answer": "Oui. Nous nous engageons contractuellement à maintenir la stricte confidentialité des informations communiquées, avec une charte de confidentialité signée pour chaque mandat." },
+      { "question": "Comment prendre rendez-vous avec vous ?", "answer": "Le plus simple est d'utiliser notre formulaire de contact, de nous appeler directement, ou de nous écrire par email ou WhatsApp. Nous répondons sous 24h ouvrées." }
+    ]
+  },
+  "actualitesPage": {
+    "meta": {
+      "title": "Actualités | Trust Consulting Partners",
+      "description": "Nos publications et analyses sur la finance d'entreprise en zone CEMAC/UEMOA."
+    },
+    "eyebrow": "Ressources",
+    "title": "Actualités",
+    "description": "Nos analyses et publications sur la finance d'entreprise en zone CEMAC/UEMOA.",
+    "emptyTitle": "Aucun article publié pour le moment.",
+    "emptyDescription": "Revenez bientôt pour découvrir nos premières analyses."
+  },
+  "legal": {
+    "mentions": {
+      "meta": { "title": "Mentions légales | Trust Consulting Partners" },
+      "title": "Mentions légales",
+      "editorTitle": "Éditeur du site",
+      "editorIntro": "{company}, {legalForm}.",
+      "headOfficeLabel": "Siège social :",
+      "headOfficeValue": "Yaoundé, Cameroun — Essos, à côté de l'immeuble de la Délégation Départementale du Travail et de la Sécurité Sociale du Centre",
+      "rcLabel": "Registre du commerce (RC) :",
+      "taxpayerLabel": "Numéro contribuable :",
+      "phoneLabel": "Téléphone :",
+      "emailLabel": "Email :",
+      "publicationDirectorTitle": "Directeur de la publication",
+      "hostingTitle": "Hébergement",
+      "domainTitle": "Nom de domaine",
+      "domainText": "Le nom de domaine {domain} est enregistré auprès de {registrar} ({registrarUrl}).",
+      "ipTitle": "Propriété intellectuelle",
+      "ipText": "L'ensemble des contenus présents sur ce site (textes, logo, identité visuelle, structure) est la propriété de {company}, sauf mention contraire. Toute reproduction, représentation ou diffusion, en tout ou partie, sans autorisation préalable écrite, est interdite.",
+      "liabilityTitle": "Limitation de responsabilité",
+      "liabilityText": "{company} s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site, sans garantie d'exhaustivité. Les informations présentées ont une valeur informative et ne sauraient engager la responsabilité contractuelle du cabinet en dehors d'une lettre de mission signée."
+    },
+    "privacy": {
+      "meta": { "title": "Politique de confidentialité | Trust Consulting Partners" },
+      "title": "Politique de confidentialité",
+      "lastUpdated": "Dernière mise à jour : {date}",
+      "dataTitle": "Données collectées",
+      "dataText": "Lorsque vous utilisez le formulaire de contact de ce site, nous collectons les informations que vous nous transmettez volontairement : nom, adresse email, numéro de téléphone (facultatif), entreprise (facultatif), pôle de service concerné et contenu de votre message.",
+      "purposeTitle": "Finalité du traitement",
+      "purposeText": "Ces données sont utilisées exclusivement pour répondre à votre demande de contact ou de diagnostic flash gratuit. Elles ne sont ni vendues, ni cédées, ni louées à des tiers.",
+      "retentionTitle": "Conservation des données",
+      "retentionText": "Les données transmises via le formulaire de contact sont conservées le temps nécessaire au traitement de votre demande, puis archivées ou supprimées conformément à nos obligations professionnelles de confidentialité.",
+      "rightsTitle": "Vos droits",
+      "rightsTextBefore": "Vous pouvez à tout moment demander l'accès, la rectification ou la suppression de vos données personnelles en nous contactant à l'adresse",
+      "cookiesTitle": "Cookies",
+      "cookiesText": "Ce site n'utilise pas de cookies de suivi publicitaire. Des cookies techniques strictement nécessaires au fonctionnement du site peuvent être utilisés par notre hébergeur ({host}).",
+      "contactTitle": "Contact",
+      "contactText": "Pour toute question relative à cette politique de confidentialité, contactez {company} à {email}."
+    }
+  }
+}

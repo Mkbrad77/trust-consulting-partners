@@ -1,18 +1,23 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
+
 export function ContactInfo() {
+  const t = useTranslations();
+  const officesList = t.raw("offices.list") as { label: string; address: string }[];
+  const tInfo = useTranslations("contact.info");
+
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-xl font-semibold text-foreground">Nos coordonnées</h2>
-        <p className="mt-2 text-sm text-muted">
-          Lundi – Vendredi | 8h00 – 18h00 | Réponse sous 24h ouvrées
-        </p>
+        <h2 className="text-xl font-semibold text-foreground">{tInfo("title")}</h2>
+        <p className="mt-2 text-sm text-muted">{tInfo("hours")}</p>
       </div>
 
       <div className="space-y-4">
-        {/* Correction de la boucle des téléphones */}
         {siteConfig.contact.phones.map((phone) => (
           <a
             key={phone.href}
@@ -27,7 +32,6 @@ export function ContactInfo() {
           </a>
         ))}
 
-        {/* Correction du lien WhatsApp */}
         <a
           href={siteConfig.contact.whatsappHref}
           target="_blank"
@@ -37,10 +41,9 @@ export function ContactInfo() {
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent/15 text-accent">
             <MessageCircle className="h-4 w-4" />
           </span>
-          Discuter sur WhatsApp
+          {tInfo("whatsapp")}
         </a>
 
-        {/* Correction du lien Email */}
         <a
           href={`mailto:${siteConfig.contact.emailGeneral}`}
           className="flex items-center gap-3 text-sm font-medium text-foreground hover:text-primary"
@@ -53,27 +56,25 @@ export function ContactInfo() {
       </div>
 
       <div className="space-y-4 border-t border-border pt-6">
-        {siteConfig.offices.map((office) => (
-          <div key={office.city} className="flex items-start gap-3">
-            <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/5 text-primary">
-              <MapPin className="h-4 w-4" />
-            </span>
-            <div>
-              <p className="text-sm font-medium text-foreground">
-                {office.city} {office.label && `— ${office.label}`}
-              </p>
-              <p className="text-sm text-muted">{office.address}</p>
-            </div>
+        {officesList.map((office, i) => (
+        <div key={siteConfig.offices[i].city} className="flex items-start gap-3">
+          <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/5 text-primary">
+            <MapPin className="h-4 w-4" />
+          </span>
+          <div>
+            <p className="text-sm font-medium text-foreground">
+              {siteConfig.offices[i].city} — {office.label}
+            </p>
+            <p className="text-sm text-muted">{office.address}</p>
           </div>
-        ))}
-        
+        </div>
+      ))}
+
         <div className="flex items-start gap-3">
           <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/5 text-primary">
             <Clock className="h-4 w-4" />
           </span>
-          <p className="text-sm text-muted">
-            Réponse sous 24h ouvrées, mobilisation en urgence si nécessaire
-          </p>
+          <p className="text-sm text-muted">{tInfo("responseTime")}</p>
         </div>
       </div>
     </div>
