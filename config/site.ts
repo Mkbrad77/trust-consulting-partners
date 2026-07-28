@@ -17,7 +17,7 @@ export const siteConfig = {
   offices: [
   { city: "Yaoundé", label: "Siège social", address: "Essos, à côté de l'immeuble de la Délégation Départementale du Travail et de la Sécurité Sociale du Centre" },
   { city: "Douala", label: "Siège N°2", address: "Bépanda, face CAMTEL" },
-  { city: "Abidjan", label: "Siège N°3", address: "Angré, face restaurant La Shish" },
+  { city: "Abidjan", label: "Siège N°3", address: "301 rue F6, Marcory (au-dessus de l'agence Jumia Marcory-Solibra), 26" },
   ],
   mainNav: [
     { label: "Notre Cabinet", href: "/notre-cabinet", children: undefined },

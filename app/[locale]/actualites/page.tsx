@@ -6,10 +6,14 @@ import { Container } from "@/components/layout/container";
 import { articles } from "@/config/articles";
 import { Cta } from "@/components/home/cta";
 import type { Locale } from "@/i18n/routing";
-
+import { getAlternates } from "@/lib/seo";
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("actualitesPage.meta");
-  return { title: t("title"), description: t("description") };
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: getAlternates("/actualites"),
+  };
 }
 
 export default async function ActualitesPage({
