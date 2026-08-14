@@ -4,10 +4,14 @@ import { useTranslations } from "next-intl";
 import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
-
 export function ContactInfo() {
   const t = useTranslations();
-  const officesList = t.raw("offices.list") as { label: string; address: string }[];
+  const officesList = t.raw("offices.list") as {
+    city: string;
+    tag: string;
+    country: string;
+    address: string;
+  }[];
   const tInfo = useTranslations("contact.info");
 
   return (
@@ -56,19 +60,20 @@ export function ContactInfo() {
       </div>
 
       <div className="space-y-4 border-t border-border pt-6">
-        {officesList.map((office, i) => (
-        <div key={siteConfig.offices[i].city} className="flex items-start gap-3">
-          <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/5 text-primary">
-            <MapPin className="h-4 w-4" />
-          </span>
-          <div>
-            <p className="text-sm font-medium text-foreground">
-              {siteConfig.offices[i].city} — {office.label}
-            </p>
-            <p className="text-sm text-muted">{office.address}</p>
+        {officesList.map((office) => (
+          <div key={office.city} className="flex items-start gap-3">
+            <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/5 text-primary">
+              <MapPin className="h-4 w-4" />
+            </span>
+            <div>
+              <p className="text-sm font-medium text-foreground">
+                {office.city}
+                {office.tag && <span className="text-muted"> - {office.tag}</span>}
+              </p>
+              <p className="text-sm text-muted">{office.address}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
 
         <div className="flex items-start gap-3">
           <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/5 text-primary">

@@ -16,6 +16,7 @@
   "footer": {
     "navigation": "Navigation",
     "nosPoles": "Our Practice Areas",
+    "contactLink": "Contact us",
     "contact": "Contact",
     "mentionsLegales": "Legal Notice",
     "politiqueConfidentialite": "Privacy Policy",
@@ -24,7 +25,7 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Financial Advisory Firm — CEMAC / WAEMU Region",
+      "eyebrow": "Financial Advisory Firm - CEMAC / WAEMU Region",
       "slogan": "Your financial performance, our commitment.",
       "description": "Outsourced financial management, audit, tax advisory and bank financing: we support companies and groups across Cameroon, Gabon, Congo-Brazzaville and Côte d'Ivoire with the rigor of an international firm and a deep command of the SYSCOHADA, OHADA, COBAC and CIMA frameworks.",
       "ctaPrimary": "Book a Free Assessment",
@@ -106,7 +107,7 @@
       "navLabel": "Outsourced CFO (DAF-X™)",
       "navDescription": "Financial management, reporting, treasury",
       "title": "Outsourced Administrative and Financial Management (DAF-X™)",
-      "summary": "When leadership spends a growing share of its time on finance — treasury, reporting, budgets, tax controls — at the expense of core business, or when visibility over cash flow, margins and runway becomes insufficient, bringing in an outsourced CFO changes everything: it clarifies, structures, forecasts and secures.",
+      "summary": "When leadership spends a growing share of its time on finance - treasury, reporting, budgets, tax controls - at the expense of core business, or when visibility over cash flow, margins and runway becomes insufficient, bringing in an outsourced CFO changes everything: it clarifies, structures, forecasts and secures.",
       "offerings": [
         "Cash flow and margin management",
         "Monthly financial reporting and dashboards",
@@ -191,29 +192,22 @@
     }
   },
   "offices": {
-    "headOffice": "Head Office",
-    "office2": "Office 2",
-    "office3": "Office 3",
+    "sectionTitle": "Contact Details",
+    "cameroonLabel": "Cameroon",
+    "ivoryCoastLabel": "Ivory Coast",
+    "phoneLabel": "Phone",
+    "emailLabel": "E-mail",
+    "webLabel": "Web",
     "list": [
-      { "label": "Head Office", "address": "Essos, next to the building of the Departmental Labor and Social Security Delegation of the Centre" },
-      { "label": "Office 2", "address": "Bépanda, opposite CAMTEL" },
-      { "label": "Office 3", "address": "301 Rue F6, Marcory (above the Jumia Marcory-Solibra branch), 26" }
+      { "city": "Yaoundé", "tag": "Head Office", "country": "Cameroon", "address": "Essos, next to the Centre Departmental Delegation of Labour and Social Security building" },
+      { "city": "Douala", "tag": "", "country": "Cameroon", "address": "Opposite CAMTEL, Bépanda" },
+      { "city": "Abidjan", "tag": "", "country": "Ivory Coast", "address": "301 Rue F6, Marcory (above the Jumia Marcory-Solibra agency), Abidjan 26" }
     ]
   },
   "cabinet": {
     "meta": {
       "title": "About Us | Trust Consulting Partners",
       "description": "Discover Trust Consulting Partners: identity, vision, values and leadership team of a financial advisory firm serving the CEMAC/WAEMU region."
-    },
-    "offices": {
-    "headOffice": "Head Office",
-    "office2": "Office 2",
-    "office3": "Office 3",
-    "list": [
-      { "label": "Head Office", "address": "Essos, next to the building of the Departmental Labor and Social Security Delegation of the Centre" },
-      { "label": "Office 2", "address": "Bépanda, opposite CAMTEL" },
-      { "label": "Office 3", "address": "301 Rue F6, Marcory (above the Jumia Marcory-Solibra branch), 26" }
-    ]
     },
     "intro": {
       "eyebrow": "About Us",
@@ -260,16 +254,6 @@
       "title": "Contact | Trust Consulting Partners",
       "description": "Contact Trust Consulting Partners for a free flash assessment: phone, email, WhatsApp or online form."
     },
-    "offices": {
-    "headOffice": "Head Office",
-    "office2": "Office 2",
-    "office3": "Office 3",
-    "list": [
-      { "label": "Head Office", "address": "Essos, next to the building of the Departmental Labor and Social Security Delegation of the Centre" },
-      { "label": "Office 2", "address": "Bépanda, opposite CAMTEL" },
-      { "label": "Office 3", "address": "301 Rue F6, Marcory (above the Jumia Marcory-Solibra branch), 26" }
-    ]
-    },
     "hero": {
       "eyebrow": "Contact",
       "title": "Let's talk about your financial performance",
@@ -300,7 +284,7 @@
       "responseTime": "Response within 24 business hours, emergency mobilization available"
     },
     "map": {
-      "title": "Head office location — Yaoundé"
+      "title": "Head office location - Yaoundé"
     }
   },
   "faqPage": {
@@ -312,7 +296,7 @@
     "title": "Frequently Asked Questions",
     "items": [
       { "question": "Is the flash assessment really free?", "answer": "Yes. All our engagements begin with a free flash assessment lasting about 2 hours: a meeting with the executive followed by a financial, tax and organizational evaluation, with a recommendation note provided. No commitment is required at this stage." },
-      { "question": "In which countries do you operate?", "answer": "We operate in Cameroon (headquartered in Yaoundé), Gabon, Congo-Brazzaville and Côte d'Ivoire — the entire CEMAC/WAEMU region." },
+      { "question": "In which countries do you operate?", "answer": "We operate in Cameroon (headquartered in Yaoundé), Gabon, Congo-Brazzaville and Côte d'Ivoire - the entire CEMAC/WAEMU region." },
       { "question": "How are your fees determined?", "answer": "It depends on the nature of the engagement: monthly subscription engagements are billed as a flat fee payable at the start of the month, one-off engagements follow a two-stage payment (40% upon signing the engagement letter, 60% upon delivery), and financing engagements combine a monthly retainer with a success fee on the amount obtained." },
       { "question": "What happens if no bank overcharge is identified during an audit?", "answer": "No fee is charged if there is no result. Our compensation model for this engagement is entirely aligned with results obtained: 10% (excl. tax) on amounts actually recovered, with no upfront fixed fee." },
       { "question": "How long does a bank audit engagement take?", "answer": "The audit and diagnostic phase usually takes 3 to 6 weeks. The claims and recovery phase can take 2 to 6 months depending on banks' response times. The final recommendations phase takes 2 to 3 weeks." },
@@ -339,7 +323,7 @@
       "editorTitle": "Website Publisher",
       "editorIntro": "{company}, {legalForm}.",
       "headOfficeLabel": "Head Office:",
-      "headOfficeValue": "Yaoundé, Cameroon — Essos, next to the building of the Departmental Labor and Social Security Delegation of the Centre",
+      "headOfficeValue": "Yaoundé, Cameroon - Essos, next to the building of the Departmental Labor and Social Security Delegation of the Centre",
       "rcLabel": "Trade Register (RC):",
       "taxpayerLabel": "Taxpayer Number:",
       "phoneLabel": "Phone:",

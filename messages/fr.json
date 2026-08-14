@@ -16,6 +16,7 @@
   "footer": {
     "navigation": "Navigation",
     "nosPoles": "Nos pôles",
+    "contactLink": "Nous contacter",
     "contact": "Contact",
     "mentionsLegales": "Mentions légales",
     "politiqueConfidentialite": "Politique de confidentialité",
@@ -24,7 +25,7 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Cabinet de conseil financier — Zone CEMAC / UEMOA",
+      "eyebrow": "Cabinet de conseil financier - Zone CEMAC / UEMOA",
       "slogan": "Votre performance financière, notre engagement.",
       "description": "Direction financière externalisée, audit, conseil fiscal et financement bancaire : nous accompagnons les entreprises et groupes du Cameroun, du Gabon, du Congo-Brazzaville et de Côte d'Ivoire avec l'exigence d'un cabinet international et la maîtrise fine du cadre SYSCOHADA, OHADA, COBAC et CIMA.",
       "ctaPrimary": "Réserver un diagnostic gratuit",
@@ -106,7 +107,7 @@
       "navLabel": "DAF-X™",
       "navDescription": "Pilotage financier, reporting, trésorerie",
       "title": "Direction Administrative et Financière Externalisée (DAF-X™)",
-      "summary": "Lorsque la direction consacre un temps croissant à la finance — trésorerie, reporting, budgets, contrôles fiscaux — au détriment du cœur de métier, ou que la visibilité sur la trésorerie, les marges et le runway devient insuffisante, l'intervention d'un DAF externalisé change la donne : il clarifie, structure, projette et sécurise.",
+      "summary": "Lorsque la direction consacre un temps croissant à la finance - trésorerie, reporting, budgets, contrôles fiscaux - au détriment du cœur de métier, ou que la visibilité sur la trésorerie, les marges et le runway devient insuffisante, l'intervention d'un DAF externalisé change la donne : il clarifie, structure, projette et sécurise.",
       "offerings": [
         "Pilotage de la trésorerie et des marges",
         "Reporting financier mensuel et tableaux de bord",
@@ -191,29 +192,22 @@
     }
   },
   "offices": {
-    "headOffice": "Siège social",
-    "office2": "Siège N°2",
-    "office3": "Siège N°3",
+    "sectionTitle": "Contacts",
+    "cameroonLabel": "Cameroun",
+    "ivoryCoastLabel": "Côte d'Ivoire",
+    "phoneLabel": "Tél.",
+    "emailLabel": "E-mail",
+    "webLabel": "Web",
     "list": [
-      { "label": "Siège social", "address": "Essos, à côté de l'immeuble de la Délégation Départementale du Travail et de la Sécurité Sociale du Centre" },
-      { "label": "Siège N°2", "address": "Bépanda, face CAMTEL" },
-      { "label": "Siège N°3", "address": "301 rue F6, Marcory (au-dessus de l'agence Jumia Marcory-Solibra), 26" }
+      { "city": "Yaoundé", "tag": "Siège social", "country": "Cameroun", "address": "Essos, à côté de l'immeuble de la Délégation Départementale du Travail et de la Sécurité Sociale du Centre" },
+      { "city": "Douala", "tag": "", "country": "Cameroun", "address": "Face CAMTEL, Bépanda" },
+      { "city": "Abidjan", "tag": "", "country": "Côte d'Ivoire", "address": "301 rue F6, Marcory (au-dessus de l'agence Jumia Marcory-Solibra), Abidjan 26" }
     ]
   },
   "cabinet": {
     "meta": {
       "title": "Notre Cabinet | Trust Consulting Partners",
       "description": "Découvrez Trust Consulting Partners : identité, vision, valeurs et équipe dirigeante d'un cabinet de conseil financier au service de la zone CEMAC/UEMOA."
-    },
-    "offices": {
-    "headOffice": "Siège social",
-    "office2": "Siège N°2",
-    "office3": "Siège N°3",
-    "list": [
-      { "label": "Siège social", "address": "Essos, à côté de l'immeuble de la Délégation Départementale du Travail et de la Sécurité Sociale du Centre" },
-      { "label": "Siège N°2", "address": "Bépanda, face CAMTEL" },
-      { "label": "Siège N°3", "address": "301 rue F6, Marcory (au-dessus de l'agence Jumia Marcory-Solibra), 26" }
-    ]
     },
     "intro": {
       "eyebrow": "Notre cabinet",
@@ -260,16 +254,6 @@
       "title": "Contact | Trust Consulting Partners",
       "description": "Contactez Trust Consulting Partners pour un diagnostic flash gratuit : téléphone, email, WhatsApp ou formulaire en ligne."
     },
-    "offices": {
-    "headOffice": "Siège social",
-    "office2": "Siège N°2",
-    "office3": "Siège N°3",
-    "list": [
-      { "label": "Siège social", "address": "Essos, à côté de l'immeuble de la Délégation Départementale du Travail et de la Sécurité Sociale du Centre" },
-      { "label": "Siège N°2", "address": "Bépanda, face CAMTEL" },
-      { "label": "Siège N°3", "address": "301 rue F6, Marcory (au-dessus de l'agence Jumia Marcory-Solibra), 26" }
-    ]
-    },
     "hero": {
       "eyebrow": "Contact",
       "title": "Parlons de votre performance financière",
@@ -300,7 +284,7 @@
       "responseTime": "Réponse sous 24h ouvrées, mobilisation en urgence si nécessaire"
     },
     "map": {
-      "title": "Localisation du siège social — Yaoundé"
+      "title": "Localisation du siège social - Yaoundé"
     }
   },
   "faqPage": {
@@ -339,7 +323,7 @@
       "editorTitle": "Éditeur du site",
       "editorIntro": "{company}, {legalForm}.",
       "headOfficeLabel": "Siège social :",
-      "headOfficeValue": "Yaoundé, Cameroun — Essos, à côté de l'immeuble de la Délégation Départementale du Travail et de la Sécurité Sociale du Centre",
+      "headOfficeValue": "Yaoundé, Cameroun - Essos, à côté de l'immeuble de la Délégation Départementale du Travail et de la Sécurité Sociale du Centre",
       "rcLabel": "Registre du commerce (RC) :",
       "taxpayerLabel": "Numéro contribuable :",
       "phoneLabel": "Téléphone :",

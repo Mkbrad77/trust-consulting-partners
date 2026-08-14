@@ -18,7 +18,7 @@
 //           transition={{ duration: 0.7, ease: "easeOut" }}
 //         >
 //           <p className="text-sm font-semibold uppercase tracking-wide text-accent">
-//             Cabinet de conseil financier — Zone CEMAC / UEMOA
+//             Cabinet de conseil financier - Zone CEMAC / UEMOA
 //           </p>
 //           <h1 className="mt-4 text-4xl font-semibold leading-tight text-primary md:text-5xl">
 //             {siteConfig.slogan}

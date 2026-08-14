@@ -28,7 +28,7 @@
 //     title: "Direction Administrative et Financière Externalisée (DAF-X™)",
 //     navLabel: "DAF-X™",
 //     summary:
-//       "Lorsque la direction consacre un temps croissant à la finance — trésorerie, reporting, budgets, contrôles fiscaux — au détriment du cœur de métier, ou que la visibilité sur la trésorerie, les marges et le runway devient insuffisante, l'intervention d'un DAF externalisé change la donne : il clarifie, structure, projette et sécurise.",
+//       "Lorsque la direction consacre un temps croissant à la finance - trésorerie, reporting, budgets, contrôles fiscaux - au détriment du cœur de métier, ou que la visibilité sur la trésorerie, les marges et le runway devient insuffisante, l'intervention d'un DAF externalisé change la donne : il clarifie, structure, projette et sécurise.",
 //     offerings: [
 //       "Pilotage de la trésorerie et des marges",
 //       "Reporting financier mensuel et tableaux de bord",
