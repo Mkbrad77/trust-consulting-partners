@@ -5,6 +5,7 @@
     "ressources": "Resources",
     "contact": "Contact",
     "prendreRdv": "Book an Appointment",
+    "diagnostic": "Funding Diagnostic",
     "actualites": "Insights",
     "actualitesDesc": "Our publications and analyses",
     "faq": "FAQ",
@@ -354,5 +355,16 @@
       "contactTitle": "Contact",
       "contactText": "For any question regarding this privacy policy, contact {company} at {email}."
     }
+  },
+  "diagnosticPage": {
+    "meta": {
+      "title": "SME Funding Readiness Diagnostic | Trust Consulting Partners",
+      "description": "Free 5-minute diagnostic: bank-readiness score, loan simulation, action plan and summary sheet for SMEs in the CEMAC and WAEMU regions."
+    },
+    "eyebrow": "Free diagnostic",
+    "title": "Is your company ready for financing?",
+    "description": "Answer a few questions and get, in 5 minutes, your funding readiness score out of 100, a loan simulation, an action plan and a summary sheet to present to your banker. A Trust Consulting Partners expert can then contact you.",
+    "languageNote": "The diagnostic tool below is currently available in French only.",
+    "frameTitle": "DossierPrêt funding readiness diagnostic"
   }
 }

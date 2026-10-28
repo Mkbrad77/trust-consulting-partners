@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DossierPrêt – Votre PME est-elle finançable ? | Trust Consulting Partners</title>
+<meta name="description" content="Diagnostic gratuit de finançabilité pour PME de la zone CEMAC et UEMOA : score bancaire, simulation de prêt, plan d'action et fiche de synthèse.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout : colonne unique de 760px ; questionnaire en étapes, résultat présenté comme une note de crédit */
+:root{
+ --bg:#f2f5f8;--surface:#fff;--sunk:#e6ecf2;--ink:#0f2238;--muted:#55697e;--line:#d2dbe5;
+ --brand:#1b5ea6;--brand-ink:#fff;--brandbg:#e7f0fa;--green:#1d7f47;
+ --ok:#1d7f47;--okbg:#e3f2e9;--mid:#a86a12;--midbg:#fbf0dc;--bad:#b3392d;--badbg:#f9e4e1;
+ --f-display:"Schibsted Grotesk",system-ui,sans-serif;--f-body:"Source Sans 3",system-ui,sans-serif;--f-num:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+ --bg:#0c1724;--surface:#132234;--sunk:#1c2f45;--ink:#e5edf6;--muted:#9bb0c6;--line:#2a405a;
+ --brand:#6aa8ea;--brand-ink:#08182b;--brandbg:#17304c;--green:#5cc98b;
+ --ok:#5cc98b;--okbg:#14352a;--mid:#e3a94e;--midbg:#3a2c14;--bad:#f0806f;--badbg:#3d1d1a;color-scheme:dark}}
+:root[data-theme="dark"]{
+ --bg:#0c1724;--surface:#132234;--sunk:#1c2f45;--ink:#e5edf6;--muted:#9bb0c6;--line:#2a405a;
+ --brand:#6aa8ea;--brand-ink:#08182b;--brandbg:#17304c;--green:#5cc98b;
+ --ok:#5cc98b;--okbg:#14352a;--mid:#e3a94e;--midbg:#3a2c14;--bad:#f0806f;--badbg:#3d1d1a;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--f-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:760px;margin:0 auto;padding-block:24px 56px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:clamp(2rem,6.4vw,3rem);font-weight:800;letter-spacing:-.025em}
+h2{font-size:1.5rem;font-weight:700;letter-spacing:-.01em}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:28px;flex-wrap:wrap}
+.logo{font:800 1.2rem var(--f-display);letter-spacing:-.01em}
+.logo b{color:var(--brand)}
+.by{font-size:.85rem;color:var(--muted)}
+.by strong{color:var(--green);font-weight:700}
+.eyebrow{font:600 .78rem var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}
+.lead{color:var(--muted);max-width:56ch;font-size:1.08rem}
+.hint{color:var(--muted);font-size:.92rem}
+.num,.mono{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.stack{display:grid;gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.btn{font:700 1rem var(--f-body);border-radius:10px;padding:12px 20px;border:1px solid var(--brand);cursor:pointer;background:var(--brand);color:var(--brand-ink);display:inline-flex;align-items:center;gap:8px}
+.btn.ghost{background:transparent;color:var(--brand)}
+.btn.sm{padding:7px 12px;font-size:.9rem}
+.btn:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.row.end{justify-content:space-between;margin-top:26px}
+a{color:var(--brand)}
+a.btn{text-decoration:none}
+.send{border:2px solid var(--brand)}
+.consent{align-items:flex-start;font-size:.95rem}.consent input{margin-top:3px}
+
+/* Accueil */
+.hero{display:grid;gap:18px;margin-bottom:28px}
+.gets{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:8px 0 28px}
+.get{border-top:3px solid var(--brand);background:var(--surface);border-radius:0 0 12px 12px;padding:14px 16px}
+.get h3{font-size:1rem;margin-bottom:4px}
+.preview{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center}
+.preview ul{margin:6px 0 0;padding-left:18px;color:var(--muted);font-size:.95rem}
+@media (max-width:520px){.preview{grid-template-columns:1fr}.preview svg{max-width:170px}}
+.tag{display:inline-block;font:600 .74rem var(--f-body);letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:var(--sunk);color:var(--muted)}
+
+/* Questionnaire */
+.stepper{list-style:none;padding:0;margin:0 0 18px;display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.stepper li{display:grid;gap:6px;font-size:.84rem;color:var(--muted)}
+.stepper li::before{content:"";height:5px;border-radius:3px;background:var(--line)}
+.stepper li.done::before,.stepper li.now::before{background:var(--brand)}
+.stepper li.now{color:var(--ink);font-weight:700}
+.stepper .sn{font-family:var(--f-num);margin-right:4px}
+@media (max-width:520px){.stepper li:not(.now) .sl{display:none}}
+.step-h{display:grid;gap:4px;margin-bottom:6px}
+.field{margin-top:20px}
+.field>label,legend{display:block;font-weight:700;margin-bottom:6px;padding:0}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.field .hint{margin:-2px 0 8px}
+.opt{font-weight:400;color:var(--muted);font-size:.85rem}
+input[type=text],select{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px 12px}
+.affix{display:flex;align-items:stretch;border:1px solid var(--line);border-radius:10px;background:var(--bg);overflow:hidden}
+.affix input{border:0;border-radius:0;background:transparent;font-family:var(--f-num);font-variant-numeric:tabular-nums;min-width:0}
+.affix span{padding:11px 12px;color:var(--muted);font-size:.9rem;border-left:1px solid var(--line);white-space:nowrap}
+.affix:focus-within{outline:3px solid var(--brand);outline-offset:2px}
+.affix input:focus-visible{outline:none}
+.choices{display:grid;gap:8px}
+.choice{display:flex;gap:12px;align-items:center;padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);cursor:pointer}
+.choice:has(input:checked){border-color:var(--brand);background:var(--brandbg)}
+.choice input{accent-color:var(--brand);width:18px;height:18px;margin:0;flex:none}
+.ferr{color:var(--bad);font-size:.9rem;margin-top:6px}
+.ferr:empty{display:none}
+[aria-invalid="true"],.affix:has([aria-invalid="true"]){border-color:var(--bad)!important}
+
+/* Résultat */
+.memo-h{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-end;border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:18px}
+.memo-h h2{font-size:1.65rem}
+.scorebox{display:grid;grid-template-columns:190px 1fr;gap:22px;align-items:center}
+@media (max-width:560px){.scorebox{grid-template-columns:1fr;justify-items:center;text-align:center}}
+.gauge{width:100%;max-width:190px;display:block}
+.gauge .g-num{font:700 46px var(--f-display);fill:var(--ink)}
+.gauge .g-sub{font:500 12px var(--f-num);fill:var(--muted)}
+.pill{display:inline-block;font-weight:700;padding:5px 12px;border-radius:999px;font-size:.98rem}
+.kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:18px}
+.kpi{background:var(--surface);padding:14px 16px;min-width:0}
+.kpi .k{font-size:.84rem;color:var(--muted)}
+.kpi .v{font:500 1.12rem var(--f-num);font-variant-numeric:tabular-nums;margin-top:2px;overflow-wrap:anywhere}
+.kpi .s{font-size:.82rem;margin-top:2px}
+.sec{margin-top:30px}
+.sec>h3{margin-bottom:10px}
+.alert{border:1px solid var(--bad);background:var(--badbg);border-radius:12px;padding:14px 16px;margin-top:18px}
+.alert h3{color:var(--bad);font-size:1rem;margin-bottom:6px}
+.alert ul{margin:0;padding-left:20px}
+.crit{display:grid;gap:12px}
+.crit .ch{display:flex;justify-content:space-between;gap:10px;font-size:.96rem}
+.meter{height:8px;border-radius:4px;background:var(--sunk);margin-top:5px;overflow:hidden}
+.meter i{display:block;height:100%;border-radius:4px}
+.actions{display:grid;gap:10px}
+.act{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.act .badge{grid-row:span 2;align-self:start;font:600 .72rem var(--f-body);letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:6px;white-space:nowrap}
+.act b{font-weight:700}
+.act .meta{grid-column:2;font-size:.85rem;color:var(--muted)}
+.paths{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.path{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.path b{display:block;margin-bottom:4px}
+.docs{display:grid;gap:4px}
+.docs label{display:flex;gap:12px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.docs label:last-child{border-bottom:0}
+.docs input{accent-color:var(--green);width:18px;height:18px;margin-top:3px;flex:none}
+.docs input:checked+span{color:var(--muted);text-decoration:line-through}
+.progress{font:500 .9rem var(--f-num);color:var(--muted)}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;font:400 .92rem/1.6 var(--f-num);background:var(--sunk);border-radius:12px;padding:16px;margin:0}
+.cta{background:var(--ink);color:var(--bg);border-radius:16px;padding:24px;display:grid;gap:14px}
+.cta h3{font-size:1.3rem}
+.cta p{color:color-mix(in srgb,var(--bg) 80%,transparent)}
+.cta .btn{background:var(--bg);color:var(--ink);border-color:var(--bg)}
+.contacts{display:grid;gap:8px}
+.contact{display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid color-mix(in srgb,var(--bg) 22%,transparent);padding-top:8px;flex-wrap:wrap}
+.contact span{font-family:var(--f-num);user-select:all;overflow-wrap:anywhere;min-width:0}
+.contact .btn{padding:5px 10px;font-size:.84rem}
+.cta a{color:var(--bg)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+summary{cursor:pointer;font-weight:700}
+details table{border-collapse:collapse;width:100%;font-size:.92rem;margin-top:10px}
+details td,details th{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+details th{font-weight:700}
+.tbl{overflow-x:auto}
+.banner{background:var(--midbg);color:var(--ink);border-radius:10px;padding:10px 14px;margin-bottom:16px;display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap;font-size:.95rem}
+footer{margin-top:40px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);padding-top:14px}
+@media (prefers-reduced-motion:no-preference){.meter i{transition:width .5s ease}}
+@media print{.top .by,.row.end,.row .btn,.send,.cta,details,footer,.banner,.stepper{display:none!important}body{background:#fff;color:#000}.card,.kpi,.path,.act{break-inside:avoid}}
+.embedded .top{display:none}.embedded main{padding-block:0 32px}
+</style>
+</head>
+<body>
+
+<main>
+ <div class="top">
+  <div class="logo">Dossier<b>Prêt</b></div>
+  <div class="by">un outil <strong>Trust Consulting Partners</strong></div>
+ </div>
+
+ <section id="intro">
+  <div class="hero">
+   <p class="eyebrow">Diagnostic de finançabilité · PME de la zone CEMAC et UEMOA</p>
+   <h1>Votre demande de crédit est-elle prête pour la banque ?</h1>
+   <p class="lead">En 5 minutes, mesurez votre dossier avec les ratios qu'un analyste crédit regarde en premier : capacité de remboursement, rentabilité, apport, garanties et qualité comptable.</p>
+   <div class="row"><button class="btn" id="start" type="button">Commencer le diagnostic</button><button class="btn ghost" id="demo" type="button">Voir un exemple</button><button class="btn ghost" id="resume" type="button" hidden>Reprendre mon diagnostic</button></div>
+  </div>
+  <div class="gets">
+   <div class="get"><h3>Score sur 100</h3><p class="hint">Neuf critères pondérés, et les points bloquants signalés à part.</p></div>
+   <div class="get"><h3>Simulation du prêt</h3><p class="hint">Mensualité, coût du crédit et montant réellement finançable.</p></div>
+   <div class="get"><h3>Dossier prêt à déposer</h3><p class="hint">Plan d'action, pièces à réunir et fiche de synthèse pour le banquier.</p></div>
+  </div>
+  <div class="card preview" id="preview"></div>
+  <p class="hint" style="margin-top:16px">Vos réponses sont transmises à Trust Consulting Partners uniquement avec votre accord, à la dernière étape. Le score est indicatif et ne constitue pas une décision de crédit.</p>
+ </section>
+
+ <section id="quiz" hidden>
+  <ol class="stepper" id="stepper"></ol>
+  <form class="card" id="step" novalidate></form>
+ </section>
+
+ <section id="result" hidden></section>
+
+ <footer>DossierPrêt · Trust Consulting Partners SARL · Douala · Yaoundé · Abidjan. Méthode inspirée des pratiques d'analyse crédit des banques de la sous-région ; résultats indicatifs.</footer>
+</main>
+
+<script>
+/* ===== CONFIGURATION =====
+   Collez ici l'URL de votre application Web Google Apps Script (se termine par /exec). */
+const ENDPOINT="COLLER_ICI_L_URL_APPS_SCRIPT";
+const MAIL="takouro@yahoo.fr";
+/* ========================= */
+const PAYS={"Cameroun":["CEMAC","NIU"],"Gabon":["CEMAC","NIF"],"Congo":["CEMAC","NIU"],"Tchad":["CEMAC","NIF"],"Guinée équatoriale":["CEMAC","NIF"],"Centrafrique":["CEMAC","NIF"],"Côte d'Ivoire":["UEMOA","NCC"],"Sénégal":["UEMOA","NINEA"],"Bénin":["UEMOA","IFU"],"Burkina Faso":["UEMOA","IFU"],"Togo":["UEMOA","NIF"],"Mali":["UEMOA","NIF"],"Niger":["UEMOA","NIF"]};
+const idf=()=>(PAYS[A.pays]||["","identifiant fiscal"])[1];
+
+const STEPS=[
+ {t:"Entreprise",d:"Identité et conformité administrative",f:[
+  {k:"nom",l:"Raison sociale",type:"text",opt:1,ph:"Ex. : Agro Plus SARL"},
+  {k:"pays",l:"Pays d'activité",type:"select",o:Object.keys(PAYS)},
+  {k:"secteur",l:"Secteur d'activité",type:"select",o:["Commerce et distribution","Agriculture et agro-transformation","Services","Industrie et BTP","Transport et logistique","Santé et éducation","Autre"]},
+  {k:"forme",l:"Forme juridique",type:"select",o:["Entreprise individuelle","SARL / SARLU","SA / SAS","Coopérative, GIC ou GIE"]},
+  {k:"age",l:"Ancienneté de l'activité",type:"choice",o:[["0","Moins de 1 an"],["1","1 à 3 ans"],["2","Plus de 3 ans"]]},
+  {k:"formel",l:()=>"Immatriculation RCCM et "+idf(),type:"choice",o:[["0","Ni l'un ni l'autre"],["1","Un seul des deux"],["2","Les deux, à jour"]]},
+  {k:"attest",l:"Attestations de non-redevance (impôts et sécurité sociale)",type:"choice",o:[["0","Non disponibles"],["1","Une seule des deux"],["2","Les deux, à jour"]]}]},
+ {t:"Chiffres",d:"Données du dernier exercice complet",f:[
+  {k:"ca",l:"Chiffre d'affaires annuel",type:"money",min:1},
+  {k:"ca1",l:"Chiffre d'affaires de l'exercice précédent",type:"money",opt:1,h:"Permet de mesurer la tendance de l'activité."},
+  {k:"charges",l:"Charges d'exploitation annuelles",type:"money",h:"Achats, salaires, loyers, transport, impôts… sans les remboursements d'emprunts."},
+  {k:"dettes",l:"Remboursements annuels des crédits en cours",type:"money",h:"Capital et intérêts. Indiquez 0 si vous n'avez aucun crédit."},
+  {k:"compta",l:"Niveau de la comptabilité",type:"choice",o:[["0","Aucune comptabilité écrite"],["1","Tenue en interne (cahier, tableur)"],["2","Tenue par un comptable"],["3","États financiers SYSCOHADA déposés (DSF) ou certifiés"]]}]},
+ {t:"Besoin",d:"Le crédit que vous souhaitez obtenir",f:[
+  {k:"besoin",l:"Montant du prêt sollicité",type:"money",min:1},
+  {k:"objet",l:"Objet du financement",type:"select",o:["Fonds de roulement","Achat d'équipement","Extension de l'activité","Démarrage d'un projet","Autre"]},
+  {k:"duree",l:"Durée de remboursement souhaitée",type:"select",o:[["12","12 mois"],["24","24 mois"],["36","36 mois"],["48","48 mois"],["60","5 ans"],["84","7 ans"]]},
+  {k:"taux",l:"Taux d'intérêt annuel estimé",type:"rate",h:"12 % par défaut. Remplacez-le par le taux proposé par votre banque si vous le connaissez."},
+  {k:"apport",l:"Apport personnel investi dans le projet",type:"money",h:"Indiquez 0 si aucun."}]},
+ {t:"Banque et garanties",d:"Historique bancaire et sûretés proposées",f:[
+  {k:"relation",l:"Relation avec votre banque",type:"choice",o:[["0","Pas de compte professionnel"],["1","Compte ouvert depuis moins d'un an"],["2","Compte actif depuis plus d'un an, flux réguliers"]]},
+  {k:"incid",l:"Incidents de paiement (chèques rejetés, impayés)",type:"choice",o:[["2","Aucun incident"],["1","Incidents passés, régularisés"],["0","Incident non régularisé"]]},
+  {k:"garantie",l:"Meilleure garantie que vous pouvez offrir",type:"choice",o:[["0","Aucune"],["1","Caution personnelle"],["2","Nantissement de matériel, stock ou fonds de commerce"],["3","Hypothèque sur titre foncier"]]},
+  {k:"plan",l:"Plan d'affaires avec prévisions de trésorerie",type:"choice",o:[["0","Non"],["1","Oui"]]},
+  {k:"releves",l:"Relevés bancaires des 6 derniers mois",type:"choice",o:[["0","Non disponibles"],["1","Disponibles"]]}]},
+ {t:"Coordonnées",d:"Où recevoir l'avis d'un expert",f:[
+  {k:"contact",l:"Nom et prénom",type:"text",ac:"name",ph:"Ex. : Marie Ngo"},
+  {k:"fonction",l:"Fonction",type:"text",opt:1,ac:"organization-title",ph:"Ex. : Gérante"},
+  {k:"tel",l:"Téléphone (WhatsApp de préférence)",type:"text",ac:"tel",im:"tel",ph:"+237 6XX XX XX XX"},
+  {k:"email",l:"Adresse e-mail",type:"text",opt:1,ac:"email",im:"email",ph:"nom@entreprise.com"},
+  {k:"consent",l:"J'accepte que mes réponses et mes coordonnées soient transmises à Trust Consulting Partners, qui les utilise uniquement pour analyser ma demande et me recontacter.",type:"consent"}]}
+];
+
+const EX={nom:"Boulangerie Les Délices SARL",pays:"Cameroun",secteur:"Agriculture et agro-transformation",forme:"SARL / SARLU",age:"2",formel:"2",attest:"1",ca:"96000000",ca1:"84000000",charges:"81000000",dettes:"3600000",compta:"2",besoin:"25000000",objet:"Achat d'équipement",duree:"48",taux:"12",apport:"6000000",relation:"2",incid:"2",garantie:"2",plan:"1",releves:"1"};
+const KEY="dossierpret.v2";
+let A={taux:"12",duree:"36"},cur=0,demo=false;
+
+const $=i=>document.getElementById(i);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const num=v=>{const d=String(v??"").replace(/\D/g,"");return d?+d:0};
+const grp=n=>Math.round(n).toLocaleString("fr-FR").replace(/[  ]/g," ");
+const fcfa=n=>grp(n)+" FCFA";
+const pc=x=>Math.round(x*100)+" %";
+const dec=(x,d)=>x.toFixed(d).replace(".",",");
+const rate=a=>(parseFloat(String(a.taux??"12").replace(",","."))||0);
+function save(){if(demo)return;try{localStorage.setItem(KEY,JSON.stringify({A,cur}))}catch(e){}}
+function load(){try{return JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){return null}}
+function show(id){["intro","quiz","result"].forEach(s=>$(s).hidden=s!==id);window.scrollTo(0,0)}
+
+/* ---------- Questionnaire ---------- */
+function fieldHTML(f){
+ const lab=typeof f.l==="function"?f.l():f.l,v=A[f.k]??"";
+ const hint=f.h?`<p class="hint" id="h_${f.k}">${f.h}</p>`:"";
+ let h=`<div class="field">`;
+ if(f.type==="consent"){
+  h+=`<label class="choice consent" for="${f.k}"><input type="checkbox" id="${f.k}"${v==="1"?" checked":""}><span>${esc(lab)}</span></label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">`;
+ }else if(f.type==="choice"){
+  h+=`<fieldset id="${f.k}"><legend id="lg_${f.k}">${esc(lab)}</legend>${hint}<div class="choices">`+
+   f.o.map(([val,txt])=>`<label class="choice"><input type="radio" name="${f.k}" id="${f.k}_${val}" value="${val}"${v===val?" checked":""}><span>${txt}</span></label>`).join("")+`</div></fieldset>`;
+ }else{
+  h+=`<label for="${f.k}">${esc(lab)}${f.opt?' <span class="opt">· facultatif</span>':""}</label>${hint}`;
+  if(f.type==="select")h+=`<select id="${f.k}"><option value="">Choisir…</option>`+f.o.map(o=>{const[val,txt]=Array.isArray(o)?o:[o,o];return`<option value="${esc(val)}"${v===val?" selected":""}>${esc(txt)}</option>`}).join("")+`</select>`;
+  else if(f.type==="money")h+=`<div class="affix"><input type="text" id="${f.k}" inputmode="numeric" autocomplete="off" placeholder="0" value="${v!==""?grp(num(v)):""}"><span>FCFA</span></div>`;
+  else if(f.type==="rate")h+=`<div class="affix"><input type="text" id="${f.k}" inputmode="decimal" autocomplete="off" value="${esc(v)}"><span>% par an</span></div>`;
+  else h+=`<input type="text" id="${f.k}" autocomplete="${f.ac||"organization"}"${f.im?` inputmode="${f.im}"`:""} placeholder="${esc(f.ph||"")}" value="${esc(v)}">`;
+ }
+ return h+`<p class="ferr" id="e_${f.k}" role="alert"></p></div>`;
+}
+function read(f){
+ if(f.type==="consent")return $(f.k).checked?"1":"";
+ if(f.type==="choice"){const c=document.querySelector(`input[name="${f.k}"]:checked`);return c?c.value:""}
+ const v=$(f.k).value.trim();
+ return f.type==="money"?(v===""?"":String(num(v))):v;
+}
+function collect(){STEPS[cur].f.forEach(f=>A[f.k]=read(f));if($("website"))A.website=$("website").value}
+function validate(){
+ let first=null;
+ STEPS[cur].f.forEach(f=>{
+  const v=A[f.k];let m="";
+  if(v===""&&!f.opt)m=f.type==="consent"?"Votre accord est nécessaire pour transmettre le diagnostic.":f.type==="choice"||f.type==="select"?"Choisissez une réponse.":f.type==="text"?"Renseignez ce champ.":"Renseignez ce montant.";
+  else if(f.k==="tel"&&v.replace(/\D/g,"").length<8)m="Indiquez un numéro de téléphone complet.";
+  else if(f.k==="email"&&v&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))m="Cette adresse e-mail n'est pas valide.";
+  else if(f.min&&num(v)<f.min)m="Indiquez un montant supérieur à 0.";
+  else if(f.type==="rate"){const r=rate(A);if(!(r>0&&r<=30))m="Indiquez un taux entre 0,5 et 30 %."}
+  $("e_"+f.k).textContent=m;
+  const inp=$(f.k);if(inp)inp.setAttribute("aria-invalid",m?"true":"false");
+  if(m&&!first)first=f.k;
+ });
+ if(first){const el=f=>document.querySelector(`#${first} input, #${first}`);el().focus();$( "e_"+first).scrollIntoView({block:"center"})}
+ return !first;
+}
+function render(){
+ const s=STEPS[cur];
+ $("stepper").innerHTML=STEPS.map((x,i)=>`<li class="${i<cur?"done":i===cur?"now":""}"><span><span class="sn">${i+1}</span><span class="sl">${x.t}</span></span></li>`).join("");
+ $("step").innerHTML=`<div class="step-h"><p class="eyebrow">Étape ${cur+1} sur ${STEPS.length}</p><h2>${s.d}</h2></div>`+s.f.map(fieldHTML).join("")+
+  `<div class="row end"><button type="button" class="btn ghost" id="prev">${cur?"Retour":"Accueil"}</button><button type="submit" class="btn">${cur===STEPS.length-1?"Obtenir mon diagnostic":"Continuer"}</button></div>`;
+ $("prev").onclick=()=>{collect();save();if(cur){cur--;render();window.scrollTo(0,0)}else{initIntro();show("intro")}};
+ s.f.filter(f=>f.type==="money").forEach(f=>$(f.k).addEventListener("input",e=>{const d=e.target.value.replace(/\D/g,"");e.target.value=d?grp(+d):""}));
+ if($("pays"))$("pays").addEventListener("change",e=>{A.pays=e.target.value;const lg=$("lg_formel");if(lg)lg.textContent="Immatriculation RCCM et "+idf()});
+}
+$("step").addEventListener("submit",e=>{
+ e.preventDefault();collect();if(!validate())return;save();
+ if(cur<STEPS.length-1){cur++;render();window.scrollTo(0,0)}else result();
+});
+
+/* ---------- Analyse ---------- */
+function calc(a){
+ const ca=num(a.ca),ca1=num(a.ca1),ch=num(a.charges),det=num(a.dettes),b=num(a.besoin),ap=num(a.apport);
+ const n=+a.duree||36,r=rate(a)/1200;
+ const ebe=ca-ch,marge=ca>0?ebe/ca:0;
+ const mens=r>0?b*r/(1-Math.pow(1+r,-n)):b/n,ann=mens*12,cout=mens*n-b;
+ const serv=ann+det,dscr=serv>0?ebe/serv:99;
+ const pa=(b+ap)>0?ap/(b+ap):0,cr=ca1>0?ca/ca1-1:null;
+ const annMax=Math.max(0,ebe/1.3-det),mMax=annMax/12,pMax=r>0?mMax*(1-Math.pow(1+r,-n))/r:mMax*n;
+ const C=[],add=(n_,p,m,tip,hz)=>C.push({n:n_,p,m,tip,hz});
+ add("Conformité administrative",[0,3,6][+a.formel]+[0,2,4][+a.attest],10,`Régularisez le RCCM et le ${idf()}, puis obtenez les attestations de non-redevance fiscale et sociale. Sans elles, la banque n'instruit pas le dossier.`,"1 à 4 semaines");
+ add("Ancienneté",[2,5,8][+a.age],8,"Compensez le manque d'historique par des preuves d'activité : contrats, bons de commande, factures clients, attestations de fournisseurs.","Immédiat");
+ add("Rentabilité",marge>=.15?15:marge>=.08?10:marge>=.03?5:marge>=0?2:0,15,`Votre marge d'exploitation est de ${pc(marge)}. Revoyez vos principaux postes de charges et vos prix de vente avant de solliciter le crédit.`,"3 à 6 mois");
+ add("Dynamique d'activité",cr===null?2:cr>=.1?5:cr>=0?4:cr>=-.1?2:0,5,cr===null?"Fournissez le chiffre d'affaires de l'exercice précédent : la banque veut voir la tendance sur 2 à 3 ans.":`Votre chiffre d'affaires évolue de ${cr>=0?"+":""}${pc(cr)}. Préparez une explication écrite de cette évolution et des mesures prises.`,"Immédiat");
+ add("Capacité de remboursement",dscr>=1.5?20:dscr>=1.25?15:dscr>=1.1?10:dscr>=1?5:0,20,ebe<=0?"Votre activité ne dégage pas de résultat d'exploitation : aucune échéance ne peut être couverte en l'état.":`Vos échéances annuelles représentent ${pc(serv/ebe)} de votre résultat d'exploitation (couverture de ${dec(dscr,2)}). Les banques attendent au moins 1,3. Ramenez le prêt vers ${fcfa(Math.max(0,pMax))} ou allongez la durée.`,"Avant le dépôt");
+ add("Apport personnel",pa>=.3?12:pa>=.2?9:pa>=.1?5:pa>0?2:0,12,`Votre apport représente ${pc(pa)} du coût total du projet. Visez 20 à 30 % : c'est le signe de votre engagement pour la banque.`,"1 à 6 mois");
+ add("Garanties",[0,4,7,10][+a.garantie],10,"Renforcez les sûretés : nantissement du matériel financé, garantie d'un fonds spécialisé, ou crédit-bail où le bien lui-même sert de garantie.","1 à 2 mois");
+ add("Qualité comptable",[0,4,7,10][+a.compta],10,"Faites établir des états financiers au format SYSCOHADA par un professionnel et déposez votre DSF : c'est la première pièce que lit l'analyste.","1 à 3 mois");
+ add("Relation bancaire",[0,3,6][+a.relation]+({"0":0,"1":2,"2":4})[a.incid],10,a.incid==="0"?"Régularisez l'incident de paiement en cours : il figure au fichier des incidents de la banque centrale et bloque toute demande.":"Faites transiter vos encaissements par un compte professionnel pendant au moins 6 mois pour créer un historique lisible.","3 à 6 mois");
+ const tot=C.reduce((s,c)=>s+c.p,0);
+ const B=[];
+ if(a.formel==="0")B.push("Entreprise non immatriculée (RCCM et "+idf()+")");
+ if(ebe<=0)B.push("Résultat d'exploitation nul ou négatif");
+ else if(dscr<1)B.push("Le résultat ne couvre pas les échéances (couverture de "+dec(dscr,2)+")");
+ if(a.incid==="0")B.push("Incident de paiement non régularisé");
+ let lv=tot>=75?0:tot>=55?1:2;if(B.length&&lv===0)lv=1;
+ const LV=[["Dossier bancable","var(--ok)","var(--okbg)"],["Bancable sous conditions","var(--mid)","var(--midbg)"],["Dossier fragile","var(--bad)","var(--badbg)"]][lv];
+ const weak=C.filter(c=>c.p<c.m*.6).sort((x,y)=>x.p/x.m-y.p/y.m);
+ return{ca,ca1,ch,det,b,ap,n,ebe,marge,mens,ann,cout,serv,dscr,pa,cr,pMax:Math.max(0,pMax),C,tot,B,LV,weak};
+}
+function pistes(a,R){
+ const L=[];
+ if(a.objet==="Achat d'équipement")L.push(["Crédit-bail (leasing)","Le bailleur reste propriétaire du bien jusqu'au terme : apport et garanties exigés plus faibles qu'un crédit classique."]);
+ if(a.objet==="Fonds de roulement"){L.push(["Facilité de caisse ou découvert","Pour les décalages de trésorerie courts. Suppose un compte actif avec des encaissements réguliers."]);L.push(["Affacturage ou escompte","Si vous facturez de grands comptes ou l'État, vos créances clients servent de support au financement."])}
+ if(a.secteur==="Agriculture et agro-transformation")L.push(["Crédit de campagne","Remboursement calé sur le cycle de production et de vente."]);
+ if(+a.garantie<=1)L.push(["Fonds de garantie","Une garantie partielle d'un fonds spécialisé (par exemple African Guarantee Fund ou FAGACE) peut compléter vos sûretés."]);
+ if(a.objet==="Démarrage d'un projet"||R.tot<55)L.push(["Établissement de microfinance","Exigences plus souples pour un premier crédit de montant modeste, qui construit votre historique."]);
+ if(R.tot>=55&&!a.objet.startsWith("Fonds"))L.push(["Crédit à moyen terme bancaire","Durée de 2 à 7 ans, sur la base d'un plan d'affaires et d'états financiers."]);
+ return L.slice(0,4);
+}
+function docs(a,R){
+ const D=[];
+ D.push("Statuts, RCCM, attestation "+idf()+" et pièces d'identité des dirigeants");
+ D.push("Attestations de non-redevance fiscale et sociale de moins de 3 mois");
+ D.push("États financiers SYSCOHADA des 2 ou 3 derniers exercices"+(a.compta==="3"?"":" (à faire établir par un comptable)"));
+ D.push("Relevés bancaires des 6 à 12 derniers mois");
+ D.push("Plan d'affaires avec prévisions de trésorerie sur la durée du prêt");
+ D.push("Factures proforma ou devis correspondant à l'objet du financement");
+ if(+a.garantie>=2)D.push(a.garantie==="3"?"Copie du titre foncier et rapport d'évaluation du bien":"Liste et justificatifs de propriété du matériel ou du stock nanti");
+ if(R.det>0)D.push("Tableaux d'amortissement des crédits en cours");
+ D.push("Principaux contrats, bons de commande ou marchés en cours");
+ return D;
+}
+function gauge(score,color){
+ const p="M16 104 A84 84 0 0 1 184 104";
+ return`<svg viewBox="0 0 200 118" class="gauge" role="img" aria-label="Score ${score} sur 100"><path d="${p}" pathLength="100" fill="none" stroke="var(--sunk)" stroke-width="16" stroke-linecap="round"/><path d="${p}" pathLength="100" fill="none" stroke="${color}" stroke-width="16" stroke-linecap="round" stroke-dasharray="${Math.max(score,.5)} 100"/><text x="100" y="94" text-anchor="middle" class="g-num">${score}</text><text x="100" y="114" text-anchor="middle" class="g-sub">sur 100</text></svg>`;
+}
+function synth(a,R){
+ const z=PAYS[a.pays]||["",""],today=new Date().toLocaleDateString("fr-FR");
+ return `FICHE DE SYNTHÈSE – DEMANDE DE FINANCEMENT
+${a.nom||"Entreprise"} · ${a.forme} · ${a.pays} (${z[0]})
+Secteur : ${a.secteur} · Ancienneté : ${["moins d'un an","1 à 3 ans","plus de 3 ans"][+a.age]}
+Établie le ${today} avec DossierPrêt (indicatif)
+
+ACTIVITÉ
+Chiffre d'affaires : ${fcfa(R.ca)}${R.cr!==null?` (${R.cr>=0?"+":""}${pc(R.cr)} sur un an)`:""}
+Charges d'exploitation : ${fcfa(R.ch)}
+Résultat d'exploitation : ${fcfa(R.ebe)} (marge ${pc(R.marge)})
+Crédits en cours : ${fcfa(R.det)} d'échéances par an
+
+DEMANDE
+Prêt sollicité : ${fcfa(R.b)} – ${a.objet.toLowerCase()}
+Durée : ${R.n} mois · Taux estimé : ${dec(rate(a),1)} %
+Mensualité estimée : ${fcfa(R.mens)}
+Apport : ${fcfa(R.ap)} (${pc(R.pa)} du projet)
+Garantie proposée : ${["aucune","caution personnelle","nantissement","hypothèque sur titre foncier"][+a.garantie]}
+
+RATIOS CLÉS
+Couverture du service de la dette : ${R.ebe>0?dec(R.dscr,2):"non calculable"}
+Montant finançable estimé (couverture 1,3) : ${fcfa(R.pMax)}
+
+APPRÉCIATION
+Score de finançabilité : ${R.tot}/100 – ${R.LV[0]}
+${R.B.length?"Points bloquants : "+R.B.join(" ; ")+"\n":""}${R.weak.length?"Points à renforcer : "+R.weak.map(c=>c.n.toLowerCase()).join(", "):"Aucun point faible majeur."}`;
+}
+function result(){
+ const a=A,R=calc(a),[lvl,col,bg]=R.LV,z=PAYS[a.pays]||["",""];
+ const fin=R.pMax>=R.b;
+ let h=demo?`<div class="banner"><span><b>Exemple fictif.</b> Les chiffres ci-dessous illustrent l'outil.</span><button class="btn sm" id="own" type="button">Faire mon diagnostic</button></div>`:"";
+ h+=`<div class="memo-h"><div><p class="eyebrow">Diagnostic de finançabilité</p><h2>${esc(a.nom||"Votre entreprise")}</h2></div><p class="hint">${esc(a.pays)} · zone ${z[0]} · ${new Date().toLocaleDateString("fr-FR")}</p></div>`;
+ h+=`<div class="card"><div class="scorebox">${gauge(R.tot,col)}<div class="stack" style="gap:8px"><span class="pill" style="color:${col};background:${bg};justify-self:start">${lvl}</span><p>${R.tot>=75&&!R.B.length?"Votre dossier présente les fondamentaux attendus par une banque. Soignez la présentation et déposez-le.":R.B.length?"Au moins un point bloquant doit être levé avant tout dépôt en banque.":R.tot>=55?"Le dossier est recevable mais la banque posera des conditions. Corrigez les points ci-dessous pour négocier dans de meilleures conditions.":"En l'état, une demande a peu de chances d'aboutir. Suivez le plan d'action avant de solliciter un établissement."}</p></div></div>
+ <div class="kpis">
+  <div class="kpi"><div class="k">Mensualité estimée</div><div class="v">${fcfa(R.mens)}</div><div class="s hint">${R.n} mois à ${dec(rate(a),1)} %</div></div>
+  <div class="kpi"><div class="k">Coût total des intérêts</div><div class="v">${fcfa(R.cout)}</div><div class="s hint">hors frais et assurances</div></div>
+  <div class="kpi"><div class="k">Couverture des échéances</div><div class="v" style="color:${R.dscr>=1.3?"var(--ok)":R.dscr>=1?"var(--mid)":"var(--bad)"}">${R.ebe>0?dec(Math.min(R.dscr,99),2):"—"}</div><div class="s hint">seuil bancaire usuel : 1,30</div></div>
+  <div class="kpi"><div class="k">Montant finançable estimé</div><div class="v" style="color:${fin?"var(--ok)":"var(--mid)"}">${fcfa(R.pMax)}</div><div class="s hint">${fin?"supérieur à votre demande":"inférieur à votre demande de "+fcfa(R.b-R.pMax)}</div></div>
+ </div></div>`;
+ if(R.B.length)h+=`<div class="alert" role="alert"><h3>Points bloquants</h3><ul>${R.B.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`;
+ h+=`<div class="sec"><h3>Détail par critère</h3><div class="card crit">${R.C.map(c=>{const r=c.p/c.m,cc=r>=.8?"var(--ok)":r>=.5?"var(--mid)":"var(--bad)";return`<div><div class="ch"><span>${c.n}</span><span class="num">${c.p}/${c.m}</span></div><div class="meter"><i style="width:${r*100}%;background:${cc}"></i></div></div>`}).join("")}</div></div>`;
+ h+=`<div class="sec"><h3>Plan d'action</h3>`+(R.weak.length?`<div class="actions">${R.weak.slice(0,5).map(c=>{const hi=c.p/c.m<.4;return`<div class="act"><span class="badge" style="background:${hi?"var(--badbg)":"var(--midbg)"};color:${hi?"var(--bad)":"var(--mid)"}">${hi?"Priorité":"À améliorer"}</span><b>${c.n}</b><span>${esc(c.tip)}</span><span class="meta">Délai indicatif : ${c.hz}</span></div>`}).join("")}</div>`:`<p class="card">Aucun point faible majeur. Concentrez-vous sur la qualité de présentation du dossier.</p>`)+`</div>`;
+ const P=pistes(a,R);
+ if(P.length)h+=`<div class="sec"><h3>Financements adaptés à votre profil</h3><div class="paths">${P.map(p=>`<div class="path"><b>${p[0]}</b><span class="hint">${p[1]}</span></div>`).join("")}</div></div>`;
+ const D=docs(a,R);
+ h+=`<div class="sec"><div class="row" style="justify-content:space-between;margin-bottom:10px"><h3>Pièces à réunir</h3><span class="progress" id="dprog">0/${D.length} prêtes</span></div><div class="card docs" id="docs">${D.map((d,i)=>`<label for="doc${i}"><input type="checkbox" id="doc${i}"><span>${esc(d)}</span></label>`).join("")}</div></div>`;
+ h+=`<div class="sec"><div class="row" style="justify-content:space-between;margin-bottom:10px"><h3>Fiche de synthèse pour le banquier</h3><button class="btn sm" id="copy" type="button">Copier la fiche</button></div><pre id="sum"></pre></div>`;
+ h+=demo?"":`<div class="sec card send" id="sendbox" aria-live="polite"><h3 id="sendt">Transmission de votre diagnostic…</h3><p class="hint" id="sendp" style="margin-top:6px">Votre fiche est envoyée à nos experts.</p><div id="sendx"></div></div>`;
+ h+=`<div class="sec cta"><p class="eyebrow" style="color:var(--bg);opacity:.75">Accompagnement</p><h3>Faites monter votre dossier par des experts financiers</h3><p>Trust Consulting Partners prépare vos états financiers SYSCOHADA, votre plan d'affaires et vos prévisions de trésorerie, structure les garanties et vous accompagne jusqu'à la négociation avec la banque. Bureaux à Douala, Yaoundé et Abidjan.</p>
+ <div class="contacts">${[["Téléphone Cameroun","+237 677 59 25 82"],["Téléphone Cameroun","+237 677 03 57 06"],["Téléphone Côte d'Ivoire","+225 07 13 27 40 05"],["E-mail","info@trust-consulting-partners.com"]].map(([k,v])=>`<div class="contact"><div><div style="font-size:.82rem;opacity:.75">${k}</div><span>${v}</span></div><button class="btn sm cp" type="button" data-v="${v}">Copier</button></div>`).join("")}</div>
+ <p><a href="https://www.trust-consulting-partners.com" target="_blank" rel="noopener">www.trust-consulting-partners.com</a></p></div>`;
+ h+=`<div class="sec"><details><summary>Comment le score est calculé</summary><p class="hint" style="margin-top:8px">Neuf critères inspirés de l'analyse crédit bancaire. Le résultat d'exploitation est approché par chiffre d'affaires moins charges d'exploitation ; les échéances sont calculées en mensualités constantes.</p><div class="tbl"><table><tr><th>Critère</th><th>Points</th><th>Référence</th></tr>
+ <tr><td>Capacité de remboursement</td><td class="num">20</td><td>Résultat ÷ échéances annuelles ; plein score à 1,5</td></tr>
+ <tr><td>Rentabilité</td><td class="num">15</td><td>Marge d'exploitation ; plein score à 15 %</td></tr>
+ <tr><td>Apport personnel</td><td class="num">12</td><td>Part du coût total du projet ; plein score à 30 %</td></tr>
+ <tr><td>Conformité administrative</td><td class="num">10</td><td>RCCM, identifiant fiscal, attestations</td></tr>
+ <tr><td>Garanties</td><td class="num">10</td><td>De la caution à l'hypothèque</td></tr>
+ <tr><td>Qualité comptable</td><td class="num">10</td><td>Plein score avec DSF ou états certifiés</td></tr>
+ <tr><td>Relation bancaire</td><td class="num">10</td><td>Ancienneté du compte, incidents</td></tr>
+ <tr><td>Ancienneté</td><td class="num">8</td><td>Plein score au-delà de 3 ans</td></tr>
+ <tr><td>Dynamique d'activité</td><td class="num">5</td><td>Évolution du chiffre d'affaires</td></tr></table></div></details></div>`;
+ h+=`<div class="row end"><button class="btn ghost" id="redo" type="button">Modifier mes réponses</button><button class="btn ghost" id="reset" type="button">Nouveau diagnostic</button><button class="btn" id="print" type="button">Imprimer ou enregistrer en PDF</button></div>`;
+ $("result").innerHTML=h;$("sum").textContent=synth(a,R);show("result");
+ const upd=()=>{const c=document.querySelectorAll("#docs input:checked").length;$("dprog").textContent=`${c}/${D.length} prêtes`};
+ $("docs").addEventListener("change",upd);
+ const copy=(txt,btn,ok,node)=>{const done=()=>{btn.textContent=ok};try{navigator.clipboard.writeText(txt).then(done,()=>sel(node,btn))}catch(e){sel(node,btn)}};
+ const sel=(node,btn)=>{if(!node)return;const r=document.createRange();r.selectNodeContents(node);getSelection().removeAllRanges();getSelection().addRange(r);btn.textContent="Texte sélectionné"};
+ $("copy").onclick=e=>copy($("sum").textContent,e.currentTarget,"Fiche copiée",$("sum"));
+ $("print").onclick=()=>window.print();
+ if(!demo)transmit(a,R);
+ document.querySelectorAll(".cp").forEach(b=>b.onclick=()=>copy(b.dataset.v,b,"Copié",b.previousElementSibling.querySelector("span")));
+ $("redo").onclick=()=>{if(demo){demo=false;A={taux:"12",duree:"36"}}cur=0;render();show("quiz")};
+ $("reset").onclick=()=>{demo=false;A={taux:"12",duree:"36"};cur=0;try{localStorage.removeItem(KEY)}catch(e){}render();show("quiz")};
+ if($("own"))$("own").onclick=$("reset").onclick;
+}
+
+/* ---------- Transmission ---------- */
+function transmit(a,R){
+ const fiche=synth(a,R),hp=a.website||"";
+ const head=`CONTACT\n${a.contact}${a.fonction?" ("+a.fonction+")":""}\nTéléphone : ${a.tel}\nE-mail : ${a.email||"non renseigné"}\n\n`;
+ const payload={website:hp,date:new Date().toISOString(),contact:a.contact,fonction:a.fonction||"",tel:a.tel,email:a.email||"",
+  entreprise:a.nom||"",pays:a.pays,zone:(PAYS[a.pays]||[""])[0],secteur:a.secteur,forme:a.forme,anciennete:["< 1 an","1 à 3 ans","> 3 ans"][+a.age],
+  ca:R.ca,ca_prec:R.ca1||"",charges:R.ch,dettes:R.det,besoin:R.b,objet:a.objet,duree:R.n,taux:rate(a),apport:R.ap,
+  garantie:["aucune","caution personnelle","nantissement","hypothèque"][+a.garantie],score:R.tot,niveau:R.LV[0],
+  mensualite:Math.round(R.mens),couverture:R.ebe>0?+R.dscr.toFixed(2):"",finançable:Math.round(R.pMax),bloquants:R.B.join(" ; "),fiche:head+fiche};
+ const done=(ok)=>{
+  $("sendt").textContent=ok?"Diagnostic transmis à nos experts":"Transmission impossible";
+  $("sendp").textContent=ok?"Un expert de Trust Consulting Partners étudie votre fiche et vous recontacte au "+a.tel+".":"Votre connexion ou le service d'envoi n'a pas répondu. Envoyez la fiche vous-même :";
+  if(!ok)$("sendx").innerHTML=`<div class="row" style="margin-top:12px"><a class="btn" href="mailto:${MAIL}?subject=${encodeURIComponent("Diagnostic DossierPrêt – "+(a.nom||"PME")+" – "+R.tot+"/100")}&body=${encodeURIComponent(head+fiche)}">Envoyer par e-mail</a></div><p class="hint" style="margin-top:10px">Adresse : <span class="mono" style="user-select:all">${MAIL}</span></p>`;
+  $("sendbox").style.borderColor=ok?"var(--ok)":"var(--bad)";
+ };
+ if(hp)return done(true);
+ if(!/^https:\/\/script\.google\.com\//.test(ENDPOINT))return done(false);
+ fetch(ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)}).then(()=>done(true),()=>done(false));
+}
+
+/* ---------- Accueil ---------- */
+function initIntro(){
+ const R=calc(EX),[lvl,col,bg]=R.LV;
+ $("preview").innerHTML=gauge(R.tot,col)+`<div><span class="tag">Aperçu · exemple fictif</span><p style="margin-top:8px"><b>${EX.nom}</b> · <span class="pill" style="color:${col};background:${bg};padding:2px 10px;font-size:.88rem">${lvl}</span></p><ul><li>Mensualité estimée : <span class="num">${fcfa(R.mens)}</span></li><li>Couverture des échéances : <span class="num">${dec(R.dscr,2)}</span></li><li>Point à renforcer : apport personnel (${pc(R.pa)})</li></ul></div>`;
+ const s=load();$("resume").hidden=!(s&&s.A&&Object.keys(s.A).length>2);
+}
+$("start").onclick=()=>{demo=false;A={taux:"12",duree:"36"};cur=0;render();show("quiz")};
+$("resume").onclick=()=>{const s=load();if(s){A=s.A;cur=Math.min(s.cur||0,STEPS.length-1)}demo=false;render();show("quiz")};
+$("demo").onclick=()=>{demo=true;A={...EX};result()};
+initIntro();
+</script>
+<script>
+/* Intégration au site : thème clair forcé et hauteur transmise à la page parente (sans effet si la page est ouverte seule) */
+(function(){
+ if(window.parent===window)return;
+ document.documentElement.setAttribute("data-theme","light");
+ document.documentElement.classList.add("embedded");
+ window.scrollTo=function(){window.parent.postMessage({type:"tcp-tool-scroll-top"},window.location.origin)};
+ var send=function(){window.parent.postMessage({type:"tcp-tool-height",height:Math.ceil(document.body.getBoundingClientRect().height)},window.location.origin)};
+ if(window.ResizeObserver)new ResizeObserver(send).observe(document.body);
+ window.addEventListener("load",send);
+ send();
+})();
+</script>
+</body>
+</html>

@@ -57,6 +57,7 @@ export const siteConfig = {
         },
       ],
     },
+    { label: "Diagnostic", href: "/diagnostic", children: undefined },
     {
       label: "Ressources",
       href: "/actualites",

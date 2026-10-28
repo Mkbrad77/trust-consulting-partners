@@ -223,6 +223,7 @@ export function Header() {
   const navLabels: Record<string, string> = {
     "Notre Cabinet": t("nav.notreCabinet"),
     "Nos Services": t("nav.nosServices"),
+    "Diagnostic": t("nav.diagnostic"),
     "Ressources": t("nav.ressources"),
     "Contact": t("nav.contact"),
   };

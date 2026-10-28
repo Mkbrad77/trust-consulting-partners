@@ -5,6 +5,7 @@
     "ressources": "Ressources",
     "contact": "Contact",
     "prendreRdv": "Prendre rendez-vous",
+    "diagnostic": "Diagnostic",
     "actualites": "Actualités",
     "actualitesDesc": "Nos publications et analyses",
     "faq": "FAQ",
@@ -354,5 +355,15 @@
       "contactTitle": "Contact",
       "contactText": "Pour toute question relative à cette politique de confidentialité, contactez {company} à {email}."
     }
+  },
+  "diagnosticPage": {
+    "meta": {
+      "title": "Diagnostic de finançabilité PME | Trust Consulting Partners",
+      "description": "Diagnostic gratuit en 5 minutes : score bancaire, simulation de prêt, plan d'action et fiche de synthèse pour les PME de la zone CEMAC et UEMOA."
+    },
+    "eyebrow": "Diagnostic gratuit",
+    "title": "Votre PME est-elle finançable ?",
+    "description": "Répondez à quelques questions et obtenez en 5 minutes votre score de finançabilité sur 100, une simulation de prêt, un plan d'action et la fiche de synthèse à présenter à votre banquier. Un expert de Trust Consulting Partners peut ensuite vous recontacter.",
+    "frameTitle": "Diagnostic de finançabilité DossierPrêt"
   }
 }
