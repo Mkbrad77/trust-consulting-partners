@@ -348,6 +348,8 @@
       "purposeText": "This data is used exclusively to respond to your contact request or request for a free flash assessment. It is never sold, transferred or leased to third parties.",
       "retentionTitle": "Data Retention",
       "retentionText": "Data submitted via the contact form is retained for as long as necessary to process your request, then archived or deleted in accordance with our professional confidentiality obligations.",
+      "toolsTitle": "Diagnostic and business plan tools",
+      "toolsText": "If you use the funding readiness diagnostic (DossierPrêt), your answers first stay in your browser. They are sent to Trust Consulting Partners only with your explicit consent, at the last step: company identity and figures, financing need and contact details. This transfer goes through Google services (Google Apps Script and Google Sheets) and by email. The business plan builder (PlanBanque) does not send anything automatically: the summary is sent only if you send it yourself from your own email client.",
       "rightsTitle": "Your Rights",
       "rightsTextBefore": "You may at any time request access to, correction of, or deletion of your personal data by contacting us at",
       "cookiesTitle": "Cookies",

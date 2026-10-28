@@ -58,6 +58,11 @@ export default async function PolitiqueConfidentialitePage({
           </div>
 
           <div>
+            <h2 className="text-lg font-semibold text-primary">{t("toolsTitle")}</h2>
+            <p className="mt-3">{t("toolsText")}</p>
+          </div>
+
+          <div>
             <h2 className="text-lg font-semibold text-primary">{t("rightsTitle")}</h2>
             <p className="mt-3">
               {t("rightsTextBefore")}{" "}

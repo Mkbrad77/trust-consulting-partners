@@ -148,7 +148,7 @@ details th{font-weight:700}
 footer{margin-top:40px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);padding-top:14px}
 @media (prefers-reduced-motion:no-preference){.meter i{transition:width .5s ease}}
 @media print{.top .by,.row.end,.row .btn,.send,.cta,details,footer,.banner,.stepper{display:none!important}body{background:#fff;color:#000}.card,.kpi,.path,.act{break-inside:avoid}}
-.embedded .top{display:none}.embedded main{padding-block:0 32px}
+.embedded .top{display:none}.embedded main{padding-block:0 32px}.embedded .hero h1,.embedded .hero .lead{display:none}
 </style>
 </head>
 <body>
@@ -252,7 +252,7 @@ function fieldHTML(f){
  const hint=f.h?`<p class="hint" id="h_${f.k}">${f.h}</p>`:"";
  let h=`<div class="field">`;
  if(f.type==="consent"){
-  h+=`<label class="choice consent" for="${f.k}"><input type="checkbox" id="${f.k}"${v==="1"?" checked":""}><span>${esc(lab)}</span></label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">`;
+  h+=`<label class="choice consent" for="${f.k}"><input type="checkbox" id="${f.k}"${v==="1"?" checked":""}><span>${esc(lab)}</span></label><p class="hint" style="margin:6px 0 0">Détails dans notre <a href="${SITE}/politique-confidentialite" target="_top">politique de confidentialité</a>.</p><input type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">`;
  }else if(f.type==="choice"){
   h+=`<fieldset id="${f.k}"><legend id="lg_${f.k}">${esc(lab)}</legend>${hint}<div class="choices">`+
    f.o.map(([val,txt])=>`<label class="choice"><input type="radio" name="${f.k}" id="${f.k}_${val}" value="${val}"${v===val?" checked":""}><span>${txt}</span></label>`).join("")+`</div></fieldset>`;
