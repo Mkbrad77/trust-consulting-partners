@@ -5,7 +5,7 @@
     "ressources": "Resources",
     "contact": "Contact",
     "prendreRdv": "Book an Appointment",
-    "diagnostic": "Funding Diagnostic",
+    "diagnostic": "Funding Test",
     "actualites": "Insights",
     "actualitesDesc": "Our publications and analyses",
     "faq": "FAQ",
@@ -38,6 +38,12 @@
       { "value": "6", "label": "areas of expertise dedicated to your performance" },
       { "value": "24h", "label": "business-day response time, emergency mobilization available" }
     ],
+    "fundingBanner": {
+      "eyebrow": "Free online diagnostic",
+      "title": "Is your company ready for financing?",
+      "description": "Answer a few questions and get, in 5 minutes, your bank-readiness score out of 100, a loan simulation and an action plan.",
+      "cta": "Test your funding readiness"
+    },
     "servicesPreview": {
       "eyebrow": "Our Areas of Expertise",
       "title": "Six practice areas dedicated to your financial performance",
@@ -349,7 +355,7 @@
       "retentionTitle": "Data Retention",
       "retentionText": "Data submitted via the contact form is retained for as long as necessary to process your request, then archived or deleted in accordance with our professional confidentiality obligations.",
       "toolsTitle": "Diagnostic and business plan tools",
-      "toolsText": "If you use the funding readiness diagnostic (DossierPrêt), your answers first stay in your browser. They are sent to Trust Consulting Partners only with your explicit consent, at the last step: company identity and figures, financing need and contact details. This transfer goes through Google services (Google Apps Script and Google Sheets) and by email. The business plan builder (PlanBanque) does not send anything automatically: the summary is sent only if you send it yourself from your own email client.",
+      "toolsText": "If you use the funding readiness diagnostic (DossierPrêt), your answers first stay in your browser and are erased there after 24 hours of inactivity. They are sent to Trust Consulting Partners only with your explicit consent, at the last step: company identity and figures, financing need and contact details. This transfer goes through Google services (Google Apps Script and Google Sheets) and by email. Diagnostics received are kept for 24 months and are accessible only to the Trust Consulting Partners team. The business plan builder (PlanBanque) does not send anything automatically: the summary is sent only if you send it yourself from your own email client, and your entries are erased from your browser after 24 hours of inactivity.",
       "rightsTitle": "Your Rights",
       "rightsTextBefore": "You may at any time request access to, correction of, or deletion of your personal data by contacting us at",
       "cookiesTitle": "Cookies",

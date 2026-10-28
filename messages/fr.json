@@ -5,7 +5,7 @@
     "ressources": "Ressources",
     "contact": "Contact",
     "prendreRdv": "Prendre rendez-vous",
-    "diagnostic": "Diagnostic",
+    "diagnostic": "Finançabilité",
     "actualites": "Actualités",
     "actualitesDesc": "Nos publications et analyses",
     "faq": "FAQ",
@@ -38,6 +38,12 @@
       { "value": "6", "label": "pôles d'expertise dédiés à votre performance" },
       { "value": "24h", "label": "délai de réponse ouvré, mobilisation en urgence" }
     ],
+    "fundingBanner": {
+      "eyebrow": "Diagnostic gratuit en ligne",
+      "title": "Votre PME est-elle finançable ?",
+      "description": "Répondez à quelques questions et obtenez en 5 minutes votre score bancaire sur 100, une simulation de prêt et un plan d'action.",
+      "cta": "Testez votre finançabilité"
+    },
     "servicesPreview": {
       "eyebrow": "Nos pôles d'expertise",
       "title": "Six pôles au service de votre performance financière",
@@ -349,7 +355,7 @@
       "retentionTitle": "Conservation des données",
       "retentionText": "Les données transmises via le formulaire de contact sont conservées le temps nécessaire au traitement de votre demande, puis archivées ou supprimées conformément à nos obligations professionnelles de confidentialité.",
       "toolsTitle": "Outils de diagnostic et de business plan",
-      "toolsText": "Si vous utilisez le diagnostic de finançabilité (DossierPrêt), vos réponses restent d'abord dans votre navigateur. Elles ne sont transmises à Trust Consulting Partners qu'avec votre accord explicite, à la dernière étape : identité et chiffres de l'entreprise, besoin de financement et coordonnées. Cette transmission passe par des services Google (Google Apps Script et Google Sheets) et par e-mail. Le générateur de business plan (PlanBanque) ne transmet rien automatiquement : la synthèse n'est envoyée que si vous l'envoyez vous-même depuis votre messagerie.",
+      "toolsText": "Si vous utilisez le diagnostic de finançabilité (DossierPrêt), vos réponses restent d'abord dans votre navigateur et y sont effacées après 24 heures d'inactivité. Elles ne sont transmises à Trust Consulting Partners qu'avec votre accord explicite, à la dernière étape : identité et chiffres de l'entreprise, besoin de financement et coordonnées. Cette transmission passe par des services Google (Google Apps Script et Google Sheets) et par e-mail. Les diagnostics reçus sont conservés 24 mois et ne sont accessibles qu'à l'équipe de Trust Consulting Partners. Le générateur de business plan (PlanBanque) ne transmet rien automatiquement : la synthèse n'est envoyée que si vous l'envoyez vous-même depuis votre messagerie, et vos saisies sont effacées de votre navigateur après 24 heures d'inactivité.",
       "rightsTitle": "Vos droits",
       "rightsTextBefore": "Vous pouvez à tout moment demander l'accès, la rectification ou la suppression de vos données personnelles en nous contactant à l'adresse",
       "cookiesTitle": "Cookies",

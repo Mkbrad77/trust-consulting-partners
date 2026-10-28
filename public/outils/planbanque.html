@@ -142,22 +142,21 @@ textarea#fallback{min-height:160px;font-family:var(--f-num);font-size:12px}
   <form id="f" autocomplete="off" onsubmit="return false">
   <!-- 1 PROJET -->
   <section class="panel" data-p="projet">
-    <span class="sample">Projet d'exemple : boulangerie à Douala · remplacez par le vôtre</span>
     <h2>Le projet</h2>
     <div class="grid2">
-      <label>Nom du projet / de l'entreprise<input id="nom" value="Pain Doré Bonamoussadi"></label>
+      <label>Nom du projet / de l'entreprise<input id="nom" placeholder="Nom de votre projet ou de votre entreprise"></label>
       <label>Forme juridique<select id="forme"><option>SARL</option><option>SARLU</option><option>SA</option><option>SAS</option><option>Entreprise individuelle</option><option>GIC / Coopérative</option></select></label>
-      <label>Secteur d'activité<input id="secteur" value="Boulangerie-pâtisserie"></label>
-      <label>Ville d'implantation<input id="ville" value="Douala"></label>
-      <label>Promoteur<input id="promoteur" value="M. Jean Ngando"></label>
-      <label>Expérience du promoteur<input id="exp" value="12 ans en boulangerie industrielle, dont 5 comme chef de production"></label>
+      <label>Secteur d'activité<input id="secteur" placeholder="Ex. : boulangerie-pâtisserie, transport, agro-transformation"></label>
+      <label>Ville d'implantation<input id="ville" placeholder="Ex. : Douala"></label>
+      <label>Promoteur<input id="promoteur" placeholder="Prénom et nom du dirigeant"></label>
+      <label>Expérience du promoteur<input id="exp" placeholder="Parcours et années d'expérience dans ce métier"></label>
     </div>
-    <label>Description du projet<textarea id="desc">Création d'une boulangerie-pâtisserie moderne à Bonamoussadi, avec un four à sole et un laboratoire de pâtisserie, produisant pain, viennoiseries et gâteaux pour les ménages, les snacks et les hôtels du quartier.</textarea></label>
+    <label>Description du projet<textarea id="desc" placeholder="Que produisez-vous ou vendez-vous, à qui, où et avec quels moyens ?"></textarea></label>
     <div class="grid2">
-      <label>Clients cibles<textarea id="cibles">Ménages à revenus moyens de Bonamoussadi, Kotto et Makepe ; snacks, restaurants et deux hôtels de proximité livrés chaque matin.</textarea></label>
-      <label>Concurrence<textarea id="concu">Trois boulangeries artisanales à moins de 2 km, de capacité limitée, et des dépôts de pain industriel sans offre pâtisserie.</textarea></label>
+      <label>Clients cibles<textarea id="cibles" placeholder="Qui sont vos clients ?"></textarea></label>
+      <label>Concurrence<textarea id="concu" placeholder="Qui sont vos concurrents directs ? En quoi êtes-vous meilleur ou différent ?"></textarea></label>
     </div>
-    <label>Avantage concurrentiel<textarea id="avantage">Qualité constante grâce au four à sole, gamme pâtisserie absente du quartier, livraison matinale des professionnels et paiement mobile money.</textarea></label>
+    <label>Avantage concurrentiel<textarea id="avantage" placeholder="Qu'est-ce qui vous rendra préférable aux yeux de vos clients ?"></textarea></label>
     <div class="nav"><span></span><button type="button" class="btn primary" data-go="invest">Investissement →</button></div>
   </section>
 
@@ -167,18 +166,18 @@ textarea#fallback{min-height:160px;font-family:var(--f-num);font-size:12px}
     <div class="box" id="invBox">
       <h3>Programme d'investissement</h3>
       <div class="inv-row"><span class="lbl">Terrain</span><label>Montant<span class="u"><input type="number" min="0" id="i_terrain" value="0"><em>FCFA</em></span></label><label>Durée<span class="u"><input type="number" id="d_terrain" value="0" disabled><em>ans</em></span></label></div>
-      <div class="inv-row"><span class="lbl">Bâtiment et aménagements</span><label>Montant<span class="u"><input type="number" min="0" id="i_bat" value="25000000"><em>FCFA</em></span></label><label>Durée<span class="u"><input type="number" min="1" id="d_bat" value="10"><em>ans</em></span></label></div>
-      <div class="inv-row"><span class="lbl">Équipements de production</span><label>Montant<span class="u"><input type="number" min="0" id="i_equip" value="60000000"><em>FCFA</em></span></label><label>Durée<span class="u"><input type="number" min="1" id="d_equip" value="7"><em>ans</em></span></label></div>
-      <div class="inv-row"><span class="lbl">Matériel roulant</span><label>Montant<span class="u"><input type="number" min="0" id="i_roul" value="18000000"><em>FCFA</em></span></label><label>Durée<span class="u"><input type="number" min="1" id="d_roul" value="4"><em>ans</em></span></label></div>
-      <div class="inv-row"><span class="lbl">Matériel informatique et bureau</span><label>Montant<span class="u"><input type="number" min="0" id="i_info" value="3000000"><em>FCFA</em></span></label><label>Durée<span class="u"><input type="number" min="1" id="d_info" value="3"><em>ans</em></span></label></div>
-      <div class="inv-row"><span class="lbl">Frais d'établissement</span><label>Montant<span class="u"><input type="number" min="0" id="i_frais" value="4000000"><em>FCFA</em></span></label><label>Durée<span class="u"><input type="number" min="1" id="d_frais" value="2"><em>ans</em></span></label></div>
-      <div class="inv-row"><span class="lbl">Besoin en fonds de roulement initial</span><label>Montant<span class="u"><input type="number" min="0" id="bfr" value="10000000"><em>FCFA</em></span></label><span class="hint" style="padding-bottom:9px">stocks + crédit client</span></div>
+      <div class="inv-row"><span class="lbl">Bâtiment et aménagements</span><label>Montant<span class="u"><input type="number" min="0" id="i_bat" placeholder="0"><em>FCFA</em></span></label><label>Durée<span class="u"><input type="number" min="1" id="d_bat" value="10"><em>ans</em></span></label></div>
+      <div class="inv-row"><span class="lbl">Équipements de production</span><label>Montant<span class="u"><input type="number" min="0" id="i_equip" placeholder="0"><em>FCFA</em></span></label><label>Durée<span class="u"><input type="number" min="1" id="d_equip" value="7"><em>ans</em></span></label></div>
+      <div class="inv-row"><span class="lbl">Matériel roulant</span><label>Montant<span class="u"><input type="number" min="0" id="i_roul" placeholder="0"><em>FCFA</em></span></label><label>Durée<span class="u"><input type="number" min="1" id="d_roul" value="4"><em>ans</em></span></label></div>
+      <div class="inv-row"><span class="lbl">Matériel informatique et bureau</span><label>Montant<span class="u"><input type="number" min="0" id="i_info" placeholder="0"><em>FCFA</em></span></label><label>Durée<span class="u"><input type="number" min="1" id="d_info" value="3"><em>ans</em></span></label></div>
+      <div class="inv-row"><span class="lbl">Frais d'établissement</span><label>Montant<span class="u"><input type="number" min="0" id="i_frais" placeholder="0"><em>FCFA</em></span></label><label>Durée<span class="u"><input type="number" min="1" id="d_frais" value="2"><em>ans</em></span></label></div>
+      <div class="inv-row"><span class="lbl">Besoin en fonds de roulement initial</span><label>Montant<span class="u"><input type="number" min="0" id="bfr" placeholder="0"><em>FCFA</em></span></label><span class="hint" style="padding-bottom:9px">stocks + crédit client</span></div>
       <div class="calc strong"><span>Besoin de financement total</span><span id="cBesoin">—</span></div>
     </div>
     <div class="box">
       <h3>Plan de financement</h3>
       <div class="grid2">
-        <label>Apport des associés<span class="u"><input type="number" min="0" id="apport" value="36000000"><em>FCFA</em></span></label>
+        <label>Apport des associés<span class="u"><input type="number" min="0" id="apport" placeholder="0"><em>FCFA</em></span></label>
         <label>Subvention ou quasi-fonds propres<span class="u"><input type="number" min="0" id="subv" value="0"><em>FCFA</em></span></label>
       </div>
       <div class="calc"><span>Prêt bancaire à solliciter</span><span id="cPret">—</span></div>
@@ -198,22 +197,22 @@ textarea#fallback{min-height:160px;font-family:var(--f-num);font-size:12px}
     <div class="box">
       <h3>Activité</h3>
       <div class="grid3">
-        <label>Chiffre d'affaires an 1<span class="u"><input type="number" min="0" id="ca" value="160000000"><em>FCFA</em></span></label>
-        <label>Croissance annuelle du CA<span class="u"><input type="number" step="0.5" id="crois" value="12"><em>%</em></span></label>
-        <label>Achats et coûts variables<span class="u"><input type="number" step="0.5" min="0" max="100" id="cv" value="45"><em>% CA</em></span></label>
+        <label>Chiffre d'affaires an 1<span class="u"><input type="number" min="0" id="ca" placeholder="0"><em>FCFA</em></span></label>
+        <label>Croissance annuelle du CA<span class="u"><input type="number" step="0.5" id="crois" placeholder="0"><em>%</em></span></label>
+        <label>Achats et coûts variables<span class="u"><input type="number" step="0.5" min="0" max="100" id="cv" placeholder="0"><em>% CA</em></span></label>
       </div>
       <p class="hint">Justifiez le CA an 1 dans le plan : capacité de production, prix moyen, volumes par jour, nombre de clients.</p>
     </div>
     <div class="box">
       <h3>Charges fixes annuelles</h3>
       <div class="grid3">
-        <label>Salaires bruts<span class="u"><input type="number" min="0" id="sal" value="24000000"><em>FCFA</em></span></label>
+        <label>Salaires bruts<span class="u"><input type="number" min="0" id="sal" placeholder="0"><em>FCFA</em></span></label>
         <label>Charges sociales patronales<span class="u"><input type="number" step="0.1" min="0" id="cs" value="17.5"><em>%</em></span></label>
-        <label>Effectif<span class="u"><input type="number" min="0" id="eff" value="12"><em>pers.</em></span></label>
-        <label>Loyer<span class="u"><input type="number" min="0" id="loyer" value="6000000"><em>FCFA</em></span></label>
-        <label>Énergie, eau, télécoms<span class="u"><input type="number" min="0" id="energie" value="9000000"><em>FCFA</em></span></label>
-        <label>Marketing et commercial<span class="u"><input type="number" min="0" id="mkt" value="3000000"><em>FCFA</em></span></label>
-        <label>Autres charges fixes<span class="u"><input type="number" min="0" id="autres" value="4000000"><em>FCFA</em></span></label>
+        <label>Effectif<span class="u"><input type="number" min="0" id="eff" placeholder="0"><em>pers.</em></span></label>
+        <label>Loyer<span class="u"><input type="number" min="0" id="loyer" placeholder="0"><em>FCFA</em></span></label>
+        <label>Énergie, eau, télécoms<span class="u"><input type="number" min="0" id="energie" placeholder="0"><em>FCFA</em></span></label>
+        <label>Marketing et commercial<span class="u"><input type="number" min="0" id="mkt" placeholder="0"><em>FCFA</em></span></label>
+        <label>Autres charges fixes<span class="u"><input type="number" min="0" id="autres" placeholder="0"><em>FCFA</em></span></label>
         <label>Hausse annuelle des charges fixes<span class="u"><input type="number" step="0.5" id="infl" value="3"><em>%</em></span></label>
         <label>Impôt sur les sociétés<span class="u"><input type="number" step="0.5" min="0" id="is" value="33"><em>%</em></span></label>
       </div>
@@ -255,8 +254,8 @@ textarea#fallback{min-height:160px;font-family:var(--f-num);font-size:12px}
     <textarea id="fallback" hidden readonly aria-label="Texte du business plan à sélectionner"></textarea>
     <article class="doc" id="doc"></article>
     <div class="send">
-      <h3>Transmettre mon business plan à un expert</h3>
-      <p class="hint">Trust Consulting Partners vous répond sous 48 heures avec ses remarques sur vos hypothèses et vos ratios. Votre messagerie s'ouvre avec la synthèse déjà rédigée.</p>
+      <h3>Transmettre ma synthèse à un expert</h3>
+      <p class="hint">Trust Consulting Partners vous répond sous 48 heures avec ses remarques sur vos hypothèses et vos ratios. Votre messagerie s'ouvre avec la synthèse déjà rédigée : le business plan complet n'est pas envoyé.</p>
       <div class="grid3">
         <label>Votre nom<input id="cNom" autocomplete="name"></label>
         <label>Téléphone / WhatsApp<input id="cTel" autocomplete="tel" inputmode="tel"></label>
@@ -264,7 +263,7 @@ textarea#fallback{min-height:160px;font-family:var(--f-num);font-size:12px}
       </div>
       <div class="nav" style="justify-content:flex-start"><a class="btn primary" id="sendMail" href="#" target="_blank" rel="noopener">Envoyer par e-mail</a><button type="button" class="btn" id="copySend">Copier la synthèse</button></div>
       <div class="toast" id="toast3"></div>
-      <p class="hint">Si votre messagerie ne s'ouvre pas, copiez la synthèse et envoyez-la à <span class="mail">takouro@yahoo.fr</span>, en joignant le business plan copié plus haut.</p>
+      <p class="hint">Si votre messagerie ne s'ouvre pas, copiez la synthèse et envoyez-la à <span class="mail">info@trust-consulting-partners.com</span>.</p>
     </div>
     <div class="cta">
       <h3>Faire relire votre dossier avant la banque</h3>
@@ -283,11 +282,12 @@ const v=id=>{const x=parseFloat($(id).value);return isFinite(x)?x:0};
 const M=x=>(x/1e6).toLocaleString('fr-FR',{minimumFractionDigits:1,maximumFractionDigits:1}).replace(/ | /g,' ');
 const F=x=>Math.round(x).toLocaleString('fr-FR').replace(/ | /g,' ')+' FCFA';
 const P=x=>(x*100).toLocaleString('fr-FR',{maximumFractionDigits:1})+' %';
-const KEY='planbanque-v1';
+const KEY='planbanque-v2';
+try{if(Date.now()-(+localStorage.getItem('pb-t')||0)>864e5){[KEY,'planbanque-v1','pb-cNom','pb-cTel','pb-cMail','pb-t'].forEach(k=>localStorage.removeItem(k))}}catch(e){}
 const fields=[...document.querySelectorAll('#f input,#f select,#f textarea')];
 const DEF={};fields.forEach(e=>DEF[e.id]=e.value);
 try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s)Object.entries(s).forEach(([k,x])=>{if($(k))$(k).value=x})}catch(e){}
-const save=()=>{try{const o={};fields.forEach(e=>o[e.id]=e.value);localStorage.setItem(KEY,JSON.stringify(o))}catch(e){}};
+const save=()=>{try{const o={};fields.forEach(e=>o[e.id]=e.value);localStorage.setItem(KEY,JSON.stringify(o));localStorage.setItem('pb-t',String(Date.now()))}catch(e){}};
 
 const INV=[['terrain','Terrain'],['bat','Bâtiment et aménagements'],['equip','Équipements de production'],['roul','Matériel roulant'],['info','Matériel informatique et bureau'],['frais',"Frais d'établissement"]];
 const Y=[1,2,3,4,5];
@@ -313,7 +313,7 @@ function model(){
     const ca=ca1*Math.pow(1+g,y-1), cvx=ca*cvr, mb=ca-cvx, fixe=fixe1*Math.pow(1+inf,y-1), ebe=mb-fixe;
     const dot=inv.reduce((s,i)=>s+(i.d&&y<=i.d?i.m/i.d:0),0);
     const rex=ebe-dot, int=sched[y-1].int, rai=rex-int, is=Math.max(0,rai)*isr, rn=rai-is, caf=rn+dot;
-    const dbfr=y===1?0:bfr0*(ca-prevCA)/ca1; prevCA=ca;
+    const dbfr=y===1||ca1===0?0:bfr0*(ca-prevCA)/ca1; prevCA=ca;
     const cap=sched[y-1].cap;
     cash+=caf-cap-dbfr;
     const ds=int+cap, dscr=ds>0?(ebe-is)/ds:null;
@@ -326,10 +326,10 @@ function model(){
   const dscrs=rows.map(x=>x.dscr).filter(x=>x!==null), dscrMin=dscrs.length?Math.min(...dscrs):null;
   const autonomie=besoin>0?(apport+subv)/besoin:0;
   // TRI projet
-  const flows=[-besoin,...rows.map((x,i)=>x.rn+x.dot+x.int*(1-isr)-x.dbfr+(i===4?bfr0*x.ca/ca1+inv.reduce((s,iv)=>s+(iv.d===0?iv.m:Math.max(0,iv.m-iv.m/iv.d*5)),0):0))];
+  const flows=[-besoin,...rows.map((x,i)=>x.rn+x.dot+x.int*(1-isr)-x.dbfr+(i===4?(ca1>0?bfr0*x.ca/ca1:0)+inv.reduce((s,iv)=>s+(iv.d===0?iv.m:Math.max(0,iv.m-iv.m/iv.d*5)),0):0))];
   const npv=t=>flows.reduce((s,f,i)=>s+f/Math.pow(1+t,i),0);
   let tri=null;if(npv(-0.99)>0&&npv(5)<0){let lo=-0.99,hi=5;for(let k=0;k<80;k++){const m=(lo+hi)/2;npv(m)>0?lo=m:hi=m}tri=(lo+hi)/2}
-  let payback=null;{let c=0;for(const x of rows){const prev=c;c+=x.caf;if(c>=besoin&&payback===null){payback=x.y-1+(besoin-prev)/x.caf}}}
+  let payback=null;{let c=0;for(const x of rows){const prev=c;c+=x.caf;if(besoin>0&&c>=besoin&&payback===null){payback=x.y-1+(besoin-prev)/x.caf}}}
   const firstPos=rows.find(x=>x.rn>0);
   const checks=[
     {ok:autonomie>=0.3,t:'Apport personnel suffisant',d:`Apport et subvention : ${P(autonomie)} du besoin. Les banques attendent en général 30 % ou plus.`},
@@ -339,7 +339,7 @@ function model(){
     {ok:sr<ca1,t:'Point mort atteint dès l\'an 1',d:isFinite(sr)?`Seuil de rentabilité : ${F(sr)}, atteint en ${pm.toFixed(1).replace('.',',')} mois d'activité.`:'Marge sur coûts variables nulle : seuil impossible à atteindre.'},
     {ok:tri!==null&&tri>r,t:'Rentabilité supérieure au coût du crédit',d:tri!==null?`TRI du projet ${P(tri)} contre un taux de prêt de ${P(r)}.`:'TRI non calculable sur ces hypothèses.'}
   ];
-  return {inv,immo,bfr0,besoin,apport,subv,pret,r,n,dif,ann,sched,rows,sr,pm,dscrMin,autonomie,tri,payback,checks,ca1,cvr,fixe1,isr};
+  return {inv,immo,bfr0,besoin,apport,subv,pret,r,n,dif,ann,sched,rows,sr,pm,dscrMin,autonomie,tri,payback,checks,ca1,cvr,fixe1,isr,empty:ca1===0||besoin===0};
 }
 
 function table(id,head,lines){
@@ -380,8 +380,22 @@ function planText(m){
 }
 
 let M_={};
+const MSG_VIDE='Complétez d\'abord les onglets Projet, Investissement et Exploitation.';
+function renderEmpty(m){
+  $('cBesoin').textContent=F(m.besoin);$('cPret').textContent=F(m.pret);
+  $('ringArc').setAttribute('stroke-dasharray','0 120');$('ringTxt').textContent='–';
+  $('verdict').textContent='À compléter';
+  $('kBesoin').textContent=M(m.besoin)+' M';$('kPret').textContent=M(m.pret)+' M';$('kDscr').textContent='—';$('kRn3').textContent='—';
+  const msg='<p class="hint">Renseignez les investissements (onglet Investissement) et le chiffre d\'affaires (onglet Exploitation) pour voir les prévisionnels.</p>';
+  $('checks').innerHTML=msg;$('ratios').innerHTML='';
+  ['tCR','tTR','tEM'].forEach(id=>$(id).innerHTML='');
+  $('chart').innerHTML='';$('doc').innerHTML=msg;
+  save();
+  if(typeof updMail==='function')updMail();
+}
 function render(){
   const m=model();M_=m;
+  if(m.empty){renderEmpty(m);return}
   $('cBesoin').textContent=F(m.besoin);$('cPret').textContent=F(m.pret);
   const ok=m.checks.filter(c=>c.ok).length;
   $('ringArc').setAttribute('stroke-dasharray',`${(ok/6*119.4).toFixed(1)} 120`);
@@ -413,7 +427,7 @@ function copy(txt,toast){
   const fb=()=>{const t=$('fallback');t.hidden=false;t.value=txt;t.focus();t.select();done('Copie bloquée ici : le texte est sélectionné ci-dessous, copiez-le manuellement.')};
   try{navigator.clipboard.writeText(txt).then(()=>done('Copié dans le presse-papiers.'),fb)}catch(e){fb()}
 }
-$('copyPlan').onclick=()=>{const S=planText(M_);copy(`BUSINESS PLAN – ${$('nom').value}\n${$('secteur').value} · ${$('ville').value}\n\n`+S.map(([h,t])=>h+'\n'+t).join('\n\n'),'toast2')};
+$('copyPlan').onclick=()=>{if(M_.empty){$('toast2').textContent=MSG_VIDE;setTimeout(()=>$('toast2').textContent='',3500);return}const S=planText(M_);copy(`BUSINESS PLAN – ${$('nom').value}\n${$('secteur').value} · ${$('ville').value}\n\n`+S.map(([h,t])=>h+'\n'+t).join('\n\n'),'toast2')};
 $('copyTables').onclick=()=>{
   const tsv=['tCR','tTR','tEM'].map(id=>[...$(id).rows].map(r=>[...r.cells].map(c=>c.textContent).join('\t')).join('\n')).join('\n\n');
   copy('Montants en millions de FCFA\n'+tsv,'toast1')};
@@ -442,10 +456,11 @@ ${m.checks.map(c=>(c.ok?'[OK] ':'[À REVOIR] ')+c.t).join('\n')}`;
 }
 function updMail(){
   const subj=`Business plan PlanBanque – ${$('nom').value.trim()||'PME'} – prêt de ${M(M_.pret)} M FCFA`;
-  $('sendMail').href='mailto:takouro@yahoo.fr?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent('Bonjour,\n\nJe souhaite un retour sur mon business plan.\n\n'+synthese());
+  $('sendMail').href='mailto:info@trust-consulting-partners.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent('Bonjour,\n\nJe souhaite un retour sur mon business plan.\n\n'+synthese());
 }
-['cNom','cTel','cMail'].forEach(id=>{try{$(id).value=localStorage.getItem('pb-'+id)||''}catch(e){};$(id).addEventListener('input',()=>{try{localStorage.setItem('pb-'+id,$(id).value)}catch(e){};updMail()})});
-$('copySend').onclick=()=>copy(synthese(),'toast3');
+['cNom','cTel','cMail'].forEach(id=>{try{$(id).value=localStorage.getItem('pb-'+id)||''}catch(e){};$(id).addEventListener('input',()=>{try{localStorage.setItem('pb-'+id,$(id).value);localStorage.setItem('pb-t',String(Date.now()))}catch(e){};updMail()})});
+$('copySend').onclick=()=>{if(M_.empty){$('toast3').textContent=MSG_VIDE;setTimeout(()=>$('toast3').textContent='',3500);return}copy(synthese(),'toast3')};
+$('sendMail').addEventListener('click',e=>{if(M_.empty){e.preventDefault();$('toast3').textContent=MSG_VIDE;setTimeout(()=>$('toast3').textContent='',3500)}});
 $('sendMail').addEventListener('click',()=>{updMail();$('toast3').textContent="Votre messagerie devrait s'ouvrir. Sinon, utilisez « Copier la synthèse »."});
 $('resetBtn').onclick=()=>{Object.entries(DEF).forEach(([k,x])=>$(k).value=x);render()};
 

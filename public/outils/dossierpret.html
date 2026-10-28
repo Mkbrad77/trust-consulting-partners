@@ -172,7 +172,7 @@ footer{margin-top:40px;color:var(--muted);font-size:.85rem;border-top:1px solid 
    <div class="get"><h3>Dossier prêt à déposer</h3><p class="hint">Plan d'action, pièces à réunir et fiche de synthèse pour le banquier.</p></div>
   </div>
   <div class="card preview" id="preview"></div>
-  <p class="hint" style="margin-top:16px">Vos réponses sont transmises à Trust Consulting Partners uniquement avec votre accord, à la dernière étape. Le score est indicatif et ne constitue pas une décision de crédit.</p>
+  <p class="hint" style="margin-top:16px">Vos réponses sont transmises à Trust Consulting Partners uniquement avec votre accord, à la dernière étape ; elles ne sont gardées sur votre appareil que 24 heures. Le score est indicatif et ne constitue pas une décision de crédit.</p>
  </section>
 
  <section id="quiz" hidden>
@@ -189,10 +189,11 @@ footer{margin-top:40px;color:var(--muted);font-size:.85rem;border-top:1px solid 
 /* ===== CONFIGURATION =====
    Collez ici l'URL de votre application Web Google Apps Script (se termine par /exec). */
 const ENDPOINT="COLLER_ICI_L_URL_APPS_SCRIPT";
-const MAIL="takouro@yahoo.fr";
+const MAIL="info@trust-consulting-partners.com";
+const LANG="fr";
 const SITE=new URLSearchParams(location.search).get("lang")==="en"?"/en":"";
 /* ========================= */
-const PAYS={"Cameroun":["CEMAC","NIU"],"Gabon":["CEMAC","NIF"],"Congo":["CEMAC","NIU"],"Tchad":["CEMAC","NIF"],"Guinée équatoriale":["CEMAC","NIF"],"Centrafrique":["CEMAC","NIF"],"Côte d'Ivoire":["UEMOA","NCC"],"Sénégal":["UEMOA","NINEA"],"Bénin":["UEMOA","IFU"],"Burkina Faso":["UEMOA","IFU"],"Togo":["UEMOA","NIF"],"Mali":["UEMOA","NIF"],"Niger":["UEMOA","NIF"]};
+const PAYS={"Cameroun":["CEMAC","NIU"],"Gabon":["CEMAC","NIF"],"Congo-Brazzaville":["CEMAC","NIU"],"Tchad":["CEMAC","NIF"],"Guinée équatoriale":["CEMAC","NIF"],"Centrafrique":["CEMAC","NIF"],"Côte d'Ivoire":["UEMOA","NCC"],"Sénégal":["UEMOA","NINEA"],"Bénin":["UEMOA","IFU"],"Burkina Faso":["UEMOA","IFU"],"Togo":["UEMOA","NIF"],"Mali":["UEMOA","NIF"],"Niger":["UEMOA","NIF"],"Guinée-Bissau":["UEMOA","NIF"]};
 const idf=()=>(PAYS[A.pays]||["","identifiant fiscal"])[1];
 
 const STEPS=[
@@ -214,7 +215,7 @@ const STEPS=[
   {k:"besoin",l:"Montant du prêt sollicité",type:"money",min:1},
   {k:"objet",l:"Objet du financement",type:"select",o:["Fonds de roulement","Achat d'équipement","Extension de l'activité","Démarrage d'un projet","Autre"]},
   {k:"duree",l:"Durée de remboursement souhaitée",type:"select",o:[["12","12 mois"],["24","24 mois"],["36","36 mois"],["48","48 mois"],["60","5 ans"],["84","7 ans"]]},
-  {k:"taux",l:"Taux d'intérêt annuel estimé",type:"rate",h:"12 % par défaut. Remplacez-le par le taux proposé par votre banque si vous le connaissez."},
+  {k:"taux",l:"Taux d'intérêt annuel estimé",type:"rate",h:"12 % par défaut. Remplacez-le par le taux proposé par votre banque si vous le connaissez. Le taux effectif global ne peut pas dépasser le taux d'usure fixé par la banque centrale."},
   {k:"apport",l:"Apport personnel investi dans le projet",type:"money",h:"Indiquez 0 si aucun."}]},
  {t:"Banque et garanties",d:"Historique bancaire et sûretés proposées",f:[
   {k:"relation",l:"Relation avec votre banque",type:"choice",o:[["0","Pas de compte professionnel"],["1","Compte ouvert depuis moins d'un an"],["2","Compte actif depuis plus d'un an, flux réguliers"]]},
@@ -222,12 +223,12 @@ const STEPS=[
   {k:"garantie",l:"Meilleure garantie que vous pouvez offrir",type:"choice",o:[["0","Aucune"],["1","Caution personnelle"],["2","Nantissement de matériel, stock ou fonds de commerce"],["3","Hypothèque sur titre foncier"]]},
   {k:"plan",l:"Plan d'affaires avec prévisions de trésorerie",type:"choice",o:[["0","Non"],["1","Oui"]]},
   {k:"releves",l:"Relevés bancaires des 6 derniers mois",type:"choice",o:[["0","Non disponibles"],["1","Disponibles"]]}]},
- {t:"Coordonnées",d:"Où recevoir l'avis d'un expert",f:[
-  {k:"contact",l:"Nom et prénom",type:"text",ac:"name",ph:"Ex. : Marie Ngo"},
+ {t:"Coordonnées",d:"Facultatif : recevoir l'avis d'un expert sous 48 heures",f:[
+  {k:"contact",l:"Nom et prénom",type:"text",opt:1,ac:"name",ph:"Ex. : Marie Ngo"},
   {k:"fonction",l:"Fonction",type:"text",opt:1,ac:"organization-title",ph:"Ex. : Gérante"},
-  {k:"tel",l:"Téléphone (WhatsApp de préférence)",type:"text",ac:"tel",im:"tel",ph:"+237 6XX XX XX XX"},
+  {k:"tel",l:"Téléphone (WhatsApp de préférence)",type:"text",opt:1,ac:"tel",im:"tel",ph:"+237 6XX XX XX XX"},
   {k:"email",l:"Adresse e-mail",type:"text",opt:1,ac:"email",im:"email",ph:"nom@entreprise.com"},
-  {k:"consent",l:"J'accepte que mes réponses et mes coordonnées soient transmises à Trust Consulting Partners, qui les utilise uniquement pour analyser ma demande et me recontacter.",type:"consent"}]}
+  {k:"consent",l:"J'accepte que mes réponses et mes coordonnées soient transmises à Trust Consulting Partners, qui les utilise uniquement pour analyser ma demande et me recontacter.",type:"consent",opt:1}]}
 ];
 
 const EX={nom:"Boulangerie Les Délices SARL",pays:"Cameroun",secteur:"Agriculture et agro-transformation",forme:"SARL / SARLU",age:"2",formel:"2",attest:"1",ca:"96000000",ca1:"84000000",charges:"81000000",dettes:"3600000",compta:"2",besoin:"25000000",objet:"Achat d'équipement",duree:"48",taux:"12",apport:"6000000",relation:"2",incid:"2",garantie:"2",plan:"1",releves:"1"};
@@ -242,8 +243,8 @@ const fcfa=n=>grp(n)+" FCFA";
 const pc=x=>Math.round(x*100)+" %";
 const dec=(x,d)=>x.toFixed(d).replace(".",",");
 const rate=a=>(parseFloat(String(a.taux??"12").replace(",","."))||0);
-function save(){if(demo)return;try{localStorage.setItem(KEY,JSON.stringify({A,cur}))}catch(e){}}
-function load(){try{return JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){return null}}
+function save(){if(demo)return;try{const{consent,website,...rest}=A;localStorage.setItem(KEY,JSON.stringify({A:rest,cur,t:Date.now()}))}catch(e){}}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s&&(!s.t||Date.now()-s.t>864e5)){localStorage.removeItem(KEY);return null}return s}catch(e){return null}}
 function show(id){["intro","quiz","result"].forEach(s=>$(s).hidden=s!==id);window.scrollTo(0,0)}
 
 /* ---------- Questionnaire ---------- */
@@ -273,11 +274,13 @@ function read(f){
 }
 function collect(){STEPS[cur].f.forEach(f=>A[f.k]=read(f));if($("website"))A.website=$("website").value}
 function validate(){
- let first=null;
+ let first=null;const cons=A.consent==="1",wants=!!(A.contact||A.tel||A.email);
  STEPS[cur].f.forEach(f=>{
   const v=A[f.k];let m="";
-  if(v===""&&!f.opt)m=f.type==="consent"?"Votre accord est nécessaire pour transmettre le diagnostic.":f.type==="choice"||f.type==="select"?"Choisissez une réponse.":f.type==="text"?"Renseignez ce champ.":"Renseignez ce montant.";
-  else if(f.k==="tel"&&v.replace(/\D/g,"").length<8)m="Indiquez un numéro de téléphone complet.";
+  if(f.k==="consent"&&wants&&!cons)m="Cochez cette case pour transmettre vos coordonnées, ou laissez les champs vides.";
+  else if(cons&&v===""&&(f.k==="contact"||f.k==="tel"))m=f.k==="tel"?"Indiquez votre numéro pour être recontacté.":"Indiquez votre nom pour être recontacté.";
+  else if(v===""&&!f.opt)m=f.type==="consent"?"Votre accord est nécessaire pour transmettre le diagnostic.":f.type==="choice"||f.type==="select"?"Choisissez une réponse.":f.type==="text"?"Renseignez ce champ.":"Renseignez ce montant.";
+  else if(f.k==="tel"&&v&&v.replace(/\D/g,"").length<8)m="Indiquez un numéro de téléphone complet.";
   else if(f.k==="email"&&v&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))m="Cette adresse e-mail n'est pas valide.";
   else if(f.min&&num(v)<f.min)m="Indiquez un montant supérieur à 0.";
   else if(f.type==="rate"){const r=rate(A);if(!(r>0&&r<=30))m="Indiquez un taux entre 0,5 et 30 %."}
@@ -408,9 +411,10 @@ function result(){
  const D=docs(a,R);
  h+=`<div class="sec"><div class="row" style="justify-content:space-between;margin-bottom:10px"><h3>Pièces à réunir</h3><span class="progress" id="dprog">0/${D.length} prêtes</span></div><div class="card docs" id="docs">${D.map((d,i)=>`<label for="doc${i}"><input type="checkbox" id="doc${i}"><span>${esc(d)}</span></label>`).join("")}</div></div>`;
  h+=`<div class="sec"><div class="row" style="justify-content:space-between;margin-bottom:10px"><h3>Fiche de synthèse pour le banquier</h3><button class="btn sm" id="copy" type="button">Copier la fiche</button></div><pre id="sum"></pre></div>`;
- h+=demo?"":`<div class="sec card send" id="sendbox" aria-live="polite"><h3 id="sendt">Transmission de votre diagnostic…</h3><p class="hint" id="sendp" style="margin-top:6px">Votre fiche est envoyée à nos experts.</p><div id="sendx"></div></div>`;
+ h+=demo?"":a.consent!=="1"?unsentBox(a,R):`<div class="sec card send" id="sendbox" aria-live="polite"><h3 id="sendt">Transmission de votre diagnostic…</h3><p class="hint" id="sendp" style="margin-top:6px">Votre fiche est envoyée à nos experts.</p><div id="sendx"></div></div>`;
  h+=`<div class="sec cta"><p class="eyebrow" style="color:var(--bg);opacity:.75">Accompagnement</p><h3>Faites monter votre dossier par des experts financiers</h3><p>Trust Consulting Partners prépare vos états financiers SYSCOHADA, votre plan d'affaires et vos prévisions de trésorerie, structure les garanties et vous accompagne jusqu'à la négociation avec la banque. Bureaux à Douala, Yaoundé et Abidjan.</p>
  <div class="contacts">${[["Téléphone Cameroun","+237 677 59 25 82"],["Téléphone Cameroun","+237 677 03 57 06"],["Téléphone Côte d'Ivoire","+225 07 13 27 40 05"],["E-mail","info@trust-consulting-partners.com"]].map(([k,v])=>`<div class="contact"><div><div style="font-size:.82rem;opacity:.75">${k}</div><span>${v}</span></div><button class="btn sm cp" type="button" data-v="${v}">Copier</button></div>`).join("")}</div>
+ <p style="margin-top:14px"><a class="btn sm" style="background:#fff;color:#0f2238;border-color:#fff" href="https://wa.me/237677592582?text=${encodeURIComponent("Bonjour, je viens de faire le diagnostic DossierPrêt sur votre site (score "+R.tot+"/100). J'aimerais échanger avec un expert.")}" target="_blank" rel="noopener">Écrire sur WhatsApp</a></p>
  <p><a href="https://www.trust-consulting-partners.com" target="_blank" rel="noopener">www.trust-consulting-partners.com</a></p></div>`;
  h+=`<div class="sec"><details><summary>Comment le score est calculé</summary><p class="hint" style="margin-top:8px">Neuf critères inspirés de l'analyse crédit bancaire. Le résultat d'exploitation est approché par chiffre d'affaires moins charges d'exploitation ; les échéances sont calculées en mensualités constantes.</p><div class="tbl"><table><tr><th>Critère</th><th>Points</th><th>Référence</th></tr>
  <tr><td>Capacité de remboursement</td><td class="num">20</td><td>Résultat ÷ échéances annuelles ; plein score à 1,5</td></tr>
@@ -430,7 +434,7 @@ function result(){
  const sel=(node,btn)=>{if(!node)return;const r=document.createRange();r.selectNodeContents(node);getSelection().removeAllRanges();getSelection().addRange(r);btn.textContent="Texte sélectionné"};
  $("copy").onclick=e=>copy($("sum").textContent,e.currentTarget,"Fiche copiée",$("sum"));
  $("print").onclick=()=>window.print();
- if(!demo)transmit(a,R);
+ if(!demo&&a.consent==="1")transmit(a,R);
  document.querySelectorAll(".cp").forEach(b=>b.onclick=()=>copy(b.dataset.v,b,"Copié",b.previousElementSibling.querySelector("span")));
  $("redo").onclick=()=>{if(demo){demo=false;A={taux:"12",duree:"36"}}cur=0;render();show("quiz")};
  $("reset").onclick=()=>{demo=false;A={taux:"12",duree:"36"};cur=0;try{localStorage.removeItem(KEY)}catch(e){}render();show("quiz")};
@@ -438,6 +442,11 @@ function result(){
 }
 
 /* ---------- Transmission ---------- */
+function unsentBox(a,R){
+ const subj="Diagnostic DossierPrêt – "+(a.nom||"PME")+" – "+R.tot+"/100";
+ const body="Bonjour,\n\nVoici le diagnostic de financement de mon entreprise.\n\nNom du contact :\nTéléphone :\n\n"+synth(a,R);
+ return `<div class="sec card send"><h3>Votre diagnostic n'a pas été transmis</h3><p class="hint" style="margin:6px 0 14px">Vous avez choisi de ne pas laisser vos coordonnées. Pour qu'un expert de Trust Consulting Partners étudie votre dossier et vous recontacte sous 48 heures, envoyez-nous votre fiche.</p><div class="row"><a class="btn" href="mailto:${MAIL}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}">Envoyer par e-mail</a></div></div>`;
+}
 function transmit(a,R){
  const fiche=synth(a,R),hp=a.website||"";
  const head=`CONTACT\n${a.contact}${a.fonction?" ("+a.fonction+")":""}\nTéléphone : ${a.tel}\nE-mail : ${a.email||"non renseigné"}\n\n`;
@@ -445,10 +454,10 @@ function transmit(a,R){
   entreprise:a.nom||"",pays:a.pays,zone:(PAYS[a.pays]||[""])[0],secteur:a.secteur,forme:a.forme,anciennete:["< 1 an","1 à 3 ans","> 3 ans"][+a.age],
   ca:R.ca,ca_prec:R.ca1||"",charges:R.ch,dettes:R.det,besoin:R.b,objet:a.objet,duree:R.n,taux:rate(a),apport:R.ap,
   garantie:["aucune","caution personnelle","nantissement","hypothèque"][+a.garantie],score:R.tot,niveau:R.LV[0],
-  mensualite:Math.round(R.mens),couverture:R.ebe>0?+R.dscr.toFixed(2):"",finançable:Math.round(R.pMax),bloquants:R.B.join(" ; "),fiche:head+fiche};
+  mensualite:Math.round(R.mens),couverture:R.ebe>0?+R.dscr.toFixed(2):"",finançable:Math.round(R.pMax),bloquants:R.B.join(" ; "),fiche:head+fiche,langue:LANG};
  const done=(ok)=>{
   $("sendt").textContent=ok?"Diagnostic transmis à nos experts":"Transmission impossible";
-  $("sendp").textContent=ok?"Un expert de Trust Consulting Partners étudie votre fiche et vous recontacte au "+a.tel+".":"Votre connexion ou le service d'envoi n'a pas répondu. Envoyez la fiche vous-même :";
+  $("sendp").textContent=ok?"Un expert de Trust Consulting Partners étudie votre fiche et vous recontacte au "+a.tel+" sous 48 heures.":"Votre connexion ou le service d'envoi n'a pas répondu. Envoyez la fiche vous-même :";
   if(!ok)$("sendx").innerHTML=`<div class="row" style="margin-top:12px"><a class="btn" href="mailto:${MAIL}?subject=${encodeURIComponent("Diagnostic DossierPrêt – "+(a.nom||"PME")+" – "+R.tot+"/100")}&body=${encodeURIComponent(head+fiche)}">Envoyer par e-mail</a></div><p class="hint" style="margin-top:10px">Adresse : <span class="mono" style="user-select:all">${MAIL}</span></p>`;
   $("sendbox").style.borderColor=ok?"var(--ok)":"var(--bad)";
  };
