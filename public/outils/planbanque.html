@@ -1,0 +1,479 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="robots" content="noindex, follow"><title>PlanBanque : business plan bancable | Trust Consulting Partners</title><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : barre de synthèse collante + onglets d'étapes ; chaque onglet est un panneau pleine largeur, tableaux défilants sur mobile */
+:root{
+  --bg:#f4f6f5; --surface:#ffffff; --ink:#132026; --muted:#5b6b70; --line:#d9e1df;
+  --brand:#14508c; --brand-soft:#e4edf6; --green:#1f8a4c; --green-soft:#e1f2e8;
+  --warn:#a85d0c; --warn-soft:#fbeedc; --crit:#b3261e; --crit-soft:#fbe4e2; --bar:#14508c; --bar2:#1f8a4c;
+  --f-display:"Bricolage Grotesque",system-ui,sans-serif; --f-body:"Source Sans 3",system-ui,sans-serif; --f-num:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c1517; --surface:#132125; --ink:#e4eeec; --muted:#93a7a8; --line:#25393c;
+  --brand:#72aee9; --brand-soft:#16304a; --green:#55c48a; --green-soft:#153826;
+  --warn:#eaa35c; --warn-soft:#3b2a16; --crit:#f07c72; --crit-soft:#3d1e1c; --bar:#72aee9; --bar2:#55c48a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1517; --surface:#132125; --ink:#e4eeec; --muted:#93a7a8; --line:#25393c;
+  --brand:#72aee9; --brand-soft:#16304a; --green:#55c48a; --green-soft:#153826;
+  --warn:#eaa35c; --warn-soft:#3b2a16; --crit:#f07c72; --crit-soft:#3d1e1c; --bar:#72aee9; --bar2:#55c48a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15.5px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 48px}
+header.top{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.eyebrow{font-family:var(--f-num);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(30px,5.4vw,48px);line-height:1.02;margin:0;letter-spacing:-.02em;text-wrap:balance}
+h1 span{color:var(--brand)}
+.lede{margin:0;color:var(--muted);max-width:64ch}
+/* barre de synthèse */
+.summary{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px;display:grid;grid-template-columns:auto repeat(4,minmax(0,1fr));gap:10px 18px;align-items:center;margin-bottom:12px}
+@media (max-width:700px){.summary{grid-template-columns:repeat(2,minmax(0,1fr))}.summary .score{grid-column:1 / -1}}
+.score{display:flex;align-items:center;gap:10px}
+.ring{width:46px;height:46px;flex:none}
+.score b{font-family:var(--f-display);font-size:16px;display:block;line-height:1.1}
+.score small{color:var(--muted);font-size:12px}
+.kpi{display:flex;flex-direction:column;min-width:0}
+.kpi span{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.kpi b{font-family:var(--f-num);font-weight:500;font-size:14.5px;font-variant-numeric:tabular-nums;white-space:nowrap}
+/* onglets */
+.tabs{display:flex;gap:4px;overflow-x:auto;margin-bottom:14px;scrollbar-width:none}
+.tabs button{flex:none;font:inherit;font-weight:600;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;padding:8px 14px;cursor:pointer;display:flex;gap:6px;align-items:center}
+.tabs button i{font-style:normal;font-family:var(--f-num);font-size:11px;opacity:.7}
+.tabs button[aria-selected="true"]{background:var(--brand);border-color:var(--brand);color:var(--surface)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:18px}
+h2{font-family:var(--f-display);font-weight:800;font-size:22px;margin:0;letter-spacing:-.01em}
+h3{font-family:var(--f-display);font-weight:600;font-size:16px;margin:0}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:640px){.grid2,.grid3{grid-template-columns:minmax(0,1fr)}}
+label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);min-width:0}
+input,select,textarea{font:inherit;font-size:14.5px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:9px 10px;width:100%}
+input[type=number]{font-family:var(--f-num);font-size:14px}
+textarea{min-height:76px;resize:vertical;line-height:1.45}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--brand);outline-offset:1px}
+.u{position:relative}.u input{padding-right:58px}
+.u em{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-style:normal;font-family:var(--f-num);font-size:11.5px;color:var(--muted);pointer-events:none}
+.hint{font-size:13px;color:var(--muted);margin:0}
+.sample{align-self:flex-start;font-family:var(--f-num);font-size:11.5px;background:var(--warn-soft);color:var(--warn);padding:4px 8px;border-radius:4px}
+.box{border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.inv-row{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) 90px;gap:10px;align-items:end}
+@media (max-width:520px){.inv-row{grid-template-columns:minmax(0,1fr) 84px}.inv-row .lbl{grid-column:1 / -1}}
+.lbl{font-weight:600;font-size:14px;color:var(--ink);padding-bottom:9px}
+.calc{display:flex;justify-content:space-between;gap:12px;font-family:var(--f-num);font-size:14px;padding-top:10px;border-top:1px dashed var(--line);font-variant-numeric:tabular-nums}
+.calc.strong{font-weight:500;color:var(--brand)}
+.nav{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+button.btn{font:inherit;font-weight:600;font-size:14px;border-radius:6px;padding:10px 16px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+button.btn.primary{background:var(--brand);border-color:var(--brand);color:var(--surface)}
+/* tableaux */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:13.5px}
+th,td{padding:7px 10px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:var(--surface)}
+thead th{font-family:var(--f-num);font-size:12px;color:var(--muted);font-weight:500;background:var(--bg)}
+thead th:first-child{background:var(--bg)}
+td{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+td:first-child{font-family:var(--f-body)}
+tr.tot td{font-weight:600;background:var(--brand-soft)}
+tr.tot td:first-child{background:var(--brand-soft)}
+td.neg{color:var(--crit)}
+.unitnote{font-size:12px;color:var(--muted);font-family:var(--f-num)}
+/* contrôles bancaires */
+.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:640px){.checks{grid-template-columns:minmax(0,1fr)}}
+.chk{display:grid;grid-template-columns:28px minmax(0,1fr);gap:4px 10px;padding:12px;border-radius:8px;border:1px solid var(--line);border-left-width:4px}
+.chk.ok{border-left-color:var(--green)}.chk.ko{border-left-color:var(--crit)}
+.chk .ic{font-family:var(--f-num);font-weight:500;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:13px}
+.chk.ok .ic{background:var(--green-soft);color:var(--green)}.chk.ko .ic{background:var(--crit-soft);color:var(--crit)}
+.chk b{font-size:14.5px}.chk p{grid-column:2;margin:0;font-size:13px;color:var(--muted)}
+.ratios{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:760px){.ratios{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ratio{display:flex;flex-direction:column;gap:2px;padding:12px;background:var(--bg);border-radius:8px}
+.ratio span{font-size:12px;color:var(--muted)}.ratio b{font-family:var(--f-num);font-weight:500;font-size:18px;font-variant-numeric:tabular-nums}
+.chart{width:100%;height:auto;display:block}
+.legend{display:flex;gap:16px;font-size:12.5px;color:var(--muted);flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+/* business plan */
+.doc{background:var(--bg);border-radius:8px;padding:20px;max-height:none}
+.doc h4{font-family:var(--f-display);font-size:17px;margin:18px 0 6px;color:var(--brand)}
+.doc h4:first-child{margin-top:0}
+.doc p{margin:0 0 8px;max-width:72ch}
+.doc .cover{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:6px}
+.doc .cover b{font-family:var(--f-display);font-size:24px;display:block}
+.toast{font-size:13.5px;color:var(--green);min-height:1.2em}
+.send{border:2px solid var(--brand);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.send .mail{font-family:var(--f-num);font-size:13px;user-select:all}
+a.btn{text-decoration:none;display:inline-flex;align-items:center}
+.link{color:var(--brand);font-weight:600}
+.cta{background:var(--brand);color:#fff;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.cta h3{color:#fff}.cta p{margin:0;font-size:14px;opacity:.92}
+.cta .ct{font-family:var(--f-num);font-size:13px;user-select:all}
+footer{margin-top:22px;font-size:12px;color:var(--muted);max-width:85ch}
+textarea#fallback{min-height:160px;font-family:var(--f-num);font-size:12px}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">PME · Zone CEMAC · Format SYSCOHADA</div>
+    <h1>Un business plan que <span>votre banquier</span> peut instruire</h1>
+    <p class="lede">Décrivez votre projet, vos investissements et votre activité. PlanBanque calcule les prévisionnels sur 5 ans, vérifie les ratios que regarde un comité de crédit et rédige le business plan complet.</p>
+    <p class="hint">Pas sûr que votre entreprise soit finançable ? Faites d'abord le diagnostic <a class="link" href="/diagnostic" data-site="/diagnostic" target="_top">DossierPrêt</a> en 5 minutes.</p>
+  </header>
+
+  <div class="summary" aria-live="polite">
+    <div class="score">
+      <svg class="ring" viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="19" fill="none" stroke="var(--line)" stroke-width="5"/><circle id="ringArc" cx="23" cy="23" r="19" fill="none" stroke="var(--green)" stroke-width="5" stroke-linecap="round" stroke-dasharray="0 120" transform="rotate(-90 23 23)"/><text id="ringTxt" x="23" y="27" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="var(--ink)">0/6</text></svg>
+      <div><b id="verdict">—</b><small>Contrôles bancaires</small></div>
+    </div>
+    <div class="kpi"><span>Besoin total</span><b id="kBesoin">—</b></div>
+    <div class="kpi"><span>Prêt demandé</span><b id="kPret">—</b></div>
+    <div class="kpi"><span>DSCR minimum</span><b id="kDscr">—</b></div>
+    <div class="kpi"><span>Résultat net an 3</span><b id="kRn3">—</b></div>
+  </div>
+
+  <nav class="tabs" role="tablist" id="tabs">
+    <button role="tab" data-t="projet" aria-selected="true"><i>1</i>Projet</button>
+    <button role="tab" data-t="invest" aria-selected="false"><i>2</i>Investissement</button>
+    <button role="tab" data-t="exploit" aria-selected="false"><i>3</i>Exploitation</button>
+    <button role="tab" data-t="result" aria-selected="false"><i>4</i>Prévisionnels</button>
+    <button role="tab" data-t="plan" aria-selected="false"><i>5</i>Business plan</button>
+  </nav>
+
+  <form id="f" autocomplete="off" onsubmit="return false">
+  <!-- 1 PROJET -->
+  <section class="panel" data-p="projet">
+    <span class="sample">Projet d'exemple : boulangerie à Douala · remplacez par le vôtre</span>
+    <h2>Le projet</h2>
+    <div class="grid2">
+      <label>Nom du projet / de l'entreprise<input id="nom" value="Pain Doré Bonamoussadi"></label>
+      <label>Forme juridique<select id="forme"><option>SARL</option><option>SARLU</option><option>SA</option><option>SAS</option><option>Entreprise individuelle</option><option>GIC / Coopérative</option></select></label>
+      <label>Secteur d'activité<input id="secteur" value="Boulangerie-pâtisserie"></label>
+      <label>Ville d'implantation<input id="ville" value="Douala"></label>
+      <label>Promoteur<input id="promoteur" value="M. Jean Ngando"></label>
+      <label>Expérience du promoteur<input id="exp" value="12 ans en boulangerie industrielle, dont 5 comme chef de production"></label>
+    </div>
+    <label>Description du projet<textarea id="desc">Création d'une boulangerie-pâtisserie moderne à Bonamoussadi, avec un four à sole et un laboratoire de pâtisserie, produisant pain, viennoiseries et gâteaux pour les ménages, les snacks et les hôtels du quartier.</textarea></label>
+    <div class="grid2">
+      <label>Clients cibles<textarea id="cibles">Ménages à revenus moyens de Bonamoussadi, Kotto et Makepe ; snacks, restaurants et deux hôtels de proximité livrés chaque matin.</textarea></label>
+      <label>Concurrence<textarea id="concu">Trois boulangeries artisanales à moins de 2 km, de capacité limitée, et des dépôts de pain industriel sans offre pâtisserie.</textarea></label>
+    </div>
+    <label>Avantage concurrentiel<textarea id="avantage">Qualité constante grâce au four à sole, gamme pâtisserie absente du quartier, livraison matinale des professionnels et paiement mobile money.</textarea></label>
+    <div class="nav"><span></span><button type="button" class="btn primary" data-go="invest">Investissement →</button></div>
+  </section>
+
+  <!-- 2 INVESTISSEMENT -->
+  <section class="panel" data-p="invest" hidden>
+    <h2>Investissement et financement</h2>
+    <div class="box" id="invBox">
+      <h3>Programme d'investissement</h3>
+      <div class="inv-row"><span class="lbl">Terrain</span><label>Montant<span class="u"><input type="number" min="0" id="i_terrain" value="0"><em>FCFA</em></span></label><label>Durée<span class="u"><input type="number" id="d_terrain" value="0" disabled><em>ans</em></span></label></div>
+      <div class="inv-row"><span class="lbl">Bâtiment et aménagements</span><label>Montant<span class="u"><input type="number" min="0" id="i_bat" value="25000000"><em>FCFA</em></span></label><label>Durée<span class="u"><input type="number" min="1" id="d_bat" value="10"><em>ans</em></span></label></div>
+      <div class="inv-row"><span class="lbl">Équipements de production</span><label>Montant<span class="u"><input type="number" min="0" id="i_equip" value="60000000"><em>FCFA</em></span></label><label>Durée<span class="u"><input type="number" min="1" id="d_equip" value="7"><em>ans</em></span></label></div>
+      <div class="inv-row"><span class="lbl">Matériel roulant</span><label>Montant<span class="u"><input type="number" min="0" id="i_roul" value="18000000"><em>FCFA</em></span></label><label>Durée<span class="u"><input type="number" min="1" id="d_roul" value="4"><em>ans</em></span></label></div>
+      <div class="inv-row"><span class="lbl">Matériel informatique et bureau</span><label>Montant<span class="u"><input type="number" min="0" id="i_info" value="3000000"><em>FCFA</em></span></label><label>Durée<span class="u"><input type="number" min="1" id="d_info" value="3"><em>ans</em></span></label></div>
+      <div class="inv-row"><span class="lbl">Frais d'établissement</span><label>Montant<span class="u"><input type="number" min="0" id="i_frais" value="4000000"><em>FCFA</em></span></label><label>Durée<span class="u"><input type="number" min="1" id="d_frais" value="2"><em>ans</em></span></label></div>
+      <div class="inv-row"><span class="lbl">Besoin en fonds de roulement initial</span><label>Montant<span class="u"><input type="number" min="0" id="bfr" value="10000000"><em>FCFA</em></span></label><span class="hint" style="padding-bottom:9px">stocks + crédit client</span></div>
+      <div class="calc strong"><span>Besoin de financement total</span><span id="cBesoin">—</span></div>
+    </div>
+    <div class="box">
+      <h3>Plan de financement</h3>
+      <div class="grid2">
+        <label>Apport des associés<span class="u"><input type="number" min="0" id="apport" value="36000000"><em>FCFA</em></span></label>
+        <label>Subvention ou quasi-fonds propres<span class="u"><input type="number" min="0" id="subv" value="0"><em>FCFA</em></span></label>
+      </div>
+      <div class="calc"><span>Prêt bancaire à solliciter</span><span id="cPret">—</span></div>
+      <div class="grid3">
+        <label>Taux d'intérêt annuel<span class="u"><input type="number" step="0.1" min="0" id="taux" value="11"><em>%</em></span></label>
+        <label>Durée du prêt<span class="u"><input type="number" min="1" max="15" id="duree" value="5"><em>ans</em></span></label>
+        <label>Différé de remboursement<span class="u"><input type="number" min="0" max="3" id="differe" value="1"><em>ans</em></span></label>
+      </div>
+      <p class="hint">Pendant le différé, seuls les intérêts sont payés. Le capital est ensuite remboursé par annuités constantes.</p>
+    </div>
+    <div class="nav"><button type="button" class="btn" data-go="projet">← Projet</button><button type="button" class="btn primary" data-go="exploit">Exploitation →</button></div>
+  </section>
+
+  <!-- 3 EXPLOITATION -->
+  <section class="panel" data-p="exploit" hidden>
+    <h2>Hypothèses d'exploitation</h2>
+    <div class="box">
+      <h3>Activité</h3>
+      <div class="grid3">
+        <label>Chiffre d'affaires an 1<span class="u"><input type="number" min="0" id="ca" value="160000000"><em>FCFA</em></span></label>
+        <label>Croissance annuelle du CA<span class="u"><input type="number" step="0.5" id="crois" value="12"><em>%</em></span></label>
+        <label>Achats et coûts variables<span class="u"><input type="number" step="0.5" min="0" max="100" id="cv" value="45"><em>% CA</em></span></label>
+      </div>
+      <p class="hint">Justifiez le CA an 1 dans le plan : capacité de production, prix moyen, volumes par jour, nombre de clients.</p>
+    </div>
+    <div class="box">
+      <h3>Charges fixes annuelles</h3>
+      <div class="grid3">
+        <label>Salaires bruts<span class="u"><input type="number" min="0" id="sal" value="24000000"><em>FCFA</em></span></label>
+        <label>Charges sociales patronales<span class="u"><input type="number" step="0.1" min="0" id="cs" value="17.5"><em>%</em></span></label>
+        <label>Effectif<span class="u"><input type="number" min="0" id="eff" value="12"><em>pers.</em></span></label>
+        <label>Loyer<span class="u"><input type="number" min="0" id="loyer" value="6000000"><em>FCFA</em></span></label>
+        <label>Énergie, eau, télécoms<span class="u"><input type="number" min="0" id="energie" value="9000000"><em>FCFA</em></span></label>
+        <label>Marketing et commercial<span class="u"><input type="number" min="0" id="mkt" value="3000000"><em>FCFA</em></span></label>
+        <label>Autres charges fixes<span class="u"><input type="number" min="0" id="autres" value="4000000"><em>FCFA</em></span></label>
+        <label>Hausse annuelle des charges fixes<span class="u"><input type="number" step="0.5" id="infl" value="3"><em>%</em></span></label>
+        <label>Impôt sur les sociétés<span class="u"><input type="number" step="0.5" min="0" id="is" value="33"><em>%</em></span></label>
+      </div>
+      <p class="hint">Vérifiez le taux de charges sociales (CNPS) et le taux d'IS applicables à votre pays et à votre régime fiscal.</p>
+    </div>
+    <div class="nav"><button type="button" class="btn" data-go="invest">← Investissement</button><button type="button" class="btn primary" data-go="result">Voir les prévisionnels →</button></div>
+  </section>
+  </form>
+
+  <!-- 4 RESULTATS -->
+  <section class="panel" data-p="result" hidden>
+    <h2>Prévisionnels et contrôles bancaires</h2>
+    <div class="checks" id="checks"></div>
+    <div class="ratios" id="ratios"></div>
+
+    <div class="box">
+      <h3>Résultat net et trésorerie cumulée</h3>
+      <div class="legend"><span><i style="background:var(--bar)"></i>Résultat net</span><span><i style="background:var(--bar2)"></i>Trésorerie fin d'année</span></div>
+      <svg class="chart" id="chart" viewBox="0 0 640 230" role="img" aria-label="Résultat net et trésorerie sur 5 ans"></svg>
+    </div>
+
+    <div><h3>Compte de résultat prévisionnel</h3><div class="unitnote">en millions de FCFA</div></div>
+    <div class="tw"><table id="tCR"></table></div>
+    <div><h3>Plan de trésorerie annuel</h3><div class="unitnote">en millions de FCFA</div></div>
+    <div class="tw"><table id="tTR"></table></div>
+    <div><h3>Échéancier du prêt</h3><div class="unitnote">en millions de FCFA</div></div>
+    <div class="tw"><table id="tEM"></table></div>
+    <div class="nav"><button type="button" class="btn" data-go="exploit">← Exploitation</button>
+      <span style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn" id="copyTables">Copier les tableaux pour Excel</button><button type="button" class="btn primary" data-go="plan">Rédiger le business plan →</button></span></div>
+    <div class="toast" id="toast1"></div>
+  </section>
+
+  <!-- 5 BUSINESS PLAN -->
+  <section class="panel" data-p="plan" hidden>
+    <h2>Business plan rédigé</h2>
+    <p class="hint">Le texte se met à jour avec vos saisies. Copiez-le dans Word ou Google Docs, puis ajoutez vos devis, statuts et pièces administratives.</p>
+    <div class="nav"><span></span><button type="button" class="btn primary" id="copyPlan">Copier le business plan</button></div>
+    <div class="toast" id="toast2"></div>
+    <textarea id="fallback" hidden readonly aria-label="Texte du business plan à sélectionner"></textarea>
+    <article class="doc" id="doc"></article>
+    <div class="send">
+      <h3>Transmettre mon business plan à un expert</h3>
+      <p class="hint">Trust Consulting Partners vous répond sous 48 heures avec ses remarques sur vos hypothèses et vos ratios. Votre messagerie s'ouvre avec la synthèse déjà rédigée.</p>
+      <div class="grid3">
+        <label>Votre nom<input id="cNom" autocomplete="name"></label>
+        <label>Téléphone / WhatsApp<input id="cTel" autocomplete="tel" inputmode="tel"></label>
+        <label>E-mail<input id="cMail" type="email" autocomplete="email"></label>
+      </div>
+      <div class="nav" style="justify-content:flex-start"><a class="btn primary" id="sendMail" href="#" target="_blank" rel="noopener">Envoyer par e-mail</a><button type="button" class="btn" id="copySend">Copier la synthèse</button></div>
+      <div class="toast" id="toast3"></div>
+      <p class="hint">Si votre messagerie ne s'ouvre pas, copiez la synthèse et envoyez-la à <span class="mail">takouro@yahoo.fr</span>, en joignant le business plan copié plus haut.</p>
+    </div>
+    <div class="cta">
+      <h3>Faire relire votre dossier avant la banque</h3>
+      <p>Trust Consulting Partners vérifie vos hypothèses, monte le dossier de crédit complet et vous accompagne jusqu'au comité.</p>
+      <span class="ct">info@trust-consulting-partners.com</span>
+      <span class="ct">+237 677 03 57 06 · +237 677 59 25 82 · +225 07 13 27 40 05</span>
+    </div>
+  </section>
+
+  <footer>Modèle simplifié : prévisionnels annuels, amortissements linéaires, IS appliqué au seul résultat positif sans report de déficit ni minimum fiscal, BFR proportionnel au chiffre d'affaires. Vos saisies restent dans ce navigateur. <button type="button" class="btn" id="resetBtn" style="margin-left:6px;padding:4px 10px;font-size:12px">Recharger l'exemple</button></footer>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const v=id=>{const x=parseFloat($(id).value);return isFinite(x)?x:0};
+const M=x=>(x/1e6).toLocaleString('fr-FR',{minimumFractionDigits:1,maximumFractionDigits:1}).replace(/ | /g,' ');
+const F=x=>Math.round(x).toLocaleString('fr-FR').replace(/ | /g,' ')+' FCFA';
+const P=x=>(x*100).toLocaleString('fr-FR',{maximumFractionDigits:1})+' %';
+const KEY='planbanque-v1';
+const fields=[...document.querySelectorAll('#f input,#f select,#f textarea')];
+const DEF={};fields.forEach(e=>DEF[e.id]=e.value);
+try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s)Object.entries(s).forEach(([k,x])=>{if($(k))$(k).value=x})}catch(e){}
+const save=()=>{try{const o={};fields.forEach(e=>o[e.id]=e.value);localStorage.setItem(KEY,JSON.stringify(o))}catch(e){}};
+
+const INV=[['terrain','Terrain'],['bat','Bâtiment et aménagements'],['equip','Équipements de production'],['roul','Matériel roulant'],['info','Matériel informatique et bureau'],['frais',"Frais d'établissement"]];
+const Y=[1,2,3,4,5];
+
+function model(){
+  const inv=INV.map(([k,l])=>({l,m:Math.max(0,v('i_'+k)),d:k==='terrain'?0:Math.max(1,v('d_'+k))}));
+  const immo=inv.reduce((s,i)=>s+i.m,0), bfr0=Math.max(0,v('bfr')), besoin=immo+bfr0;
+  const apport=Math.max(0,v('apport')), subv=Math.max(0,v('subv'));
+  const pret=Math.max(0,besoin-apport-subv);
+  const r=v('taux')/100, n=Math.max(1,Math.round(v('duree'))), dif=Math.min(n-1,Math.max(0,Math.round(v('differe'))));
+  // échéancier
+  const sched=[];let crd=pret;const nAm=n-dif;
+  const ann=nAm>0?(r>0?pret*r/(1-Math.pow(1+r,-nAm)):pret/nAm):0;
+  for(let y=1;y<=Math.max(n,5);y++){
+    if(y>n||crd<=0.5){sched.push({y,deb:0,int:0,cap:0,fin:0});continue}
+    const int=crd*r, cap=y<=dif?0:Math.min(crd,ann-int);
+    sched.push({y,deb:crd,int,cap,fin:crd-cap});crd-=cap;
+  }
+  const ca1=Math.max(0,v('ca')), g=v('crois')/100, cvr=Math.min(100,Math.max(0,v('cv')))/100, inf=v('infl')/100, isr=Math.max(0,v('is'))/100;
+  const fixe1=v('sal')*(1+v('cs')/100)+v('loyer')+v('energie')+v('mkt')+v('autres');
+  let cash=apport+subv+pret-immo, prevCA=ca1, cum=0;
+  const rows=Y.map(y=>{
+    const ca=ca1*Math.pow(1+g,y-1), cvx=ca*cvr, mb=ca-cvx, fixe=fixe1*Math.pow(1+inf,y-1), ebe=mb-fixe;
+    const dot=inv.reduce((s,i)=>s+(i.d&&y<=i.d?i.m/i.d:0),0);
+    const rex=ebe-dot, int=sched[y-1].int, rai=rex-int, is=Math.max(0,rai)*isr, rn=rai-is, caf=rn+dot;
+    const dbfr=y===1?0:bfr0*(ca-prevCA)/ca1; prevCA=ca;
+    const cap=sched[y-1].cap;
+    cash+=caf-cap-dbfr;
+    const ds=int+cap, dscr=ds>0?(ebe-is)/ds:null;
+    cum+=caf;
+    return {y,ca,cvx,mb,fixe,ebe,dot,rex,int,rai,is,rn,caf,dbfr,cap,cash,dscr,cum};
+  });
+  // seuil de rentabilité an 1
+  const r1=rows[0], tmcv=1-cvr, cfTot=r1.fixe+r1.dot+r1.int;
+  const sr=tmcv>0?cfTot/tmcv:Infinity, pm=ca1>0?sr/ca1*12:Infinity;
+  const dscrs=rows.map(x=>x.dscr).filter(x=>x!==null), dscrMin=dscrs.length?Math.min(...dscrs):null;
+  const autonomie=besoin>0?(apport+subv)/besoin:0;
+  // TRI projet
+  const flows=[-besoin,...rows.map((x,i)=>x.rn+x.dot+x.int*(1-isr)-x.dbfr+(i===4?bfr0*x.ca/ca1+inv.reduce((s,iv)=>s+(iv.d===0?iv.m:Math.max(0,iv.m-iv.m/iv.d*5)),0):0))];
+  const npv=t=>flows.reduce((s,f,i)=>s+f/Math.pow(1+t,i),0);
+  let tri=null;if(npv(-0.99)>0&&npv(5)<0){let lo=-0.99,hi=5;for(let k=0;k<80;k++){const m=(lo+hi)/2;npv(m)>0?lo=m:hi=m}tri=(lo+hi)/2}
+  let payback=null;{let c=0;for(const x of rows){const prev=c;c+=x.caf;if(c>=besoin&&payback===null){payback=x.y-1+(besoin-prev)/x.caf}}}
+  const firstPos=rows.find(x=>x.rn>0);
+  const checks=[
+    {ok:autonomie>=0.3,t:'Apport personnel suffisant',d:`Apport et subvention : ${P(autonomie)} du besoin. Les banques attendent en général 30 % ou plus.`},
+    {ok:dscrMin!==null?dscrMin>=1.3:true,t:'Capacité de remboursement',d:dscrMin!==null?`DSCR minimum ${dscrMin.toFixed(2)}. Le seuil courant est de 1,3 : l'EBE après impôt couvre 1,3 fois l'échéance.`:'Aucun prêt sollicité.'},
+    {ok:rows.every(x=>x.cash>=0),t:'Trésorerie toujours positive',d:rows.every(x=>x.cash>=0)?'La trésorerie de fin d\'année reste positive sur les 5 ans.':`Trésorerie négative en année ${rows.find(x=>x.cash<0).y}. Prévoyez un découvert, plus d'apport ou un différé plus long.`},
+    {ok:!!firstPos&&firstPos.y<=2,t:'Rentabilité rapide',d:firstPos?`Premier résultat net positif en année ${firstPos.y}.`:'Aucun résultat net positif sur 5 ans.'},
+    {ok:sr<ca1,t:'Point mort atteint dès l\'an 1',d:isFinite(sr)?`Seuil de rentabilité : ${F(sr)}, atteint en ${pm.toFixed(1).replace('.',',')} mois d'activité.`:'Marge sur coûts variables nulle : seuil impossible à atteindre.'},
+    {ok:tri!==null&&tri>r,t:'Rentabilité supérieure au coût du crédit',d:tri!==null?`TRI du projet ${P(tri)} contre un taux de prêt de ${P(r)}.`:'TRI non calculable sur ces hypothèses.'}
+  ];
+  return {inv,immo,bfr0,besoin,apport,subv,pret,r,n,dif,ann,sched,rows,sr,pm,dscrMin,autonomie,tri,payback,checks,ca1,cvr,fixe1,isr};
+}
+
+function table(id,head,lines){
+  $(id).innerHTML='<thead><tr><th></th>'+head.map(h=>`<th>${h}</th>`).join('')+'</tr></thead><tbody>'+
+    lines.map(([l,arr,cls])=>`<tr class="${cls||''}"><td>${l}</td>${arr.map(x=>`<td class="${x<-0.05e6?'neg':''}">${M(x)}</td>`).join('')}</tr>`).join('')+'</tbody>';
+}
+function chart(rows){
+  const W=640,H=230,pl=48,pr=12,pt=14,pb=28;
+  const vals=rows.flatMap(x=>[x.rn,x.cash]);let mx=Math.max(0,...vals),mn=Math.min(0,...vals);if(mx===mn)mx=1;
+  const step=niceStep((mx-mn)/4);mx=Math.ceil(mx/step)*step;mn=Math.floor(mn/step)*step;
+  const y=t=>pt+(mx-t)/(mx-mn)*(H-pt-pb), gw=(W-pl-pr)/5, bw=Math.min(26,gw*0.3);
+  let s='';
+  for(let t=mn;t<=mx+1e-6;t+=step){s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(t)}" y2="${y(t)}" stroke="var(--line)" stroke-width="${Math.abs(t)<1e-6?1.5:1}"/><text x="${pl-6}" y="${y(t)+4}" text-anchor="end" font-size="11" font-family="JetBrains Mono,monospace" fill="var(--muted)">${M(t).replace(',0','')}</text>`}
+  rows.forEach((x,i)=>{const cx=pl+gw*i+gw/2;
+    [[x.rn,'var(--bar)',-bw-2],[x.cash,'var(--bar2)',2]].forEach(([val,c,o])=>{const y0=y(0),y1=y(val);s+=`<rect x="${cx+o}" y="${Math.min(y0,y1)}" width="${bw}" height="${Math.max(1,Math.abs(y1-y0))}" rx="2" fill="${c}"/>`});
+    s+=`<text x="${cx}" y="${H-8}" text-anchor="middle" font-size="12" fill="var(--muted)" font-family="Source Sans 3,sans-serif">An ${x.y}</text>`});
+  $('chart').innerHTML=s;
+}
+function niceStep(raw){const p=Math.pow(10,Math.floor(Math.log10(raw||1)));const f=raw/p;return (f<=1?1:f<=2?2:f<=5?5:10)*p}
+
+function planText(m){
+  const g=id=>$(id).value.trim(), r1=m.rows[0], r3=m.rows[2], r5=m.rows[4];
+  const S=[];
+  S.push(['RÉSUMÉ EXÉCUTIF',`${g('nom')} est un projet de ${g('secteur').toLowerCase()} porté par ${g('promoteur')} à ${g('ville')}, sous forme de ${g('forme')}. Le programme d'investissement s'élève à ${F(m.besoin)}, financé par un apport de ${F(m.apport)}${m.subv?`, une subvention de ${F(m.subv)}`:''} et un prêt bancaire de ${F(m.pret)} sur ${m.n} ans au taux de ${P(m.r)}${m.dif?` avec ${m.dif} an${m.dif>1?'s':''} de différé`:''}. Le chiffre d'affaires prévu passe de ${F(r1.ca)} en année 1 à ${F(r5.ca)} en année 5. Le résultat net atteint ${F(r3.rn)} en année 3${m.dscrMin!==null?` et l'excédent d'exploitation couvre au minimum ${m.dscrMin.toFixed(2).replace('.',',')} fois les échéances du prêt`:''}.`]);
+  S.push(['1. LE PROJET',g('desc')]);
+  S.push(['2. LE PROMOTEUR',`${g('promoteur')} : ${g('exp')}. L'entreprise emploiera ${v('eff')} personnes dès la première année.`]);
+  S.push(['3. LE MARCHÉ',`Clients cibles : ${g('cibles')}\nConcurrence : ${g('concu')}`]);
+  S.push(['4. STRATÉGIE ET AVANTAGE CONCURRENTIEL',g('avantage')]);
+  S.push(['5. PROGRAMME D\'INVESTISSEMENT',m.inv.filter(i=>i.m>0).map(i=>`- ${i.l} : ${F(i.m)}${i.d?` (amorti sur ${i.d} ans)`:''}`).join('\n')+`\n- Besoin en fonds de roulement initial : ${F(m.bfr0)}\nTotal du besoin : ${F(m.besoin)}`]);
+  S.push(['6. PLAN DE FINANCEMENT',`- Apport des associés : ${F(m.apport)} (${P(m.besoin?m.apport/m.besoin:0)})\n${m.subv?`- Subvention ou quasi-fonds propres : ${F(m.subv)}\n`:''}- Prêt bancaire sollicité : ${F(m.pret)}, ${m.n} ans, ${P(m.r)}${m.dif?`, différé de ${m.dif} an${m.dif>1?'s':''}`:''}${m.ann?`, annuité constante de ${F(m.ann)}`:''}`]);
+  S.push(['7. HYPOTHÈSES D\'EXPLOITATION',`Chiffre d'affaires de ${F(m.ca1)} en année 1, en croissance de ${v('crois')} % par an. Achats et coûts variables : ${v('cv')} % du chiffre d'affaires. Charges fixes de ${F(m.fixe1)} la première année, dont ${F(v('sal'))} de salaires bruts, revalorisées de ${v('infl')} % par an. Impôt sur les sociétés au taux de ${v('is')} %.`]);
+  S.push(['8. PRÉVISIONS FINANCIÈRES (millions FCFA)',['Année','CA','EBE','Résultat net','CAF','Trésorerie'].join(' | ')+'\n'+m.rows.map(x=>[`An ${x.y}`,M(x.ca),M(x.ebe),M(x.rn),M(x.caf),M(x.cash)].join(' | ')).join('\n')]);
+  S.push(['9. RENTABILITÉ ET SOLVABILITÉ',`Seuil de rentabilité en année 1 : ${isFinite(m.sr)?F(m.sr):'non atteint'}${isFinite(m.pm)?`, soit ${m.pm.toFixed(1).replace('.',',')} mois d'activité`:''}. ${m.tri!==null?`Taux de rentabilité interne du projet : ${P(m.tri)}. `:''}${m.payback!==null?`Délai de récupération de l'investissement : ${m.payback.toFixed(1).replace('.',',')} ans. `:''}${m.dscrMin!==null?`Ratio de couverture du service de la dette (DSCR) minimum : ${m.dscrMin.toFixed(2).replace('.',',')}.`:''}`]);
+  const ko=m.checks.filter(c=>!c.ok);
+  S.push(['10. RISQUES ET MESURES',`Les principaux risques sont un démarrage commercial plus lent que prévu, la hausse du coût des matières premières et les retards de paiement des clients professionnels. Mesures prévues : montée en charge progressive des volumes, contrats d'approvisionnement, encaissement comptant ou mobile money pour les particuliers et suivi mensuel de la trésorerie.${ko.length?'\nPoints à renforcer avant présentation : '+ko.map(c=>c.t.toLowerCase()).join(' ; ')+'.':''}`]);
+  S.push(['11. DEMANDE DE FINANCEMENT',`${g('nom')} sollicite un prêt de ${F(m.pret)} sur ${m.n} ans pour financer le programme décrit ci-dessus. Le remboursement est assuré par la capacité d'autofinancement, qui atteint ${F(r3.caf)} en année 3.`]);
+  return S;
+}
+
+let M_={};
+function render(){
+  const m=model();M_=m;
+  $('cBesoin').textContent=F(m.besoin);$('cPret').textContent=F(m.pret);
+  const ok=m.checks.filter(c=>c.ok).length;
+  $('ringArc').setAttribute('stroke-dasharray',`${(ok/6*119.4).toFixed(1)} 120`);
+  $('ringArc').setAttribute('stroke',ok>=5?'var(--green)':ok>=3?'var(--warn)':'var(--crit)');
+  $('ringTxt').textContent=ok+'/6';
+  $('verdict').textContent=ok>=5?'Dossier solide':ok>=3?'À renforcer':'Non finançable en l\'état';
+  $('kBesoin').textContent=M(m.besoin)+' M';$('kPret').textContent=M(m.pret)+' M';
+  $('kDscr').textContent=m.dscrMin!==null?m.dscrMin.toFixed(2).replace('.',','):'—';
+  $('kRn3').textContent=M(m.rows[2].rn)+' M';
+  $('checks').innerHTML=m.checks.map(c=>`<div class="chk ${c.ok?'ok':'ko'}"><span class="ic">${c.ok?'✓':'!'}</span><b>${c.t}</b><p>${c.d}</p></div>`).join('');
+  const rt=[['Seuil de rentabilité an 1',isFinite(m.sr)?M(m.sr)+' M':'—'],['Point mort',isFinite(m.pm)?m.pm.toFixed(1).replace('.',',')+' mois':'—'],['TRI du projet',m.tri!==null?P(m.tri):'—'],['Récupération',m.payback!==null?m.payback.toFixed(1).replace('.',',')+' ans':'> 5 ans']];
+  $('ratios').innerHTML=rt.map(([a,b])=>`<div class="ratio"><span>${a}</span><b>${b}</b></div>`).join('');
+  const H=Y.map(y=>'An '+y), R=m.rows, c=k=>R.map(x=>x[k]);
+  table('tCR',H,[["Chiffre d'affaires",c('ca'),'tot'],['Achats et coûts variables',c('cvx').map(x=>-x)],['Marge brute',c('mb')],['Charges fixes',c('fixe').map(x=>-x)],["Excédent brut d'exploitation",c('ebe'),'tot'],['Dotations aux amortissements',c('dot').map(x=>-x)],["Résultat d'exploitation",c('rex')],['Charges financières',c('int').map(x=>-x)],['Impôt sur les sociétés',c('is').map(x=>-x)],['Résultat net',c('rn'),'tot']]);
+  table('tTR',H,[["Capacité d'autofinancement",c('caf')],['Variation du BFR',c('dbfr').map(x=>-x)],['Remboursement du capital',c('cap').map(x=>-x)],['Trésorerie fin d\'année',c('cash'),'tot'],['DSCR (EBE après IS / échéance)',[]]]);
+  const tr=$('tTR').querySelector('tbody tr:last-child');tr.innerHTML='<td>DSCR (EBE après IS / échéance)</td>'+R.map(x=>`<td class="${x.dscr!==null&&x.dscr<1.3?'neg':''}">${x.dscr!==null?x.dscr.toFixed(2).replace('.',','):'—'}</td>`).join('');
+  const SC=m.sched.slice(0,Math.max(m.n,5)), HE=SC.map(s=>'An '+s.y);
+  table('tEM',HE,[['Capital restant dû début',SC.map(s=>s.deb)],['Intérêts',SC.map(s=>s.int)],['Capital remboursé',SC.map(s=>s.cap)],['Échéance totale',SC.map(s=>s.int+s.cap),'tot']]);
+  chart(R);
+  const S=planText(m);
+  const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  $('doc').innerHTML=`<div class="cover"><b>${esc($('nom').value)}</b><span class="hint">Business plan · ${esc($('secteur').value)} · ${esc($('ville').value)}</span></div>`+S.map(([h,t])=>`<h4>${h}</h4>`+t.split('\n').map(p=>`<p>${esc(p)}</p>`).join('')).join('');
+  save();
+  if(typeof updMail==='function')updMail();
+}
+
+function copy(txt,toast){
+  const done=m=>{$(toast).textContent=m;setTimeout(()=>$(toast).textContent='',3500)};
+  const fb=()=>{const t=$('fallback');t.hidden=false;t.value=txt;t.focus();t.select();done('Copie bloquée ici : le texte est sélectionné ci-dessous, copiez-le manuellement.')};
+  try{navigator.clipboard.writeText(txt).then(()=>done('Copié dans le presse-papiers.'),fb)}catch(e){fb()}
+}
+$('copyPlan').onclick=()=>{const S=planText(M_);copy(`BUSINESS PLAN – ${$('nom').value}\n${$('secteur').value} · ${$('ville').value}\n\n`+S.map(([h,t])=>h+'\n'+t).join('\n\n'),'toast2')};
+$('copyTables').onclick=()=>{
+  const tsv=['tCR','tTR','tEM'].map(id=>[...$(id).rows].map(r=>[...r.cells].map(c=>c.textContent).join('\t')).join('\n')).join('\n\n');
+  copy('Montants en millions de FCFA\n'+tsv,'toast1')};
+function synthese(){
+  const m=M_,g=id=>$(id).value.trim(),ok=m.checks.filter(c=>c.ok).length;
+  return `SYNTHÈSE PLANBANQUE – ${g('nom')}
+${g('secteur')} · ${g('ville')} · ${g('forme')}
+Promoteur : ${g('promoteur')}
+Contact : ${g('cNom')||'(à compléter)'} · ${g('cTel')||'(à compléter)'}${g('cMail')?' · '+g('cMail'):''}
+
+FINANCEMENT
+Besoin total : ${F(m.besoin)}
+Apport : ${F(m.apport)} (${P(m.autonomie)})${m.subv?`\nSubvention : ${F(m.subv)}`:''}
+Prêt sollicité : ${F(m.pret)} sur ${m.n} ans à ${P(m.r)}${m.dif?`, différé ${m.dif} an(s)`:''}
+
+PRÉVISIONS (M FCFA) : An | CA | EBE | RN | Trésorerie
+${m.rows.map(x=>`An ${x.y} | ${M(x.ca)} | ${M(x.ebe)} | ${M(x.rn)} | ${M(x.cash)}`).join('\n')}
+
+RATIOS
+DSCR minimum : ${m.dscrMin!==null?m.dscrMin.toFixed(2).replace('.',','):'—'}
+Point mort : ${isFinite(m.pm)?m.pm.toFixed(1).replace('.',',')+' mois':'—'}
+TRI : ${m.tri!==null?P(m.tri):'—'}
+
+CONTRÔLES BANCAIRES : ${ok}/6
+${m.checks.map(c=>(c.ok?'[OK] ':'[À REVOIR] ')+c.t).join('\n')}`;
+}
+function updMail(){
+  const subj=`Business plan PlanBanque – ${$('nom').value.trim()||'PME'} – prêt de ${M(M_.pret)} M FCFA`;
+  $('sendMail').href='mailto:takouro@yahoo.fr?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent('Bonjour,\n\nJe souhaite un retour sur mon business plan.\n\n'+synthese());
+}
+['cNom','cTel','cMail'].forEach(id=>{try{$(id).value=localStorage.getItem('pb-'+id)||''}catch(e){};$(id).addEventListener('input',()=>{try{localStorage.setItem('pb-'+id,$(id).value)}catch(e){};updMail()})});
+$('copySend').onclick=()=>copy(synthese(),'toast3');
+$('sendMail').addEventListener('click',()=>{updMail();$('toast3').textContent="Votre messagerie devrait s'ouvrir. Sinon, utilisez « Copier la synthèse »."});
+$('resetBtn').onclick=()=>{Object.entries(DEF).forEach(([k,x])=>$(k).value=x);render()};
+
+function show(t){
+  document.querySelectorAll('[data-p]').forEach(p=>p.hidden=p.dataset.p!==t);
+  document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));
+  window.scrollTo({top:0,behavior:'auto'});
+}
+$('tabs').onclick=e=>{const b=e.target.closest('button');if(b)show(b.dataset.t)};
+document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>show(b.dataset.go));
+$('f').addEventListener('input',render);
+render();
+</script>
+
+<style>.embedded header.top h1,.embedded header.top .lede{display:none}</style>
+<script>
+/* Intégration au site : liens selon la langue, thème clair forcé, hauteur transmise à la page parente (sans effet si la page est ouverte seule) */
+(function(){
+ var L=new URLSearchParams(location.search).get("lang")==="en"?"/en":"";
+ document.querySelectorAll("a[data-site]").forEach(function(a){a.setAttribute("href",L+a.getAttribute("data-site"))});
+ if(window.parent===window)return;
+ document.documentElement.setAttribute("data-theme","light");
+ document.documentElement.classList.add("embedded");
+ window.scrollTo=function(){window.parent.postMessage({type:"tcp-tool-scroll-top"},window.location.origin)};
+ var send=function(){window.parent.postMessage({type:"tcp-tool-height",height:Math.ceil(document.body.getBoundingClientRect().height)},window.location.origin)};
+ if(window.ResizeObserver)new ResizeObserver(send).observe(document.body);
+ window.addEventListener("load",send);
+ send();
+})();
+</script>
+</body></html>

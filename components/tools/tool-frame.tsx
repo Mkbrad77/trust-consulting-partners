@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLocale } from "next-intl";
 
 type ToolMessage = { type?: string; height?: number };
 
@@ -9,6 +10,7 @@ type ToolMessage = { type?: string; height?: number };
  * L'outil transmet sa hauteur par postMessage : la page grandit avec lui, sans double barre de défilement.
  */
 export function ToolFrame({ src, title }: { src: string; title: string }) {
+  const locale = useLocale();
   const ref = useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = useState(900);
 
@@ -31,7 +33,7 @@ export function ToolFrame({ src, title }: { src: string; title: string }) {
   return (
     <iframe
       ref={ref}
-      src={src}
+      src={`${src}?lang=${locale}`}
       title={title}
       style={{ height }}
       className="block w-full scroll-mt-28 rounded-2xl border border-border bg-white"

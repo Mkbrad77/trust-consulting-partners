@@ -365,5 +365,15 @@
     "title": "Votre PME est-elle finançable ?",
     "description": "Répondez à quelques questions et obtenez en 5 minutes votre score de finançabilité sur 100, une simulation de prêt, un plan d'action et la fiche de synthèse à présenter à votre banquier. Un expert de Trust Consulting Partners peut ensuite vous recontacter.",
     "frameTitle": "Diagnostic de finançabilité DossierPrêt"
+  },
+  "businessPlanPage": {
+    "meta": {
+      "title": "Business plan bancable en ligne | Trust Consulting Partners",
+      "description": "Prévisionnels sur 5 ans, ratios bancaires et business plan complet pour les PME de la zone CEMAC et UEMOA, avec contrôle des 6 points qu'examine un comité de crédit."
+    },
+    "eyebrow": "Business plan",
+    "title": "Un business plan que votre banquier peut instruire",
+    "description": "Décrivez votre projet, vos investissements et votre activité. PlanBanque calcule les prévisionnels sur 5 ans, vérifie les ratios que regarde un comité de crédit et rédige le business plan complet.",
+    "frameTitle": "PlanBanque : générateur de business plan"
   }
 }

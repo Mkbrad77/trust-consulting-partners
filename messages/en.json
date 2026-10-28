@@ -366,5 +366,16 @@
     "description": "Answer a few questions and get, in 5 minutes, your funding readiness score out of 100, a loan simulation, an action plan and a summary sheet to present to your banker. A Trust Consulting Partners expert can then contact you.",
     "languageNote": "The diagnostic tool below is currently available in French only.",
     "frameTitle": "DossierPrêt funding readiness diagnostic"
+  },
+  "businessPlanPage": {
+    "meta": {
+      "title": "Bankable Business Plan Builder | Trust Consulting Partners",
+      "description": "5-year forecasts, bank ratios and a complete business plan for SMEs in the CEMAC and WAEMU regions, checked against the 6 points a credit committee reviews."
+    },
+    "eyebrow": "Business plan",
+    "title": "A business plan your banker can underwrite",
+    "description": "Describe your project, your investments and your activity. PlanBanque calculates 5-year forecasts, checks the ratios a credit committee looks at and drafts the complete business plan.",
+    "languageNote": "The business plan tool below is currently available in French only.",
+    "frameTitle": "PlanBanque business plan builder"
   }
 }

@@ -190,6 +190,7 @@ footer{margin-top:40px;color:var(--muted);font-size:.85rem;border-top:1px solid 
    Collez ici l'URL de votre application Web Google Apps Script (se termine par /exec). */
 const ENDPOINT="COLLER_ICI_L_URL_APPS_SCRIPT";
 const MAIL="takouro@yahoo.fr";
+const SITE=new URLSearchParams(location.search).get("lang")==="en"?"/en":"";
 /* ========================= */
 const PAYS={"Cameroun":["CEMAC","NIU"],"Gabon":["CEMAC","NIF"],"Congo":["CEMAC","NIU"],"Tchad":["CEMAC","NIF"],"Guinée équatoriale":["CEMAC","NIF"],"Centrafrique":["CEMAC","NIF"],"Côte d'Ivoire":["UEMOA","NCC"],"Sénégal":["UEMOA","NINEA"],"Bénin":["UEMOA","IFU"],"Burkina Faso":["UEMOA","IFU"],"Togo":["UEMOA","NIF"],"Mali":["UEMOA","NIF"],"Niger":["UEMOA","NIF"]};
 const idf=()=>(PAYS[A.pays]||["","identifiant fiscal"])[1];
@@ -401,6 +402,7 @@ function result(){
  if(R.B.length)h+=`<div class="alert" role="alert"><h3>Points bloquants</h3><ul>${R.B.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`;
  h+=`<div class="sec"><h3>Détail par critère</h3><div class="card crit">${R.C.map(c=>{const r=c.p/c.m,cc=r>=.8?"var(--ok)":r>=.5?"var(--mid)":"var(--bad)";return`<div><div class="ch"><span>${c.n}</span><span class="num">${c.p}/${c.m}</span></div><div class="meter"><i style="width:${r*100}%;background:${cc}"></i></div></div>`}).join("")}</div></div>`;
  h+=`<div class="sec"><h3>Plan d'action</h3>`+(R.weak.length?`<div class="actions">${R.weak.slice(0,5).map(c=>{const hi=c.p/c.m<.4;return`<div class="act"><span class="badge" style="background:${hi?"var(--badbg)":"var(--midbg)"};color:${hi?"var(--bad)":"var(--mid)"}">${hi?"Priorité":"À améliorer"}</span><b>${c.n}</b><span>${esc(c.tip)}</span><span class="meta">Délai indicatif : ${c.hz}</span></div>`}).join("")}</div>`:`<p class="card">Aucun point faible majeur. Concentrez-vous sur la qualité de présentation du dossier.</p>`)+`</div>`;
+ h+=`<div class="sec card send"><p class="eyebrow">${a.plan==="0"?"Pièce manquante":"Étape suivante"}</p><h3 style="margin-top:4px">${a.plan==="0"?"Il vous manque le plan d'affaires":"Renforcez votre plan d'affaires"}</h3><p class="hint" style="margin:6px 0 14px">${a.plan==="0"?"C'est l'une des premières pièces demandées par la banque.":"Vérifiez que vos prévisions tiennent face aux ratios d'un comité de crédit."} PlanBanque calcule vos prévisionnels sur 5 ans (compte de résultat, trésorerie, échéancier du prêt), contrôle les ratios bancaires et rédige le business plan complet.</p><div class="row"><a class="btn" href="${SITE}/business-plan" target="_top">Créer mon business plan avec PlanBanque</a></div></div>`;
  const P=pistes(a,R);
  if(P.length)h+=`<div class="sec"><h3>Financements adaptés à votre profil</h3><div class="paths">${P.map(p=>`<div class="path"><b>${p[0]}</b><span class="hint">${p[1]}</span></div>`).join("")}</div></div>`;
  const D=docs(a,R);
